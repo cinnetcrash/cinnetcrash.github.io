@@ -1,25 +1,13 @@
 # Mikrobiyal Biyoinformatik
 
 Arka Plan:
-Mikrobiyoloji, uzun yıllardır biyoinformatikten yaygın olarak yararlanmaktadır ve
-biyoinformatik analizleri de içeren mikrobiyolojik çalışmaların temelini oluşturmaya başlamıştır.
-Özellikle yüksek verimli veri üreten sıralama sistemlerinin kullanımı
-bakteriyel/viral/mantar genomik çalışmaları, elde edilen verilerin
-mikrobiyologlar biyoinformatik olarak, ancak bu analitikleri gerçekleştirmek için özel beceriler gereklidir.
-süreçler.
+Mikrobiyoloji, uzun yıllardır biyoinformatikten yaygın olarak faydalanmakta ve biyoinformatik analizleri de dahil olmak üzere mikrobiyolojik çalışmaların temelini oluşturmaya başlamıştır. Özellikle bakteri/viral/mantar genomik çalışmalarında yüksek verimli veriler üreten dizileme sistemlerinin kullanılması, elde edilen verilerin mikrobiyologlar tarafından biyoinformatik olarak değerlendirilmesine olanak tanır, ancak bu analitik süreçleri yürütmek için özel beceriler gereklidir.
 
 Amaç:
-Bu çalışmada, planlama yapan mikrobiyologlar için bir giriş eğitim paketi geliştirdik.
-mikrobiyolojik genomik verileri analiz ederek günlük kullanıma hazır hale getirmek. Bu
-eğitim içeriğinin bir ekosistemin kurulmasını hızlandıracağı düşünüldü.
-biyoinformatik alanı ile bu alanda yapılacak proje ve çalışmalar ile
-gelecekte yapılabilecek kapsamlı projeler.
+Bu çalışmada, mikrobiyolojik genomik verileri analiz etmeyi planlayan mikrobiyologlar için günlük kullanım için bir giriş eğitim paketi geliştirdik. Eğitim içeriğinin biyoinformatik alanında bir ekosistem kurulmasını hızlandıracağı ve gelecekte yapılabilecek kapsamlı projeler yardımıyla yapılacak proje ve çalışmalara hız kazandıracağı düşünülmektedir.
 
 Yöntemler:
-Yeterli bilgiye sahip olmayan bu araştırmacıların ihtiyaçları doğrultusunda hazırlanan bu eğitim paketi,
-bir bilgisayar bilimi geçmişi, aynı zamanda kullanılabilecek bir platform olan GitHub'da da yayınlanacaktır.
-bu alanda çalışmak isteyenler için her an kolayca takip edilebilir ve ulaşılabilir. Bu ücretsiz
-online program paketi, bu konularda aşağıdaki eğitimleri içermektedir;
+Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçları doğrultusunda hazırlanan bu eğitim paketi, bu alanda çalışmak isteyenlerin her an kolayca takip edip erişebilecekleri bir platform olan GitHub'da da yayınlanacak. . Bu ücretsiz çevrimiçi program paketi, bu konular için aşağıdaki eğitimleri içerir:
 
 * 001_Mikrobiyal Biyoinformatiğe Giriş
 * 002_Veritabanlarına Giriş
@@ -32,14 +20,10 @@ online program paketi, bu konularda aşağıdaki eğitimleri içermektedir;
 * 009_Data Visualization, interpretation, and FAIR principles
 
 Sonuçlar:
-Eğitimi daha erişilebilir kılmak için tüm materyaller Türkçe yayınlanacak, özellikle de
-Türkiye.
+Özellikle Türkiye'de eğitimi daha erişilebilir kılmak için tüm materyaller Türkçe olarak yayınlanacaktır.
 
 Tartışma:
-Tasarladığımız eğitim platformunun öncelikli alanlardan biri olacağı düşünülüyor.
-Türkiye'de herkes için erişilebilir, sonradan çeşitlendirilebilen ve kolayca uyarlanabilen kaynaklar
-herhangi bir kurum veya kuruluşun müfredatına göre. Ayrıca yapılan katkılar sayesinde
-daha sonra yapılması, İngilizce'ye çevrilmesi ve tüm dünya ile paylaşılması düşünülüyor.
+Tasarladığımız eğitim platformunun Türkiye'de herkesin ulaşabileceği birincil kaynaklardan biri olacağı, daha sonra çeşitlendirilebileceği ve herhangi bir kurum veya kuruluşun müfredatına göre kolayca uyarlanabileceği düşünülmektedir. Ayrıca daha sonra yapılacak katkılar sayesinde İngilizceye çevrilerek tüm dünya ile paylaşılacağı düşünülmektedir.
 
 ## 001_Mikrobiyal Biyoinformatiğe Giriş
 ## 002_Veritabanlarına Giriş
