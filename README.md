@@ -35,3 +35,5 @@ Tasarladığımız eğitim platformunun Türkiye'de herkesin ulaşabileceği bir
 ## 008_Anotasyon 
 ## 009_Veri Görselleştirme, Değerlendirme ve FAIR prensipleri
 
+
+Hazırlayan: Gültekin Ünal
