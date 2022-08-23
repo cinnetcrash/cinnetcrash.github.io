@@ -24,7 +24,7 @@ Sonuçlar:
 
 Tartışma:
 Tasarladığımız eğitim platformunun Türkiye'de herkesin ulaşabileceği birincil kaynaklardan biri olacağı, daha sonra çeşitlendirilebileceği ve herhangi bir kurum veya kuruluşun müfredatına göre kolayca uyarlanabileceği düşünülmektedir. Ayrıca daha sonra yapılacak katkılar sayesinde İngilizceye çevrilerek tüm dünya ile paylaşılacağı düşünülmektedir.
-
+---
 ## 001_Mikrobiyal Biyoinformatiğe Giriş
 ## 002_Veritabanlarına Giriş
 ## 003_Komut Satırına Giriş
