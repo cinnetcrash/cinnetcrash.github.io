@@ -49,5 +49,5 @@ daha sonra yapılması, İngilizce'ye çevrilmesi ve tüm dünya ile paylaşılm
 ## 006_Kalite Kontrol
 ## 007_Assembly/Mapping 
 ## 008_Anotasyon 
-## 009_Data Visualization, interpretation, and FAIR principles
+## 009_Veri Görselleştirme, Değerlendirme ve FAIR prensipleri
 
