@@ -21,15 +21,15 @@ bir bilgisayar bilimi geçmişi, aynı zamanda kullanılabilecek bir platform ol
 bu alanda çalışmak isteyenler için her an kolayca takip edilebilir ve ulaşılabilir. Bu ücretsiz
 online program paketi, bu konularda aşağıdaki eğitimleri içermektedir;
 
-001_Mikrobiyal Biyoinformatiğe Giriş
-002_Veritabanlarına Giriş
-003_Komut Satırına Giriş
-004_R ve Python'a Giriş
-005_Dizileme Teknolojileri ve Çıktıları 
-006_Kalite Kontrol
-007_Assembly/Mapping 
-008_Anotasyon 
-009_Data Visualization, interpretation, and FAIR principles
+* 001_Mikrobiyal Biyoinformatiğe Giriş
+* 002_Veritabanlarına Giriş
+* 003_Komut Satırına Giriş
+* 004_R ve Python'a Giriş
+* 005_Dizileme Teknolojileri ve Çıktıları 
+* 006_Kalite Kontrol
+* 007_Assembly/Mapping 
+* 008_Anotasyon 
+* 009_Data Visualization, interpretation, and FAIR principles
 
 Sonuçlar:
 Eğitimi daha erişilebilir kılmak için tüm materyaller Türkçe yayınlanacak, özellikle de
