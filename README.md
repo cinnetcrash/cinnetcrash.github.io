@@ -25,7 +25,7 @@ Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçla
 **Tartışma:**
 Tasarladığımız eğitim platformunun Türkiye'de herkesin ulaşabileceği birincil kaynaklardan biri olacağı, daha sonra çeşitlendirilebileceği ve herhangi bir kurum veya kuruluşun müfredatına göre kolayca uyarlanabileceği düşünülmektedir. Ayrıca daha sonra yapılacak katkılar sayesinde İngilizceye çevrilerek tüm dünya ile paylaşılacağı düşünülmektedir.
 
-## [001_Mikrobiyal Biyoinformatiğe Giriş]()
+## [001_Mikrobiyal Biyoinformatiğe Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/073d3a6eceb62a2801465d2b1c1adbd16dfced81/001_MikrobiyalByoinformatigeGiri%C5%9F/README.md)
 ## [002_Veritabanlarına Giriş]()
 ## [003_Komut Satırına Giriş]()
 ## [004_R ve Python'a Giriş]()
