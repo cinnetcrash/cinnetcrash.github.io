@@ -7,7 +7,7 @@ Amaç:
 Bu çalışmada, mikrobiyolojik genomik verileri analiz etmeyi planlayan mikrobiyologlar için günlük kullanım için bir giriş eğitim paketi geliştirdik. Eğitim içeriğinin biyoinformatik alanında bir ekosistem kurulmasını hızlandıracağı ve gelecekte yapılabilecek kapsamlı projeler yardımıyla yapılacak proje ve çalışmalara hız kazandıracağı düşünülmektedir.
 
 Yöntemler:
-Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçları doğrultusunda hazırlanan bu eğitim paketi, bu alanda çalışmak isteyenlerin her an kolayca takip edip erişebilecekleri bir platform olan GitHub'da da yayınlanacak. . Bu ücretsiz çevrimiçi program paketi, bu konular için aşağıdaki eğitimleri içerir:
+Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçları doğrultusunda hazırlanan bu eğitim paketi, bu alanda çalışmak isteyenlerin her an kolayca takip edip erişebilecekleri bir platform olan GitHub'da da yayınlanacak. Bu ücretsiz çevrimiçi program paketi, bu konular için aşağıdaki eğitimleri içerir:
 
 * 001_Mikrobiyal Biyoinformatiğe Giriş
 * 002_Veritabanlarına Giriş
