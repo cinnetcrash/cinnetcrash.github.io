@@ -1,4 +1,4 @@
-# Mikrobiyal Biyoinformatik
+# Mikrobiyal Biyoinformatik 
 
 **Arka Plan:**
 Mikrobiyoloji, uzun yıllardır biyoinformatikten yaygın olarak faydalanmakta ve biyoinformatik analizleri de dahil olmak üzere mikrobiyolojik çalışmaların temelini oluşturmaya başlamıştır. Özellikle bakteri/viral/mantar genomik çalışmalarında yüksek verimli veriler üreten dizileme sistemlerinin kullanılması, elde edilen verilerin mikrobiyologlar tarafından biyoinformatik olarak değerlendirilmesine olanak tanır, ancak bu analitik süreçleri yürütmek için özel beceriler gereklidir.
