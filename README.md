@@ -25,15 +25,15 @@ Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçla
 **Tartışma:**
 Tasarladığımız eğitim platformunun Türkiye'de herkesin ulaşabileceği birincil kaynaklardan biri olacağı, daha sonra çeşitlendirilebileceği ve herhangi bir kurum veya kuruluşun müfredatına göre kolayca uyarlanabileceği düşünülmektedir. Ayrıca daha sonra yapılacak katkılar sayesinde İngilizceye çevrilerek tüm dünya ile paylaşılacağı düşünülmektedir.
 
-[## [001_Mikrobiyal Biyoinformatiğe Giriş]()
-[## 002_Veritabanlarına Giriş]()
-[## 003_Komut Satırına Giriş]()
-[## 004_R ve Python'a Giriş]()
-[## 005_Dizileme Teknolojileri]()
-[## 006_Kalite Kontrol]()
-[## 007_Assembly/Mapping]()
-[## 008_Anotasyon]()
-[## 009_Veri Görselleştirme, Değerlendirme ve FAIR prensipleri]()
+## [001_Mikrobiyal Biyoinformatiğe Giriş]()
+## [002_Veritabanlarına Giriş]()
+## [003_Komut Satırına Giriş]()
+## [004_R ve Python'a Giriş]()
+## [005_Dizileme Teknolojileri]()
+## [006_Kalite Kontrol]()
+## [07_Assembly/Mapping]()
+## [008_Anotasyon]()
+## [009_Veri Görselleştirme, Değerlendirme ve FAIR prensipleri]()
 
 
 Hazırlayan: Gültekin Ünal
