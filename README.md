@@ -1,11 +1,13 @@
-# Microbial Bioinformatics
-This repo contains my training materials for microbial bioinformatics
+## Mikrobiyal Biyoinformatik
+Bu repo, mikrobiyal biyoinformatik için eğitim materyallerimi içermektedir.
 
-Introduction to Microbiological Bioinformatics
-Introduction to Linux
-Introduction to R and Python
-Quality Control
-Mapping/Assembly
-Annotation
-Automating the pipelines
-Data interpretation & Visualization
+# Mikrobiyal Biyoinformatiğe Giriş
+# Veritabanlarına Giriş
+# Komut Satırına Giriş
+# R ve Python'a Giriş
+# Dizileme Teknolojileri ve Çıktıları 
+# Kalite Kontrol
+# Assembly/Mapping 
+# Anotasyon 
+# Data Visualization, interpretation, and FAIR principles
+
