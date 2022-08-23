@@ -7,3 +7,6 @@ Uygulamalı biyoinformatiğin temeli, dizileme sonucu elde edilen biyolojik veri
 * Sekonder
 * Fenotip
 * Moleküler Yapı
+
+### Primer Veritabanları
+Primer veritabanları, primer dizileme verilerini (nükleotid veya protein) anotasyon bilgilerini, bibliyografik verileri ve diğer referans veri tabanları ile bağlantıları içermektedir. Primer veritabanları nükleotid ve protein dizilerini içermek üzere ikiye ayrılmaktadır. 
