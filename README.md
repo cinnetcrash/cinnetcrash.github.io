@@ -3,7 +3,7 @@ Bu repo, mikrobiyal biyoinformatik için eğitim materyallerimi içermektedir.
 
 ## Mikrobiyal Biyoinformatiğe Giriş
 ## Veritabanlarına Giriş
-# Komut Satırına Giriş
+## Komut Satırına Giriş
 ## R ve Python'a Giriş
 ## Dizileme Teknolojileri ve Çıktıları 
 ## Kalite Kontrol
