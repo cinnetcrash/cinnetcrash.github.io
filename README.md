@@ -25,7 +25,7 @@ Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçla
 **Tartışma:**
 Tasarladığımız eğitim platformunun Türkiye'de herkesin ulaşabileceği birincil kaynaklardan biri olacağı, daha sonra çeşitlendirilebileceği ve herhangi bir kurum veya kuruluşun müfredatına göre kolayca uyarlanabileceği düşünülmektedir. Ayrıca daha sonra yapılacak katkılar sayesinde İngilizceye çevrilerek tüm dünya ile paylaşılacağı düşünülmektedir.
 
-## [001_Mikrobiyal Biyoinformatiğe Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io//001_MikrobiyalByoinformatigeGiri%C5%9F/README.md)
+### [001_Mikrobiyal Biyoinformatiğe Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/001_MikrobiyalByoinformatigeGiri%C5%9F/README.md)
 ### [002_Veritabanlarına Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/002_Veritabanlar%C4%B1naGiri%C5%9F/README.md)
 ### [003_Komut Satırına Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/003_KomutSat%C4%B1r%C4%B1naGiri%C5%9F/README.md)
 ### [004_R ve Python'a Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/004_RvePythonaGiris/README.md)
