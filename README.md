@@ -26,14 +26,14 @@ Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçla
 Tasarladığımız eğitim platformunun Türkiye'de herkesin ulaşabileceği birincil kaynaklardan biri olacağı, daha sonra çeşitlendirilebileceği ve herhangi bir kurum veya kuruluşun müfredatına göre kolayca uyarlanabileceği düşünülmektedir. Ayrıca daha sonra yapılacak katkılar sayesinde İngilizceye çevrilerek tüm dünya ile paylaşılacağı düşünülmektedir.
 
 ## [001_Mikrobiyal Biyoinformatiğe Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/073d3a6eceb62a2801465d2b1c1adbd16dfced81/001_MikrobiyalByoinformatigeGiri%C5%9F/README.md)
-## [002_Veritabanlarına Giriş]()
-## [003_Komut Satırına Giriş]()
-## [004_R ve Python'a Giriş]()
-## [005_Dizileme Teknolojileri]()
-## [006_Kalite Kontrol]()
-## [07_Assembly/Mapping]()
-## [008_Anotasyon]()
-## [009_Veri Görselleştirme, Değerlendirme ve FAIR prensipleri]()
+### [002_Veritabanlarına Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/002_Veritabanlar%C4%B1naGiri%C5%9F/README.md)
+### [003_Komut Satırına Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/003_KomutSat%C4%B1r%C4%B1naGiri%C5%9F/README.md)
+### [004_R ve Python'a Giriş](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/004_RvePythonaGiris/README.md)
+### [005_Dizileme Teknolojileri](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/005_DizilemeTeknolojileri/README.md)
+### [006_Kalite Kontrol](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/006_KaliteKontrol/README.md)
+### [07_Assembly/Mapping](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/007_AssemblyMapping/README.md)
+### [008_Anotasyon](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/008_Anotasyon/README.md)
+### [009_Veri Görselleştirme, Değerlendirme ve FAIR prensipleri](https://github.com/cinnetcrash/cinnetcrash.github.io/blob/449e62d28e971d052c8b375a84d7dca28e283bec/009_DataG%C3%B6rselle%C5%9FtirmeDe%C4%9FerlendirmeFAIRPrensipleri/README.md)
 
 
 Hazırlayan: Gültekin Ünal
