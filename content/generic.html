@@ -83,170 +83,13 @@
 										### Pairwise (ikili) ve Multiple Dizi Karşılaştırma
 
 										Proteinlerin ve nükleotid dizilerinin karşılaştırılması biyoinformatikte en çok başvurulan yöntemlerden biridir. Nükleotid ve protein yapılarının analizi ve 3 boyutlu yapıların keşfedilmesi, bulunan genlerin ekspresyon analizlerinin yapılması için birbirlerine benzer olan dizilerin birbirleri ile karşılaştırılması gerekmektedir. Karşılaştırmadaki farkların analiz edilmesi bu profillerin sağlıklı bir şekilde modellenmesine olanak sağlamaktadır. Örneğin bir nükleotid ya da protein dizisindeki bir değişim farklı bir protein sentezine sebep olabilmektedir. Bu kapsamda da birden fazla genomun aynı anda karşılaştırılması ve aralarındaki farkların ortaya konması büyük önem arz etmektedir.
-										Nükleotid dizilerini birbiri ile karşılaştırmadan önce bazı terimlerin tanımlanması gerekmektedir. Bunlardan ilki “homolog”dir. Homoloji benzerlik ölçütünden ziyade tarihsel ve evrimsel süreçteki benzerliği ifade etmektedir. Bir proteinin farklı organizmalardaki karşılıkları “Ortholog”, aynı organizmadaki farklı görevler barındıran protein yapılarına da “paralog” adı verilmektedir. 
-
-Dizi hizalama algoritmaları basit anlamıyla satırlarda organizmaları, sütunlarda karakter benzerliklerini temel almaktadır. Karşılığı bulunmayan nükleotidleri ve aminoasitleri temsil etmek için “-“ işareti kullanılmaktadır. Basit ya da birden fazla olabilen hizalama algoritmaları bir skorlama sistemi geliştirilmiştir. Bu skorlama sistemlerinden en çok kullanılanlardan bir tanesi PAM (Nokta Mutasyonu Hedefli) diğeri de BLOSUM (Blok Değişim Matrisi)’dur. Skorlama sistemlerindeki puanın yüksek olması en olası hizalamayı temsil etmektedir. Hizalamanın “Local” olması küçük bölgelerde bulunan benzerliklere odaklı Needleman-Wunsch algoritmasını, “Global” olması da tüm genom ya da protein dizileri dikkate alınarak yapılan Smith-Waterman hizalama algoritmasını tanımlama amacıyla kullanılır. </p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+										Nükleotid dizilerini birbiri ile karşılaştırmadan önce bazı terimlerin tanımlanması gerekmektedir. Bunlardan ilki “homolog”dir. Homoloji benzerlik ölçütünden ziyade tarihsel ve evrimsel süreçteki benzerliği ifade etmektedir. Bir proteinin farklı organizmalardaki karşılıkları “Ortholog”, aynı organizmadaki farklı görevler barındıran protein yapılarına da “paralog” adı verilmektedir.  Dizi hizalama algoritmaları basit anlamıyla satırlarda organizmaları, sütunlarda karakter benzerliklerini temel almaktadır. Karşılığı bulunmayan nükleotidleri ve aminoasitleri temsil etmek için “-“ işareti kullanılmaktadır. Basit ya da birden fazla olabilen hizalama algoritmaları bir skorlama sistemi geliştirilmiştir. Bu skorlama sistemlerinden en çok kullanılanlardan bir tanesi PAM (Nokta Mutasyonu Hedefli) diğeri de BLOSUM (Blok Değişim Matrisi)’dur. Skorlama sistemlerindeki puanın yüksek olması en olası hizalamayı temsil etmektedir. Hizalamanın “Local” olması küçük bölgelerde bulunan benzerliklere odaklı Needleman-Wunsch algoritmasını, “Global” olması da tüm genom ya da protein dizileri dikkate alınarak yapılan Smith-Waterman hizalama algoritmasını tanımlama amacıyla kullanılır. </p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
 
 									<hr class="major" />
 
 									<h2>Komut Satırına Giriş</h2>
-									<p>Komut Satırına Giriş
-Bash Scripting ile Basit Otomasyon ve Sık Kullanılan Komutlar
-Komut Satırı
-Kabuk, bilgisayarınızı bir grafik kullanıcı arabirimi (GUI) aracılığıyla kontrol etmek için farenizi ve klavyenizi kullanmak yerine bir klavye ile kontrol etmenizi sağlayan bir komut satırı arabirim programıdır. İlk başta garip ve zor görünebilir, ancak kabukta ustalaşmanın birçok nedeni vardır.
-
-Çoğu biyoinformatik programı yalnızca komut satırından çalıştırılabilir. Dolayısıyla, genomik veya transkriptomik çalışmak istiyorsanız kabuğa aşina olmanız gerekecektir.
-
-Kabuk, işinizi daha verimli ve daha hızlı yapmanız için size güç verir. Bu, tekrarlanabilir bir araştırma programı geliştirmeye yönelik ilk adımdır.
-
-Bulut bilgisayarlarına yalnızca komut satırı arabirimleri üzerinden erişilebilir.
-
-man
-Bu komut manual'in kısaltmasıdır. Bu komutu kullanarak herhangi bir program ya da komut ile ilgili yardım alabilirsiniz.
-
-$ man whoami
-help
-Help komutu kullanarak bir çok komut veya araç ile ilgili ayrıntılı bilgi alabilirsiniz. Kullanım örneği de aşağıdaki gibidir.
-
-$ less --help
-ls
-komutu bulunduğunuz dizin içerisinde bulunan dosyları listelemeye yarar. Listelemek istediğiniz dosyada ekstra argümanlar kullanarak daha ayrıntılı bir listeleme yapabilirsiniz.
-
-$ ls -l
-mkdir
-Bu komut size bulunduğunuz dizin içersinde klasör oluşturmaya yardımcı olan bir komuttur. Bu komutu kullanarak birden fazla klasörü aynı anda oluşturabilirsiniz.
-
-$ mkdir klasör1 klasör2
-cd
-Bu komut "change directory" yani dizin değiştirmeye yarayan çok kullanılan komutlardan bir tanesidir.
-
-$ cd klasör1
-pwd
-Bu komut bulunduğunuz dizini ekrana yazdırmaya yarayan bir komuttur.
-
-$ pwd
-Çıktısı da şu şekilde olmaktadır. "home/user/Desktop/klasor1"
-
-whoami
-Bu komut ile o an işlem yaptığınız kullanıcının adını ekrana yazdırabilirsiniz.
-
-$ whoami
-rm
-Bu komutu remove yani silme işlemi yapmaya yaramaktadır. Bu komut kullanılarak genellikle dosyalar silinebilmektedir. İsterseniz -r opsiyonunu kullanarak klasörleri de silebilirsiniz.
-
-$ rm -r
-head
-Bu komut herhangi bir dosya içerisinde bulunan bilgilerin en üst kısmında bulunan kısmını göremeyi sağlar.
-
-$ head -5 dosyaadi.txt
-Bu komut ile "dosyaadi.txt" dosyasının ilk 5 satırını önizleyebilirsiniz.
-less
-$ less
-more
-$ less
-cat
-Bu komut ile herhangi bir dosya içerisinde bulunan tüm bilgiler kabuk ekranına yazdırılabilir.
-
-$ cat
-touch
-Bu komutu kullanarak hızlı bir şekilde bir veya birden fazla dosya oluşturabilirsiniz.
-
-$ touch
-cp
-Bu komutu kullanarak herhangi bir dosyayı kopyalayabilirsiniz. Bu kopyalama işlemi sonrası orjinal dosya silinmeyecektir.
-
-$ cp dosya1.txt ../../hello_world
-bu komut ile dosya1.txt dosyası iki üst klasörde bulunan "hello_world" klasörü içersine kopyalanır.
-
-mv
-Bu komut ile iki işlem yapabilirsiniz. Bir tanesi adından da anlaşılacağı üzere move yani taşıma işlemi, diğeri de herhangi bir dosyanın adını değiştirmeye yaramaktadır.
-
-Taşıma için
-
-$ mv dosya2.txt ../../hello_world
-İsim değiştirmek için
-
-$ mv dosya2.txt yeni_dosya.txt
-İki şekilde de kullanabilirsiniz.
-
-chmod
-su
-$ mv dosya2.txt yeni_dosya.txt
-sudo
-$ mv dosya2.txt yeni_dosya.txt
-sudo apt update / sudo apt-get update
-$ mv dosya2.txt yeni_dosya.txt
-sudo apt upgrade / sudo apt-get upgrade
-$ mv dosya2.txt yeni_dosya.txt
-df
-$ mv dosya2.txt yeni_dosya.txt
-history
-$ mv dosya2.txt yeni_dosya.txt
-wget
-$ mv dosya2.txt yeni_dosya.txt
-git
-$ mv dosya2.txt yeni_dosya.txt
-exit
-$ mv dosya2.txt yeni_dosya.txt
-reboot
-$ mv dosya2.txt yeni_dosya.txt
-unzip
-$ mv dosya2.txt yeni_dosya.txt
-gunzip / gzip
-$ mv dosya2.txt yeni_dosya.txt
-tar
-$ mv dosya2.txt yeni_dosya.txt
-pd
-$ mv dosya2.txt yeni_dosya.txt
-top / htop
-$ mv dosya2.txt yeni_dosya.txt
-Kısayollar
-$ mv dosya2.txt yeni_dosya.txt
-Program Yükleme
-Programları nereden bulabilirim?
-Program Çalıştırma
-Program nasıl çalıştırılır?
-Bash Scripts
-echo'yu wc ile değiştirebilir ve çalıştırabilirsiniz.
-
-for file in *.fastq
-do
-	wc ${file}
-done
-$ for filename in *.zip
-> do
-> unzip $filename
-> done
-Dosya koleksiyonlarıyla çalışmak; şartlı scriptler (conditionals)
-for i in *
-do
-   if [ -f $i ]; then
-      echo $i is a file
-   elif [ -d $i ]; then
-      echo $i is a directory
-   fi
-   done
-Loops (Döngüler)
-Döngüler, komutları tekrar tekrar yürütmemize izin verdikleri için otomasyon yoluyla verimliliği gerçekten artırabilir. Joker karakterler ve sekme tamamlama gibi, döngüleri kullanmak da yazma miktarını (ve yazım hatalarını) azaltır.
-
-Bir sonraki bölümde, çok sayıda dosyaya bir şeyler yapan döngüler oluşturacağız.
-
-bir klasör içerisinde bulunan tüm dosyaların ekrana yazdırılması.
-$ for i in sequence.*
-> do
->    echo $i
-> done
-for kullanılarak herhangi bir döngüyü kendiniz de yaratabilirsiniz. Burada kullanılan i değişkeni standart olmamakla birlikte
-istediğiniz şekilde değiştirilebilmektedir.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-
-									<hr class="major" />
-
-									<h2>R ve Python'a Giriş</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-
+									
 								</section>
 
 						</div>
@@ -277,7 +120,7 @@ istediğiniz şekilde değiştirilebilmektedir.</p>
 										<li><a href="#">005_Dizileme Teknolojileri ve Çıktıları </a></li>
 										<li><a href="#">006_Kalite Kontrol</a></li>
 										<li><a href="#">007_Assembly/Mapping </a></li>
-										<li><a href="#"> 008_Anotasyon </a></li>
+										<li><a href="#">008_Anotasyon </a></li>
 										<li><a href="#">009_Veri Görselleştirme, Analiz ve FAIR Prensipleri</a></li>
 										
 									</ul>
