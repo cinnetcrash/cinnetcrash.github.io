@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<head>
+		<title>Mikrobiyal Biyoinformatik</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Komut Satırına Giriş</h1>
+									</header>
+
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+<h2 id="komut-sat-r-na-giri-">Komut Satırına Giriş</h2>
+<h1 id="bash-scripting-ile-basit-otomasyon-ve-s-k-kullan-lan-komutlar">Bash Scripting ile Basit Otomasyon ve Sık Kullanılan Komutlar</h1>
+<h2 id="komut-sat-r-">Komut Satırı</h2>
+<p><strong>Kabuk</strong>, bilgisayarınızı bir grafik kullanıcı arabirimi (GUI) aracılığıyla kontrol etmek için farenizi ve klavyenizi kullanmak yerine bir klavye ile kontrol etmenizi sağlayan bir komut satırı arabirim programıdır. İlk başta garip ve zor görünebilir, ancak kabukta ustalaşmanın birçok nedeni vardır.</p>
+<ul>
+<li>Çoğu biyoinformatik programı yalnızca komut satırından çalıştırılabilir. Dolayısıyla, genomik veya transkriptomik çalışmak istiyorsanız kabuğa aşina olmanız gerekecektir.</li>
+<li><p>Kabuk, işinizi daha verimli ve daha hızlı yapmanız için size güç verir. Bu, tekrarlanabilir bir araştırma programı geliştirmeye yönelik ilk adımdır.</p>
+</li>
+<li><p>Bulut bilgisayarlarına yalnızca komut satırı arabirimleri üzerinden erişilebilir.</p>
+</li>
+</ul>
+<h2 id="man">man</h2>
+<p>Bu komut manual'in kısaltmasıdır. Bu komutu kullanarak herhangi bir program ya da komut ile ilgili yardım alabilirsiniz.</p>
+<pre><code class="lang-{.bash} hljs ">$ man whoami
+</code></pre>
+<h2 id="help">help</h2>
+<p>Help komutu kullanarak bir çok komut veya araç ile ilgili ayrıntılı bilgi alabilirsiniz. Kullanım örneği de aşağıdaki gibidir. </p>
+<pre><code class="lang-{.bash} hljs ">$ less --help
+</code></pre>
+<h2 id="ls">ls</h2>
+<p>komutu bulunduğunuz dizin içerisinde bulunan dosyları listelemeye yarar. Listelemek istediğiniz dosyada
+ekstra argümanlar kullanarak daha ayrıntılı bir listeleme yapabilirsiniz.</p>
+<pre><code class="lang-{.bash} hljs ">$ ls -l
+</code></pre>
+<h2 id="mkdir">mkdir</h2>
+<p>Bu komut size bulunduğunuz dizin içersinde klasör oluşturmaya yardımcı olan bir komuttur.
+Bu komutu kullanarak birden fazla klasörü aynı anda oluşturabilirsiniz.</p>
+<pre><code class="lang-{.bash} hljs ">$ mkdir klasör1 klasör2
+</code></pre>
+<h2 id="cd">cd</h2>
+<p>Bu komut "change directory" yani dizin değiştirmeye yarayan çok kullanılan komutlardan bir tanesidir. </p>
+<pre><code class="lang-{.bash} hljs ">$ cd klasör1
+</code></pre>
+<h2 id="pwd">pwd</h2>
+<p>Bu komut bulunduğunuz dizini ekrana yazdırmaya yarayan bir komuttur. </p>
+<pre><code class="lang-{.bash} hljs ">$ pwd
+</code></pre>
+<p>Çıktısı da şu şekilde olmaktadır. "home/user/Desktop/klasor1"</p>
+<h2 id="whoami">whoami</h2>
+<p>Bu komut ile o an işlem yaptığınız kullanıcının adını ekrana yazdırabilirsiniz.</p>
+<pre><code class="lang-{.bash} hljs ">$ whoami
+</code></pre>
+<h2 id="rm">rm</h2>
+<p>Bu komutu remove yani silme işlemi yapmaya yaramaktadır. Bu komut kullanılarak genellikle dosyalar silinebilmektedir.
+İsterseniz -r opsiyonunu kullanarak klasörleri de silebilirsiniz.</p>
+<pre><code class="lang-{.bash} hljs ">$ rm -r
+</code></pre>
+<h2 id="head">head</h2>
+<p>Bu komut herhangi bir dosya içerisinde bulunan bilgilerin en üst kısmında bulunan kısmını göremeyi sağlar.</p>
+<pre><code class="lang-{.bash} hljs ">$ head -<span class="hljs-number">5</span> dosyaadi.txt
+</code></pre>
+<ul>
+<li>Bu komut ile "dosyaadi.txt" dosyasının ilk 5 satırını önizleyebilirsiniz.</li>
+</ul>
+<h2 id="less">less</h2>
+<pre><code class="lang-{.bash} hljs ">$ less
+</code></pre>
+<h2 id="more">more</h2>
+<pre><code class="lang-{.bash} hljs ">$ less
+</code></pre>
+<h2 id="cat">cat</h2>
+<p>Bu komut ile herhangi bir dosya içerisinde bulunan tüm bilgiler kabuk ekranına yazdırılabilir.</p>
+<pre><code class="lang-{.bash} hljs ">$ cat
+</code></pre>
+<h2 id="touch">touch</h2>
+<p>Bu komutu kullanarak hızlı bir şekilde bir veya birden fazla dosya oluşturabilirsiniz.</p>
+<pre><code class="lang-{.bash} hljs ">$ touch
+</code></pre>
+<h2 id="cp">cp</h2>
+<p>Bu komutu kullanarak herhangi bir dosyayı kopyalayabilirsiniz. Bu kopyalama işlemi sonrası orjinal dosya silinmeyecektir.</p>
+<pre><code class="lang-{.bash} hljs ">$ cp dosya1.txt ../../hello_world
+</code></pre>
+<p>bu komut ile dosya1.txt dosyası iki üst klasörde bulunan "hello_world" klasörü içersine kopyalanır.</p>
+<h2 id="mv">mv</h2>
+<p>Bu komut ile iki işlem yapabilirsiniz. Bir tanesi adından da anlaşılacağı üzere move yani taşıma işlemi, diğeri de herhangi bir dosyanın adını değiştirmeye yaramaktadır. </p>
+<p>Taşıma için </p>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt ../../hello_world
+</code></pre>
+<p>İsim değiştirmek için</p>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<p>İki şekilde de kullanabilirsiniz.</p>
+<h2 id="chmod">chmod</h2>
+<h2 id="su">su</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="sudo">sudo</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="sudo-apt-update-sudo-apt-get-update">sudo apt update / sudo apt-get update</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="sudo-apt-upgrade-sudo-apt-get-upgrade">sudo apt upgrade / sudo apt-get upgrade</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="df">df</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="history">history</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="wget">wget</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="git">git</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="exit">exit</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="reboot">reboot</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="unzip">unzip</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="gunzip-gzip">gunzip / gzip</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="tar">tar</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="pd">pd</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="top-htop">top / htop</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h2 id="k-sayollar">Kısayollar</h2>
+<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
+</code></pre>
+<h1 id="program-y-kleme">Program Yükleme</h1>
+<h2 id="programlar-nereden-bulabilirim-">Programları nereden bulabilirim?</h2>
+<h1 id="program-al-t-rma">Program Çalıştırma</h1>
+<h2 id="program-nas-l-al-t-r-l-r-">Program nasıl çalıştırılır?</h2>
+<h1 id="bash-scripts">Bash Scripts</h1>
+<p>echo'yu wc ile değiştirebilir ve çalıştırabilirsiniz.</p>
+<pre><code class="lang-{.bash} hljs "><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> *.fastq
+<span class="hljs-keyword">do</span>
+    wc <span class="hljs-variable">${file}</span>
+<span class="hljs-keyword">done</span>
+</code></pre>
+<pre><code class="lang-{.bash} hljs ">$ <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> *.zip
+&gt; <span class="hljs-keyword">do</span>
+&gt; unzip $filename
+&gt; done
+</code></pre>
+<h2 id="dosya-koleksiyonlar-yla-al-mak-artl-scriptler-conditionals-">Dosya koleksiyonlarıyla çalışmak; şartlı scriptler (conditionals)</h2>
+<pre><code class="lang-{.bash} hljs "><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> *
+<span class="hljs-keyword">do</span>
+   <span class="hljs-keyword">if</span> [ -f <span class="hljs-variable">$i</span> ]; <span class="hljs-keyword">then</span>
+      <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span> is a file
+   <span class="hljs-keyword">elif</span> [ -d <span class="hljs-variable">$i</span> ]; <span class="hljs-keyword">then</span>
+      <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span> is a directory
+   <span class="hljs-keyword">fi</span>
+   <span class="hljs-keyword">done</span>
+</code></pre>
+<h1 id="loops-d-ng-ler-">Loops (Döngüler)</h1>
+<p>Döngüler, komutları tekrar tekrar yürütmemize izin verdikleri için otomasyon yoluyla verimliliği gerçekten artırabilir. Joker karakterler ve sekme tamamlama gibi, döngüleri kullanmak da yazma miktarını (ve yazım hatalarını) azaltır.</p>
+<p>Bir sonraki bölümde, çok sayıda dosyaya bir şeyler yapan döngüler oluşturacağız.</p>
+<h2 id="bir-klas-r-i-erisinde-bulunan-t-m-dosyalar-n-ekrana-yazd-r-lmas-">bir klasör içerisinde bulunan tüm dosyaların ekrana yazdırılması.</h2>
+<pre><code class="lang-{.bash} hljs ">$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> sequence.*
+&gt; <span class="hljs-keyword">do</span>
+&gt;    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>
+&gt; <span class="hljs-keyword">done</span>
+</code></pre>
+<ul>
+<li>for kullanılarak herhangi bir döngüyü kendiniz de yaratabilirsiniz. Burada kullanılan <strong>i</strong> değişkeni standart olmamakla birlikte</li>
+<li>istediğiniz şekilde değiştirilebilmektedir.</li>
+</ul>
+
+									<hr class="major" />
+
+								
+									
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menü</h2>
+									</header>
+									<ul>
+										<li><a href="../index.html">Anasayfa</a></li>										
+										<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
+										<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
+										<li><a href="cmd.html">Komut Satırına Giriş</a></li>
+										<li><a href="python.html">R ve Python'a Giriş</a></li>
+										<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
+										<li><a href="qc.html">Kalite Kontrol</a></li>
+										<li><a href="assembly.html">Assembly/Mapping </a></li>
+										<li><a href="annotation.html">Anotasyon </a></li>
+										<li><a href="visualization.html">Veri Görselleştirme, Analiz ve FAIR Prensipleri</a></li>
+										<li><a href="about.html">Hakkında</a></li>
+										
+									</ul>
+								</nav>
+
+							
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>İrtibat Bilgileri</h2>
+									</header>
+									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
+										<li class="icon solid fa-phone">No Phone Number</li>
+										<li class="icon solid fa-home">Yenimahalle<br />
+										Ankara, Türkiye</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+
+
