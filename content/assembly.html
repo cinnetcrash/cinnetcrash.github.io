@@ -1,112 +1,340 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>Assembly / Mapping | Genome Assembly and Read Mapping</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">Assembly ve Mapping</span>
+								<span class="lang-en">Assembly and Mapping</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p>Kalite kontrolünden geçen ham okumalar, iki farklı yaklaşımla işlenebilir: <strong>de novo assembly</strong> (referans genomu olmadan) veya <strong>referans tabanlı mapping</strong> (bilinen bir referans genoma hizalama). Her iki yaklaşım da mikrobiyal genomik çalışmalarında yaygın olarak kullanılmaktadır.</p>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Assembly Mapping</h1>
-									</header>
+							<hr class="major" />
+							<h2>De Novo Genome Assembly</h2>
+							<p>De novo assembly, referans bir genomun yokluğunda kısa veya uzun okumaları birleştirerek yeni bir genomu yeniden inşa etme işlemidir. Ökaryotik ve prokaryotik genomlar için farklı algoritmalar kullanılır.</p>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+							<h3>Assembly Kavramları</h3>
+							<ul>
+								<li><strong>Contig:</strong> Çakışan okumalardan oluşturulan kesintisiz DNA dizisi.</li>
+								<li><strong>Scaffold:</strong> Aralarında boşluk (gap) bulunan birden fazla contigi birleştiren daha büyük yapı.</li>
+								<li><strong>N50:</strong> Assembly kalitesini değerlendiren istatistik. Toplam assembly uzunluğunun %50'sini kapsayan en kısa contig uzunluğudur. Yüksek N50 daha iyi assembly kalitesini gösterir.</li>
+								<li><strong>Kapsama (Coverage/Depth):</strong> Genomun her pozisyonunu ortalama kaç okumanın kapladığı. Bakteriler için 30-100× önerilir.</li>
+							</ul>
 
-                                    <p> Anotasyon </p>
-									<hr class="major" />
+							<h3>SPAdes — Prokaryotik Assembly</h3>
+							<p>SPAdes, bakteriyel ve viral genomlar için en çok kullanılan de novo assembly aracıdır. Hem Illumina (kısa okuma) hem de hibrit assembly (kısa + uzun okuma) destekler.</p>
+							<pre><code>conda install -c bioconda spades
 
-									<h2>Komut Satırına Giriş</h2>
-									
-								</section>
+# Temel kullanım (Illumina paired-end)
+spades.py \
+    -1 R1_temiz.fastq.gz \
+    -2 R2_temiz.fastq.gz \
+    -o spades_cikti/ \
+    --threads 8
 
+# Hibrit assembly (Illumina + Nanopore)
+spades.py \
+    -1 R1_temiz.fastq.gz \
+    -2 R2_temiz.fastq.gz \
+    --nanopore nanopore_okumaları.fastq \
+    -o hibrit_assembly/</code></pre>
+
+							<h3>Flye — Uzun Okuma Assembly</h3>
+							<p>Flye, Nanopore ve PacBio uzun okumalarından yüksek kaliteli assembly üretmek için tasarlanmıştır.</p>
+							<pre><code>conda install -c bioconda flye
+
+# Nanopore okumaları ile assembly
+flye \
+    --nano-raw nanopore_okumaları.fastq \
+    --out-dir flye_cikti/ \
+    --genome-size 5m \
+    --threads 8
+
+# PacBio HiFi okumaları ile assembly
+flye \
+    --pacbio-hifi hifi_okumaları.fastq \
+    --out-dir flye_cikti/ \
+    --genome-size 5m</code></pre>
+
+							<h3>Assembly Kalite Değerlendirmesi — QUAST</h3>
+							<pre><code>conda install -c bioconda quast
+
+quast.py \
+    assembly.fasta \
+    -r referans.fasta \
+    -o quast_sonuclari/ \
+    --threads 4</code></pre>
+							<p>QUAST'ın temel çıktıları: N50, L50, toplam assembly uzunluğu, contig sayısı, GC içeriği, genomun kapsama oranı.</p>
+
+							<h3>Genome Completeness — CheckM</h3>
+							<p>CheckM, bakteriyel ve arkeyal genome assembly'lerinin tamamlanmışlığını ve kontaminasyon oranını değerlendirir.</p>
+							<pre><code>conda install -c bioconda checkm-genome
+
+checkm lineage_wf \
+    assembly_klasoru/ \
+    checkm_sonuclari/ \
+    -t 8 \
+    --tab_table -f checkm_ozet.tsv</code></pre>
+							<p>İyi kaliteli bir draft genome için: &gt;%90 tamamlanmışlık, &lt;%5 kontaminasyon.</p>
+
+							<hr class="major" />
+							<h2>Referans Tabanlı Mapping (Read Mapping)</h2>
+							<p>Okumaları bilinen bir referans genoma hizalamak; varyant tespiti, RNA-seq analizi ve metagenomik çalışmalarda kullanılır.</p>
+
+							<h3>BWA-MEM — Kısa Okuma Hizalama</h3>
+							<pre><code>conda install -c bioconda bwa samtools
+
+# Referans genomu indeksleme
+bwa index referans.fasta
+
+# Okumaları hizalama
+bwa mem \
+    referans.fasta \
+    R1_temiz.fastq.gz \
+    R2_temiz.fastq.gz \
+    -t 8 > hizalama.sam
+
+# SAM → BAM dönüşümü ve sıralama
+samtools view -bS hizalama.sam | \
+samtools sort -o hizalama_sorted.bam
+
+# İndeksleme
+samtools index hizalama_sorted.bam
+
+# Kapsama istatistikleri
+samtools coverage hizalama_sorted.bam</code></pre>
+
+							<h3>Minimap2 — Uzun Okuma Hizalama</h3>
+							<pre><code>conda install -c bioconda minimap2
+
+# Nanopore okumalarını hizalama
+minimap2 -ax map-ont referans.fasta nanopore_okumaları.fastq | \
+samtools sort -o nano_hizalama.bam
+samtools index nano_hizalama.bam</code></pre>
+
+							<h3>SAMtools ile BAM İşleme</h3>
+							<pre><code># Hizalama istatistikleri
+samtools flagstat hizalama.bam
+
+# Ortalama kapsama
+samtools depth hizalama.bam | awk '{sum+=$3} END {print sum/NR}'
+
+# Belirli bir bölgeyi görüntüleme
+samtools view hizalama.bam "NC_000913.3:1000-5000"</code></pre>
+
+							<hr class="major" />
+							<h2>Varyant Tespiti</h2>
+							<p>Referans genoma hizalandıktan sonra SNP (tek nükleotid polimorfizmi) ve indel (ekleme/silme) tespiti yapılabilir.</p>
+							<pre><code>conda install -c bioconda freebayes
+
+# Freebayes ile varyant tespiti
+freebayes -f referans.fasta hizalama.bam > varyantlar.vcf
+
+# VCF filtreleme
+bcftools filter -i 'QUAL>20 &amp;&amp; DP>10' varyantlar.vcf > filtrelenmis.vcf</code></pre>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>Quality-controlled raw reads can be processed in two different ways: <strong>de novo assembly</strong> (without a reference genome) or <strong>reference-based mapping</strong> (aligning to a known reference genome). Both approaches are widely used in microbial genomic studies.</p>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<hr class="major" />
+							<h2>De Novo Genome Assembly</h2>
+							<p>De novo assembly is the process of reconstructing a new genome by combining short or long reads in the absence of a reference genome. Different algorithms are used for eukaryotic and prokaryotic genomes.</p>
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menü</h2>
-									</header>
-									<ul>
-										<li><a href="../index.html">Anasayfa</a></li>										
-										<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-										<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-										<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-										<li><a href="python.html">R ve Python'a Giriş</a></li>
-										<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-										<li><a href="qc.html">Kalite Kontrol</a></li>
-										<li><a href="assembly.html">Assembly/Mapping </a></li>
-										<li><a href="annotation.html">Anotasyon </a></li>
-										<li><a href="visualization.html">Veri Görselleştirme</a></li>
-										<li><a href="about.html">Hakkında</a></li>
-										
-									</ul>
-								</nav>
+							<h3>Assembly Concepts</h3>
+							<ul>
+								<li><strong>Contig:</strong> A contiguous DNA sequence constructed from overlapping reads.</li>
+								<li><strong>Scaffold:</strong> A larger structure joining multiple contigs with gaps between them.</li>
+								<li><strong>N50:</strong> A statistic for evaluating assembly quality. The length of the shortest contig that covers 50% of the total assembly length. A higher N50 indicates better assembly quality.</li>
+								<li><strong>Coverage/Depth:</strong> The average number of reads covering each position of the genome. 30–100× is recommended for bacteria.</li>
+							</ul>
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+							<h3>SPAdes — Prokaryotic Assembly</h3>
+							<p>SPAdes is the most widely used de novo assembly tool for bacterial and viral genomes. It supports both Illumina (short reads) and hybrid assembly (short + long reads).</p>
+							<pre><code>conda install -c bioconda spades
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+# Basic usage (Illumina paired-end)
+spades.py \
+    -1 R1_clean.fastq.gz \
+    -2 R2_clean.fastq.gz \
+    -o spades_output/ \
+    --threads 8
 
+# Hybrid assembly (Illumina + Nanopore)
+spades.py \
+    -1 R1_clean.fastq.gz \
+    -2 R2_clean.fastq.gz \
+    --nanopore nanopore_reads.fastq \
+    -o hybrid_assembly/</code></pre>
+
+							<h3>Flye — Long Read Assembly</h3>
+							<pre><code>conda install -c bioconda flye
+
+# Assembly with Nanopore reads
+flye \
+    --nano-raw nanopore_reads.fastq \
+    --out-dir flye_output/ \
+    --genome-size 5m \
+    --threads 8
+
+# Assembly with PacBio HiFi reads
+flye \
+    --pacbio-hifi hifi_reads.fastq \
+    --out-dir flye_output/ \
+    --genome-size 5m</code></pre>
+
+							<h3>Assembly Quality Assessment — QUAST</h3>
+							<pre><code>conda install -c bioconda quast
+
+quast.py \
+    assembly.fasta \
+    -r reference.fasta \
+    -o quast_results/ \
+    --threads 4</code></pre>
+							<p>Key QUAST outputs: N50, L50, total assembly length, contig count, GC content, genome coverage fraction.</p>
+
+							<h3>Genome Completeness — CheckM</h3>
+							<p>CheckM evaluates the completeness and contamination rate of bacterial and archaeal genome assemblies.</p>
+							<pre><code>conda install -c bioconda checkm-genome
+
+checkm lineage_wf \
+    assembly_folder/ \
+    checkm_results/ \
+    -t 8 \
+    --tab_table -f checkm_summary.tsv</code></pre>
+							<p>For a good quality draft genome: &gt;90% completeness, &lt;5% contamination.</p>
+
+							<hr class="major" />
+							<h2>Reference-Based Mapping (Read Mapping)</h2>
+							<p>Aligning reads to a known reference genome is used in variant detection, RNA-seq analysis, and metagenomic studies.</p>
+
+							<h3>BWA-MEM — Short Read Alignment</h3>
+							<pre><code>conda install -c bioconda bwa samtools
+
+# Index the reference genome
+bwa index reference.fasta
+
+# Align reads
+bwa mem \
+    reference.fasta \
+    R1_clean.fastq.gz \
+    R2_clean.fastq.gz \
+    -t 8 > alignment.sam
+
+# SAM → BAM conversion and sorting
+samtools view -bS alignment.sam | \
+samtools sort -o alignment_sorted.bam
+
+# Index BAM file
+samtools index alignment_sorted.bam
+
+# Coverage statistics
+samtools coverage alignment_sorted.bam</code></pre>
+
+							<h3>Minimap2 — Long Read Alignment</h3>
+							<pre><code>conda install -c bioconda minimap2
+
+# Align Nanopore reads
+minimap2 -ax map-ont reference.fasta nanopore_reads.fastq | \
+samtools sort -o nano_alignment.bam
+samtools index nano_alignment.bam</code></pre>
+
+							<h3>BAM Processing with SAMtools</h3>
+							<pre><code># Alignment statistics
+samtools flagstat alignment.bam
+
+# Average coverage
+samtools depth alignment.bam | awk '{sum+=$3} END {print sum/NR}'
+
+# View a specific region
+samtools view alignment.bam "NC_000913.3:1000-5000"</code></pre>
+
+							<hr class="major" />
+							<h2>Variant Detection</h2>
+							<p>After aligning to a reference genome, SNP (single nucleotide polymorphism) and indel (insertion/deletion) detection can be performed.</p>
+							<pre><code>conda install -c bioconda freebayes
+
+# Variant calling with Freebayes
+freebayes -f reference.fasta alignment.bam > variants.vcf
+
+# VCF filtering
+bcftools filter -i 'QUAL>20 &amp;&amp; DP>10' variants.vcf > filtered.vcf</code></pre>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
