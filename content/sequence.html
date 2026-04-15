@@ -1,118 +1,259 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>Dizileme Teknolojileri | Sequencing Technologies</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span>
+								<span class="lang-en">Sequencing Technologies and Their Outputs</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p>DNA dizilemesi, bir DNA molekülündeki nükleotit bazlarının (A, T, G, C) sırasının belirlenmesidir. Bu teknoloji, temel biyoloji araştırmalarından tıbbi tanıya kadar pek çok alanda vazgeçilmez hale gelmiştir. Günümüzde kullanılan dizileme teknolojileri üç nesle ayrılmaktadır.</p>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Dizileme Teknolojileri ve Çıktıları</h1>
-									</header>
+							<hr class="major" />
+							<h2>1. Nesil Dizileme — Sanger Dizileme</h2>
+							<p>1975 yılında Frederick Sanger ve Alan Coulson tarafından geliştirilen dideoksi zincir sonlandırma yöntemi, "birinci nesil" dizilemenin temelini oluşturur. Bu yöntemle 700–1000 bp uzunluğunda yüksek doğrulukta diziler elde edilir.</p>
+							<ul>
+								<li><strong>Avantajları:</strong> Çok yüksek doğruluk (%99.9+), uzun okuma uzunluğu</li>
+								<li><strong>Dezavantajları:</strong> Düşük verim, yüksek maliyet per baz</li>
+								<li><strong>Kullanım alanları:</strong> Tek gen doğrulama, klonlama doğrulaması</li>
+							</ul>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+							<hr class="major" />
+							<h2>2. Nesil Dizileme — NGS (Yeni Nesil Dizileme)</h2>
+							<p>NGS teknolojileri, paralel dizileme sayesinde milyonlarca kısa DNA parçasını aynı anda dizileyerek devrim yaratmıştır. Bu teknoloji, biyoinformatik alanını köklü biçimde değiştirmiştir.</p>
 
-                                    <p> Anotasyon </p>
-									<hr class="major" />
+							<h3>Illumina Dizileme</h3>
+							<p>Günümüzde en yaygın kullanılan NGS platformudur. Sentez yoluyla dizileme (Sequencing by Synthesis — SBS) prensibine dayanır.</p>
+							<ul>
+								<li><strong>Okuma uzunluğu:</strong> 75–300 bp (paired-end)</li>
+								<li><strong>Verim:</strong> 300 Gb'a kadar (NovaSeq 6000)</li>
+								<li><strong>Doğruluk:</strong> ~%99.9</li>
+								<li><strong>Kullanım:</strong> WGS, RNA-seq, 16S metagenomik, ChIP-seq</li>
+							</ul>
 
-									<h2>Komut Satırına Giriş</h2>
-									
-								</section>
+							<h3>Ion Torrent</h3>
+							<p>Yarı iletken çip tabanlı dizileme yöntemidir. Hidrojen iyonlarının salınımını ölçer.</p>
+							<ul>
+								<li><strong>Okuma uzunluğu:</strong> ~400 bp</li>
+								<li><strong>Avantajı:</strong> Hızlı çalışma süresi, kompakt sistem</li>
+							</ul>
 
+							<hr class="major" />
+							<h2>3. Nesil Dizileme — Uzun Okuma Teknolojileri</h2>
+							<p>Üçüncü nesil teknolojiler, tek molekül dizileme yaklaşımıyla çok daha uzun DNA okumaları sağlar. Bu sayede tekrarlayan bölgeler, yapısal varyantlar ve tam uzunlukta transkriptler daha doğru şekilde çözülebilir.</p>
+
+							<h3>PacBio (Pacific Biosciences)</h3>
+							<ul>
+								<li><strong>SMRT (Single Molecule Real-Time) Dizileme:</strong> DNA polimerazın çalışması gerçek zamanlı izlenir</li>
+								<li><strong>HiFi Okumaları:</strong> 10–25 kb okuma uzunluğu, &gt;%99.9 doğruluk</li>
+								<li><strong>Kullanım:</strong> Tam uzunlukta genom assembly, epigenomik</li>
+							</ul>
+
+							<h3>Oxford Nanopore Technologies (ONT)</h3>
+							<ul>
+								<li><strong>Prensip:</strong> DNA moleküllerinin nanopor kanalından geçişi sırasındaki elektrik akımı değişiklikleri ölçülür</li>
+								<li><strong>Okuma uzunluğu:</strong> N50 &gt;100 kb (ultra-long reads)</li>
+								<li><strong>MinION:</strong> El tipi taşınabilir cihaz, sahada kullanım için ideal</li>
+								<li><strong>Dezavantajı:</strong> Kısa okumalar için yüksek hata oranı</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>FASTQ Formatı</h2>
+							<p>NGS verilerinin standart çıktı formatıdır. Her dizi için dört satır içerir:</p>
+							<pre><code>@SEQ_ID                          # Dizi adı (@ile başlar)
+ATGCGATCGATCGATCGATCG           # DNA dizisi
++                                # Ayırıcı (+)
+IIIIIIIIIIIIIIIIIIIII           # Kalite skorları (ASCII)</code></pre>
+
+							<h3>Phred Kalite Skoru</h3>
+							<p>Her baza atanan kalite skoru (Q), o bazın hatalı okuma olasılığını gösterir:</p>
+							<ul>
+								<li><strong>Q10:</strong> %10 hata olasılığı (%90 doğruluk)</li>
+								<li><strong>Q20:</strong> %1 hata olasılığı (%99 doğruluk)</li>
+								<li><strong>Q30:</strong> %0.1 hata olasılığı (%99.9 doğruluk) — kabul gören minimum</li>
+								<li><strong>Q40:</strong> %0.01 hata olasılığı (%99.99 doğruluk)</li>
+							</ul>
+							<p>Formül: Q = -10 × log₁₀(P), burada P hata olasılığıdır.</p>
+
+							<hr class="major" />
+							<h2>Dizileme Stratejileri</h2>
+							<h3>Whole Genome Sequencing (WGS)</h3>
+							<p>Bir organizmanın tüm genomunun dizilenmesidir. Bakteri genomları genellikle 1–10 Mb büyüklüğündedir. Mikrobiyal WGS için 50-100× kapsama genellikle yeterlidir.</p>
+
+							<h3>Amplikon Dizileme (16S rRNA)</h3>
+							<p>Mikrobiom çalışmalarında yaygın kullanılır. 16S rRNA geninin hipervaryabl bölgeleri (V3-V4) dizilenerek bakteri topluluğu profili çıkarılır. QIIME2 ve DADA2 bu analizler için kullanılan başlıca araçlardır.</p>
+
+							<h3>Shotgun Metagenomik</h3>
+							<p>Bir ortamdaki tüm DNA'nın seçimsiz olarak dizilenmesidir. Tüm mikrobiyal topluluk hakkında kapsamlı bilgi verir.</p>
+
+							<h3>Paired-End ve Single-End Okuma</h3>
+							<ul>
+								<li><strong>Single-end:</strong> DNA parçası sadece bir yönden okunur. Daha ucuz ve hızlıdır.</li>
+								<li><strong>Paired-end:</strong> DNA parçası her iki ucundan da okunur. Assembly ve varyant tespitinde daha iyi performans verir.</li>
+							</ul>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>DNA sequencing is the determination of the order of nucleotide bases (A, T, G, C) in a DNA molecule. This technology has become indispensable in many fields, from basic biology research to medical diagnostics. Today's sequencing technologies are divided into three generations.</p>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<hr class="major" />
+							<h2>1st Generation — Sanger Sequencing</h2>
+							<p>The dideoxy chain termination method developed by Frederick Sanger and Alan Coulson in 1975 forms the basis of "first-generation" sequencing. This method yields highly accurate sequences of 700–1000 bp in length.</p>
+							<ul>
+								<li><strong>Advantages:</strong> Very high accuracy (&gt;99.9%), long read length</li>
+								<li><strong>Disadvantages:</strong> Low throughput, high cost per base</li>
+								<li><strong>Applications:</strong> Single-gene validation, cloning verification</li>
+							</ul>
 
-							
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menü</h2>
-								</header>
-								<ul>
-									<li><a href="../index.html">Anasayfa</a></li>										
-									<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-									<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-									<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-									<li><a href="python.html">R ve Python'a Giriş</a></li>
-									<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-									<li><a href="qc.html">Kalite Kontrol</a></li>
-									<li><a href="assembly.html">Assembly/Mapping </a></li>
-									<li><a href="annotation.html">Anotasyon </a></li>
-									<li><a href="visualization.html">Veri Görselleştirme</a></li>
-									<li><a href="about.html">Hakkında</a></li>
-									
-								</ul>
-							</nav>
+							<hr class="major" />
+							<h2>2nd Generation — NGS (Next-Generation Sequencing)</h2>
+							<p>NGS technologies revolutionized the field by sequencing millions of short DNA fragments simultaneously through massively parallel sequencing. This technology fundamentally transformed the field of bioinformatics.</p>
 
+							<h3>Illumina Sequencing</h3>
+							<p>The most widely used NGS platform today. It is based on the Sequencing by Synthesis (SBS) principle.</p>
+							<ul>
+								<li><strong>Read length:</strong> 75–300 bp (paired-end)</li>
+								<li><strong>Throughput:</strong> Up to 300 Gb (NovaSeq 6000)</li>
+								<li><strong>Accuracy:</strong> ~99.9%</li>
+								<li><strong>Applications:</strong> WGS, RNA-seq, 16S metagenomics, ChIP-seq</li>
+							</ul>
 
-							
+							<h3>Ion Torrent</h3>
+							<p>A semiconductor chip-based sequencing method that measures the release of hydrogen ions.</p>
+							<ul>
+								<li><strong>Read length:</strong> ~400 bp</li>
+								<li><strong>Advantage:</strong> Fast run time, compact system</li>
+							</ul>
 
+							<hr class="major" />
+							<h2>3rd Generation — Long-Read Technologies</h2>
+							<p>Third-generation technologies provide much longer DNA reads through single-molecule sequencing. This enables more accurate resolution of repetitive regions, structural variants, and full-length transcripts.</p>
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+							<h3>PacBio (Pacific Biosciences)</h3>
+							<ul>
+								<li><strong>SMRT (Single Molecule Real-Time) Sequencing:</strong> The activity of DNA polymerase is monitored in real time</li>
+								<li><strong>HiFi Reads:</strong> 10–25 kb read length, &gt;99.9% accuracy</li>
+								<li><strong>Applications:</strong> Full-length genome assembly, epigenomics</li>
+							</ul>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+							<h3>Oxford Nanopore Technologies (ONT)</h3>
+							<ul>
+								<li><strong>Principle:</strong> Measures changes in electrical current as DNA molecules pass through nanopore channels</li>
+								<li><strong>Read length:</strong> N50 &gt;100 kb (ultra-long reads)</li>
+								<li><strong>MinION:</strong> Hand-held portable device, ideal for field use</li>
+								<li><strong>Disadvantage:</strong> Higher error rate for short reads</li>
+							</ul>
 
+							<hr class="major" />
+							<h2>FASTQ Format</h2>
+							<p>The standard output format for NGS data. Contains four lines for each sequence:</p>
+							<pre><code>@SEQ_ID                          # Sequence name (starts with @)
+ATGCGATCGATCGATCGATCG           # DNA sequence
++                                # Separator (+)
+IIIIIIIIIIIIIIIIIIIII           # Quality scores (ASCII)</code></pre>
+
+							<h3>Phred Quality Score</h3>
+							<p>The quality score (Q) assigned to each base indicates the probability of an incorrect base call:</p>
+							<ul>
+								<li><strong>Q10:</strong> 10% error probability (90% accuracy)</li>
+								<li><strong>Q20:</strong> 1% error probability (99% accuracy)</li>
+								<li><strong>Q30:</strong> 0.1% error probability (99.9% accuracy) — accepted minimum</li>
+								<li><strong>Q40:</strong> 0.01% error probability (99.99% accuracy)</li>
+							</ul>
+							<p>Formula: Q = -10 × log₁₀(P), where P is the probability of error.</p>
+
+							<hr class="major" />
+							<h2>Sequencing Strategies</h2>
+							<h3>Whole Genome Sequencing (WGS)</h3>
+							<p>The sequencing of an organism's entire genome. Bacterial genomes are typically 1–10 Mb in size. 50–100× coverage is generally sufficient for microbial WGS.</p>
+
+							<h3>Amplicon Sequencing (16S rRNA)</h3>
+							<p>Widely used in microbiome studies. The hypervariable regions (V3-V4) of the 16S rRNA gene are sequenced to obtain a bacterial community profile. QIIME2 and DADA2 are the main tools used for these analyses.</p>
+
+							<h3>Shotgun Metagenomics</h3>
+							<p>The non-selective sequencing of all DNA in an environment. Provides comprehensive information about the entire microbial community.</p>
+
+							<h3>Paired-End vs Single-End Reads</h3>
+							<ul>
+								<li><strong>Single-end:</strong> The DNA fragment is read from only one direction. Cheaper and faster.</li>
+								<li><strong>Paired-end:</strong> The DNA fragment is read from both ends. Provides better performance in assembly and variant detection.</li>
+							</ul>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
-
