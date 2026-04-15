@@ -1,116 +1,361 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>R ve Python'a Giriş | Introduction to R and Python</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">R ve Python'a Giriş</span>
+								<span class="lang-en">Introduction to R and Python</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p>Biyoinformatik analizlerde iki programlama dili öne çıkmaktadır: <strong>R</strong> ve <strong>Python</strong>. Her ikisi de açık kaynaklı, ücretsiz ve geniş bir biyoinformatik kütüphane ekosistemine sahiptir. R, istatistiksel analizler ve görselleştirme konusunda güçlüdür; Python ise genel programlama, otomasyon ve makine öğrenmesi uygulamaları için tercih edilir.</p>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>R ve Python'a Giriş</h1>
-									</header>
+							<hr class="major" />
+							<h2>Python ile Biyoinformatik</h2>
+							<p>Python, okunabilir sözdizimi ve geniş kütüphane desteği sayesinde biyoinformatik için ideal bir dildir. Temel biyoinformatik görevlerin büyük çoğunluğu Python ile yapılabilir.</p>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+							<h3>Temel Python Kavramları</h3>
+							<pre><code># Değişkenler ve veri tipleri
+isim = "Homo sapiens"
+gen_sayisi = 20000
+gc_orani = 0.41
 
-                                    <p> Anotasyon </p>
-									<hr class="major" />
+# Listeler
+bazlar = ["A", "T", "G", "C"]
 
-									<h2>Komut Satırına Giriş</h2>
-									
-								</section>
+# Sözlükler (dictionary)
+kodon = {"ATG": "Met", "TAA": "Stop", "TGA": "Stop"}
 
+# Döngüler
+for baz in bazlar:
+    print(baz)
+
+# Fonksiyonlar
+def gc_hesapla(dizi):
+    gc = dizi.count("G") + dizi.count("C")
+    return gc / len(dizi) * 100
+
+# Kullanım
+dna = "ATGCGATCGATCG"
+print(f"GC oranı: {gc_hesapla(dna):.1f}%")</code></pre>
+
+							<h3>BioPython — Biyoinformatik Kütüphanesi</h3>
+							<p>BioPython, DNA/protein dizileri, FASTA dosyaları, veritabanı sorguları ve filogenetik analizler için kapsamlı araçlar sunar.</p>
+							<pre><code># BioPython kurulumu
+# conda install -c conda-forge biopython
+
+from Bio import SeqIO
+from Bio.Seq import Seq
+
+# FASTA dosyası okuma
+for record in SeqIO.parse("sekanslar.fasta", "fasta"):
+    print(record.id, len(record.seq))
+
+# Dizi işlemleri
+dizi = Seq("ATGCGATCGATCG")
+print("Kompleman:", dizi.complement())
+print("Ters kompleman:", dizi.reverse_complement())
+print("Protein:", dizi.translate())
+
+# NCBI'den dizi indirme
+from Bio import Entrez
+Entrez.email = "email@ornek.com"
+handle = Entrez.efetch(db="nucleotide", id="MK033133", rettype="fasta")
+kayit = SeqIO.read(handle, "fasta")
+print(kayit.description)</code></pre>
+
+							<h3>Pandas — Veri Analizi</h3>
+							<pre><code>import pandas as pd
+
+# CSV dosyası okuma
+df = pd.read_csv("sonuclar.csv")
+
+# Temel istatistikler
+print(df.describe())
+
+# Filtreleme
+yuksek_kalite = df[df["quality_score"] > 30]
+
+# Gruplama
+df.groupby("genus")["coverage"].mean()</code></pre>
+
+							<hr class="major" />
+							<h2>R ile Biyoinformatik</h2>
+							<p>R, istatistiksel hesaplamalar ve veri görselleştirme konusunda sektör standardı konumundadır. Bioconductor platformu, genomik analizler için binlerce özel paket barındırır.</p>
+
+							<h3>Temel R Kavramları</h3>
+							<pre><code># Vektörler
+gc_oranlari <- c(0.41, 0.52, 0.38, 0.65)
+mean(gc_oranlari)   # Ortalama
+sd(gc_oranlari)     # Standart sapma
+
+# Veri çerçevesi (data.frame)
+sonuclar <- data.frame(
+  ornek = c("S1", "S2", "S3"),
+  kapsama = c(50, 120, 80),
+  kalite = c(35, 38, 32)
+)
+
+# Filtreleme
+yuksek <- sonuclar[sonuclar$kapsama > 100, ]
+
+# Fonksiyon tanımlama
+gc_hesapla <- function(dizi) {
+  gc <- nchar(gsub("[^GC]", "", dizi))
+  gc / nchar(dizi) * 100
+}
+
+gc_hesapla("ATGCGCTAGC")</code></pre>
+
+							<h3>ggplot2 — Görselleştirme</h3>
+							<pre><code>library(ggplot2)
+
+# Örnek veri
+df <- data.frame(
+  organizma = c("E. coli", "S. aureus", "B. subtilis"),
+  gc_orani = c(50.8, 32.9, 43.5)
+)
+
+# Çubuk grafik
+ggplot(df, aes(x = organizma, y = gc_orani, fill = organizma)) +
+  geom_bar(stat = "identity") +
+  labs(title = "GC Oranı Karşılaştırması",
+       x = "Organizma", y = "GC Oranı (%)") +
+  theme_minimal()</code></pre>
+
+							<h3>Bioconductor — Genomik Analizler</h3>
+							<pre><code># Bioconductor kurulumu
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Biostrings")
+
+library(Biostrings)
+
+# FASTA okuma
+diziler <- readDNAStringSet("sekanslar.fasta")
+width(diziler)          # Dizi uzunlukları
+letterFrequency(diziler, "GC")  # GC içeriği</code></pre>
+
+							<hr class="major" />
+							<h2>Jupyter Notebook</h2>
+							<p>Jupyter Notebook, Python ve R kodlarını, açıklamaları ve görselleştirmeleri tek bir belgede birleştirmenizi sağlayan etkileşimli bir platformdur. Biyoinformatik analizlerin tekrarlanabilir belgelenmesi için idealdir.</p>
+							<pre><code># Jupyter kurulumu
+conda install -c conda-forge jupyter
+
+# Başlatma
+jupyter notebook</code></pre>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>Two programming languages stand out in bioinformatic analyses: <strong>R</strong> and <strong>Python</strong>. Both are open-source, free, and have a broad bioinformatics library ecosystem. R excels in statistical analysis and visualization; Python is preferred for general programming, automation, and machine learning applications.</p>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<hr class="major" />
+							<h2>Python for Bioinformatics</h2>
+							<p>Python is ideal for bioinformatics thanks to its readable syntax and extensive library support. The vast majority of basic bioinformatic tasks can be done with Python.</p>
 
-							
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menü</h2>
-								</header>
-								<ul>
-									<li><a href="../index.html">Anasayfa</a></li>										
-									<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-									<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-									<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-									<li><a href="python.html">R ve Python'a Giriş</a></li>
-									<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-									<li><a href="qc.html">Kalite Kontrol</a></li>
-									<li><a href="assembly.html">Assembly/Mapping </a></li>
-									<li><a href="annotation.html">Anotasyon </a></li>
-									<li><a href="visualization.html">Veri Görselleştirme</a></li>
-									<li><a href="about.html">Hakkında</a></li>
-									
-								</ul>
-							</nav>
+							<h3>Basic Python Concepts</h3>
+							<pre><code># Variables and data types
+name = "Homo sapiens"
+gene_count = 20000
+gc_ratio = 0.41
 
+# Lists
+bases = ["A", "T", "G", "C"]
 
-							
+# Dictionaries
+codon = {"ATG": "Met", "TAA": "Stop", "TGA": "Stop"}
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+# Loops
+for base in bases:
+    print(base)
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+# Functions
+def calc_gc(sequence):
+    gc = sequence.count("G") + sequence.count("C")
+    return gc / len(sequence) * 100
 
+# Usage
+dna = "ATGCGATCGATCG"
+print(f"GC content: {calc_gc(dna):.1f}%")</code></pre>
+
+							<h3>BioPython — Bioinformatics Library</h3>
+							<p>BioPython provides comprehensive tools for DNA/protein sequences, FASTA files, database queries, and phylogenetic analyses.</p>
+							<pre><code># Install BioPython
+# conda install -c conda-forge biopython
+
+from Bio import SeqIO
+from Bio.Seq import Seq
+
+# Reading FASTA file
+for record in SeqIO.parse("sequences.fasta", "fasta"):
+    print(record.id, len(record.seq))
+
+# Sequence operations
+seq = Seq("ATGCGATCGATCG")
+print("Complement:", seq.complement())
+print("Reverse complement:", seq.reverse_complement())
+print("Protein:", seq.translate())
+
+# Download sequence from NCBI
+from Bio import Entrez
+Entrez.email = "email@example.com"
+handle = Entrez.efetch(db="nucleotide", id="MK033133", rettype="fasta")
+record = SeqIO.read(handle, "fasta")
+print(record.description)</code></pre>
+
+							<h3>Pandas — Data Analysis</h3>
+							<pre><code>import pandas as pd
+
+# Read CSV file
+df = pd.read_csv("results.csv")
+
+# Basic statistics
+print(df.describe())
+
+# Filtering
+high_quality = df[df["quality_score"] > 30]
+
+# Grouping
+df.groupby("genus")["coverage"].mean()</code></pre>
+
+							<hr class="major" />
+							<h2>R for Bioinformatics</h2>
+							<p>R is the industry standard for statistical computing and data visualization. The Bioconductor platform hosts thousands of specialized packages for genomic analyses.</p>
+
+							<h3>Basic R Concepts</h3>
+							<pre><code># Vectors
+gc_ratios <- c(0.41, 0.52, 0.38, 0.65)
+mean(gc_ratios)   # Mean
+sd(gc_ratios)     # Standard deviation
+
+# Data frame
+results <- data.frame(
+  sample = c("S1", "S2", "S3"),
+  coverage = c(50, 120, 80),
+  quality = c(35, 38, 32)
+)
+
+# Filtering
+high <- results[results$coverage > 100, ]
+
+# Function definition
+calc_gc <- function(sequence) {
+  gc <- nchar(gsub("[^GC]", "", sequence))
+  gc / nchar(sequence) * 100
+}
+
+calc_gc("ATGCGCTAGC")</code></pre>
+
+							<h3>ggplot2 — Visualization</h3>
+							<pre><code>library(ggplot2)
+
+df <- data.frame(
+  organism = c("E. coli", "S. aureus", "B. subtilis"),
+  gc_ratio = c(50.8, 32.9, 43.5)
+)
+
+ggplot(df, aes(x = organism, y = gc_ratio, fill = organism)) +
+  geom_bar(stat = "identity") +
+  labs(title = "GC Content Comparison",
+       x = "Organism", y = "GC Content (%)") +
+  theme_minimal()</code></pre>
+
+							<h3>Bioconductor — Genomic Analyses</h3>
+							<pre><code># Install Bioconductor
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Biostrings")
+
+library(Biostrings)
+
+# Read FASTA
+sequences <- readDNAStringSet("sequences.fasta")
+width(sequences)                    # Sequence lengths
+letterFrequency(sequences, "GC")   # GC content</code></pre>
+
+							<hr class="major" />
+							<h2>Jupyter Notebook</h2>
+							<p>Jupyter Notebook is an interactive platform that allows you to combine Python and R code, explanations, and visualizations in a single document. It is ideal for reproducible documentation of bioinformatic analyses.</p>
+							<pre><code># Install Jupyter
+conda install -c conda-forge jupyter
+
+# Launch
+jupyter notebook</code></pre>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
