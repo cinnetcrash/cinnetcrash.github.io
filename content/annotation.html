@@ -1,116 +1,307 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>Anotasyon | Genome Annotation</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">Genom Anotasyonu</span>
+								<span class="lang-en">Genome Annotation</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p>Genome assembly tamamlandıktan sonra sıradaki adım <strong>anotasyondur</strong>: genomdaki genlerin, proteinlerin, RNA'ların ve diğer fonksiyonel elementlerin tespit edilmesi ve işlevlerinin belirlenmesidir. Anotasyon olmadan ham DNA dizisi biyolojik anlam taşımaz.</p>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Anotasyon</h1>
-									</header>
+							<h3>Anotasyon Türleri</h3>
+							<ul>
+								<li><strong>Yapısal anotasyon:</strong> Gen koordinatlarının tespiti (başlangıç/bitiş pozisyonları, intronlar, ekzonlar)</li>
+								<li><strong>Fonksiyonel anotasyon:</strong> Genlerin biyolojik işlevlerinin belirlenmesi</li>
+								<li><strong>Komparatif anotasyon:</strong> Diğer genomlarla karşılaştırarak yapılan anotasyon</li>
+							</ul>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+							<hr class="major" />
+							<h2>Prokka — Prokaryotik Anotasyon</h2>
+							<p>Prokka, bakteriyel ve arkeyal genomları hızla anotasyon yapabilen açık kaynaklı bir araçtır. Yapısal ve fonksiyonel anotasyonu otomatik olarak gerçekleştirir ve GenBank/EMBL yükleme formatlarını üretir.</p>
 
-                                    <p> Anotasyon </p>
-									<hr class="major" />
+							<pre><code>conda install -c bioconda prokka
 
-									<h2>Komut Satırına Giriş</h2>
-									
-								</section>
+prokka \
+    assembly.fasta \
+    --outdir prokka_sonuc/ \
+    --prefix ornek_ismi \
+    --genus Escherichia \
+    --species coli \
+    --strain K12 \
+    --cpus 8 \
+    --rfam \
+    --kingdom Bacteria</code></pre>
 
+							<h3>Prokka Çıktıları</h3>
+							<ul>
+								<li><strong>.gff</strong> — Gene Feature Format (anotasyon koordinatları)</li>
+								<li><strong>.gbk</strong> — GenBank formatı (NCBI yükleme için)</li>
+								<li><strong>.faa</strong> — Protein dizileri (FASTA)</li>
+								<li><strong>.ffn</strong> — Nükleotid gen dizileri (FASTA)</li>
+								<li><strong>.tsv</strong> — Tablo formatında özet</li>
+								<li><strong>.txt</strong> — İstatistik özeti</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>RAST — Sunucu Tabanlı Anotasyon</h2>
+							<p>RAST (Rapid Annotation using Subsystem Technology), SEED veritabanını kullanan çevrimiçi bir prokaryotik anotasyon sunucusudur. Özellikle metabolik yol anotasyonları için güçlüdür.</p>
+							<ul>
+								<li>Web arayüzü: rast.nmpdr.org</li>
+								<li>Bakteri ve arke genomları için idealdir</li>
+								<li>Subsistem tabanlı fonksiyonel anotasyon sağlar</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>NCBI PGAP — Resmi Anotasyon Boru Hattı</h2>
+							<p>NCBI Prokaryotic Genome Annotation Pipeline (PGAP), NCBI GenBank'a gönderilecek genomlar için resmi anotasyon aracıdır. Protein kodlayan genlerin, rRNA'ların, tRNA'ların ve CRISPR dizilerinin anotasyonunu yapar.</p>
+							<pre><code># PGAP kurulumu (Docker gerektirir)
+conda install -c bioconda pgap-input-validation
+
+# Alternatif: komut satırı aracı
+pgap.py --genome assembly.fasta --taxon 562</code></pre>
+
+							<hr class="major" />
+							<h2>Fonksiyonel Anotasyon Araçları</h2>
+
+							<h3>eggNOG-mapper — Ortolog Eşleştirme</h3>
+							<p>Protein dizilerini eggNOG veritabanıyla eşleştirerek COG, KEGG, GO ve diğer fonksiyonel kategorileri atar.</p>
+							<pre><code>conda install -c bioconda eggnog-mapper
+
+emapper.py \
+    -i proteomlar.faa \
+    -o eggnog_sonuc \
+    --cpu 8 \
+    --database bacteria</code></pre>
+
+							<h3>InterProScan — Protein Domain Anotasyonu</h3>
+							<p>Protein dizilerini Pfam, TIGRFAM, SUPERFAMILY ve diğer veritabanlarına karşı tarar.</p>
+							<pre><code>interproscan.sh \
+    -i proteomlar.faa \
+    -f tsv,gff3 \
+    -o interpro_sonuc \
+    --cpu 8</code></pre>
+
+							<h3>AMRFinder — Antimikrobiyal Direnç Genleri</h3>
+							<pre><code>conda install -c bioconda ncbi-amrfinderplus
+
+amrfinder \
+    -p proteomlar.faa \
+    --organism Escherichia \
+    -o amr_sonuclar.tsv</code></pre>
+
+							<h3>PHASTER — Faj Anotasyonu</h3>
+							<p>PHASTER (PHAge Search Tool Enhanced Release), bakteriyel genomlardaki profaj ve faj dizilerini tanımlamak için kullanılan web tabanlı bir araçtır. Faj genomistleri için vazgeçilmezdir.</p>
+							<ul>
+								<li>Web arayüzü: phaster.ca</li>
+								<li>Komple ve yarım faj elementlerini tanımlar</li>
+								<li>Faj protein ailelerini sınıflandırır</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>Karşılaştırmalı Genomik</h2>
+
+							<h3>Roary — Pan-Genom Analizi</h3>
+							<p>Roary, birden fazla prokaryotik genomunun pan-genomunu (core + accessory genler) hızla hesaplar.</p>
+							<pre><code>conda install -c bioconda roary
+
+# GFF dosyalarıyla çalışır (Prokka çıktısı)
+roary -p 8 -f roary_sonuc/ -e -n *.gff
+
+# Core genome filogenetik ağacı
+FastTree -gtr -nt roary_sonuc/core_gene_alignment.aln > core.tree</code></pre>
+
+							<h3>OrthoFinder — Ortolog Gruplama</h3>
+							<pre><code>conda install -c bioconda orthofinder
+
+orthofinder -f proteomlar_klasoru/ -t 8</code></pre>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>After genome assembly is complete, the next step is <strong>annotation</strong>: identifying the genes, proteins, RNAs, and other functional elements in the genome, and determining their functions. Without annotation, a raw DNA sequence carries no biological meaning.</p>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<h3>Types of Annotation</h3>
+							<ul>
+								<li><strong>Structural annotation:</strong> Detection of gene coordinates (start/end positions, introns, exons)</li>
+								<li><strong>Functional annotation:</strong> Determining the biological functions of genes</li>
+								<li><strong>Comparative annotation:</strong> Annotation performed by comparison with other genomes</li>
+							</ul>
 
-							
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menü</h2>
-								</header>
-								<ul>
-									<li><a href="../index.html">Anasayfa</a></li>										
-									<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-									<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-									<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-									<li><a href="python.html">R ve Python'a Giriş</a></li>
-									<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-									<li><a href="qc.html">Kalite Kontrol</a></li>
-									<li><a href="assembly.html">Assembly/Mapping </a></li>
-									<li><a href="annotation.html">Anotasyon </a></li>
-									<li><a href="visualization.html">Veri Görselleştirme</a></li>
-									<li><a href="about.html">Hakkında</a></li>
-									
-								</ul>
-							</nav>
+							<hr class="major" />
+							<h2>Prokka — Prokaryotic Annotation</h2>
+							<p>Prokka is an open-source tool that can rapidly annotate bacterial and archaeal genomes. It automatically performs structural and functional annotation and produces GenBank/EMBL upload formats.</p>
 
+							<pre><code>conda install -c bioconda prokka
 
-							
+prokka \
+    assembly.fasta \
+    --outdir prokka_output/ \
+    --prefix sample_name \
+    --genus Escherichia \
+    --species coli \
+    --strain K12 \
+    --cpus 8 \
+    --rfam \
+    --kingdom Bacteria</code></pre>
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+							<h3>Prokka Outputs</h3>
+							<ul>
+								<li><strong>.gff</strong> — Gene Feature Format (annotation coordinates)</li>
+								<li><strong>.gbk</strong> — GenBank format (for NCBI submission)</li>
+								<li><strong>.faa</strong> — Protein sequences (FASTA)</li>
+								<li><strong>.ffn</strong> — Nucleotide gene sequences (FASTA)</li>
+								<li><strong>.tsv</strong> — Summary in table format</li>
+								<li><strong>.txt</strong> — Statistics summary</li>
+							</ul>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+							<hr class="major" />
+							<h2>RAST — Server-Based Annotation</h2>
+							<p>RAST (Rapid Annotation using Subsystem Technology) is an online prokaryotic annotation server that uses the SEED database. It is particularly powerful for metabolic pathway annotations.</p>
+							<ul>
+								<li>Web interface: rast.nmpdr.org</li>
+								<li>Ideal for bacterial and archaeal genomes</li>
+								<li>Provides subsystem-based functional annotation</li>
+							</ul>
 
+							<hr class="major" />
+							<h2>NCBI PGAP — Official Annotation Pipeline</h2>
+							<p>The NCBI Prokaryotic Genome Annotation Pipeline (PGAP) is the official annotation tool for genomes to be submitted to NCBI GenBank. It annotates protein-coding genes, rRNAs, tRNAs, and CRISPR sequences.</p>
+							<pre><code># PGAP installation (requires Docker)
+conda install -c bioconda pgap-input-validation
+
+# Alternative: command-line tool
+pgap.py --genome assembly.fasta --taxon 562</code></pre>
+
+							<hr class="major" />
+							<h2>Functional Annotation Tools</h2>
+
+							<h3>eggNOG-mapper — Ortholog Mapping</h3>
+							<p>Maps protein sequences against the eggNOG database to assign COG, KEGG, GO, and other functional categories.</p>
+							<pre><code>conda install -c bioconda eggnog-mapper
+
+emapper.py \
+    -i proteome.faa \
+    -o eggnog_output \
+    --cpu 8 \
+    --database bacteria</code></pre>
+
+							<h3>InterProScan — Protein Domain Annotation</h3>
+							<p>Scans protein sequences against Pfam, TIGRFAM, SUPERFAMILY, and other databases.</p>
+							<pre><code>interproscan.sh \
+    -i proteome.faa \
+    -f tsv,gff3 \
+    -o interpro_output \
+    --cpu 8</code></pre>
+
+							<h3>AMRFinder — Antimicrobial Resistance Genes</h3>
+							<pre><code>conda install -c bioconda ncbi-amrfinderplus
+
+amrfinder \
+    -p proteome.faa \
+    --organism Escherichia \
+    -o amr_results.tsv</code></pre>
+
+							<h3>PHASTER — Phage Annotation</h3>
+							<p>PHASTER (PHAge Search Tool Enhanced Release) is a web-based tool for identifying prophage and phage sequences in bacterial genomes. It is indispensable for phage genomicists.</p>
+							<ul>
+								<li>Web interface: phaster.ca</li>
+								<li>Identifies complete and incomplete phage elements</li>
+								<li>Classifies phage protein families</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>Comparative Genomics</h2>
+
+							<h3>Roary — Pan-Genome Analysis</h3>
+							<p>Roary rapidly calculates the pan-genome (core + accessory genes) of multiple prokaryotic genomes.</p>
+							<pre><code>conda install -c bioconda roary
+
+# Works with GFF files (Prokka output)
+roary -p 8 -f roary_output/ -e -n *.gff
+
+# Core genome phylogenetic tree
+FastTree -gtr -nt roary_output/core_gene_alignment.aln > core.tree</code></pre>
+
+							<h3>OrthoFinder — Ortholog Grouping</h3>
+							<pre><code>conda install -c bioconda orthofinder
+
+orthofinder -f proteomes_folder/ -t 8</code></pre>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
