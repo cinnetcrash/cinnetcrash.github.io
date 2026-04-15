@@ -1,116 +1,347 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>Veri Görselleştirme | Data Visualization</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">Veri Görselleştirme ve FAIR Prensipleri</span>
+								<span class="lang-en">Data Visualization and FAIR Principles</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p>Veri görselleştirme; karmaşık genomik verileri insan beyninin anlayabileceği görsel formlara dönüştürme sanatıdır. İyi bir görselleştirme, binlerce satırlık veriyi tek bir bakışta anlaşılabilir kılar ve bilimsel bulgular için etkili bir iletişim aracıdır.</p>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Veri Görselleştirme</h1>
-									</header>
+							<hr class="major" />
+							<h2>R ile Görselleştirme — ggplot2</h2>
+							<p>ggplot2, R'ın en güçlü görselleştirme paketidir. "Grafik Grameri" (Grammar of Graphics) prensibine dayanır ve katman katman grafik oluşturmaya olanak tanır.</p>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+							<h3>Temel Kullanım</h3>
+							<pre><code>library(ggplot2)
 
-                                    <p> Anotasyon </p>
-									<hr class="major" />
+# Örnek veri
+df <- data.frame(
+  organizma = c("E. coli", "S. aureus", "K. pneumoniae", "P. aeruginosa"),
+  gc_orani = c(50.8, 32.9, 57.2, 66.6),
+  genom_boyu_mb = c(5.1, 2.8, 5.5, 6.3)
+)
 
-									<h2>Komut Satırına Giriş</h2>
-									
-								</section>
+# Saçılım grafiği
+ggplot(df, aes(x = gc_orani, y = genom_boyu_mb, label = organizma)) +
+  geom_point(size = 4, color = "steelblue") +
+  geom_text(vjust = -0.8, size = 3) +
+  labs(
+    title = "GC Oranı ile Genom Büyüklüğü İlişkisi",
+    x = "GC Oranı (%)",
+    y = "Genom Büyüklüğü (Mb)"
+  ) +
+  theme_minimal()</code></pre>
 
+							<h3>Isı Haritası (Heatmap)</h3>
+							<pre><code>library(pheatmap)
+
+# Gen ifadesi matrisi
+set.seed(42)
+mat <- matrix(rnorm(100), nrow = 10,
+              dimnames = list(paste0("Gen", 1:10),
+                              paste0("Ornek", 1:10)))
+
+pheatmap(mat,
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         color = colorRampPalette(c("blue", "white", "red"))(50),
+         main = "Gen İfadesi Isı Haritası")</code></pre>
+
+							<h3>Filogenetik Ağaç</h3>
+							<pre><code>library(ggtree)
+library(ape)
+
+# Newick formatında ağaç okuma
+agac <- read.tree("core.tree")
+
+# Görselleştirme
+ggtree(agac, branch.length = "branch.length") +
+  geom_tiplab(size = 3) +
+  theme_tree2() +
+  ggtitle("Core Genome Filogenetik Ağacı")</code></pre>
+
+							<hr class="major" />
+							<h2>Python ile Görselleştirme</h2>
+
+							<h3>Matplotlib ve Seaborn</h3>
+							<pre><code>import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+# Örnek veri
+df = pd.DataFrame({
+    'organizma': ['E. coli', 'S. aureus', 'K. pneumoniae'],
+    'gc_orani': [50.8, 32.9, 57.2],
+    'direnç_geni_sayısı': [5, 12, 8]
+})
+
+# Çubuk grafik
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+ax1.bar(df['organizma'], df['gc_orani'], color='steelblue')
+ax1.set_title('GC Oranı')
+ax1.set_ylabel('GC (%)')
+ax1.tick_params(axis='x', rotation=45)
+
+sns.barplot(data=df, x='organizma', y='direnç_geni_sayısı',
+            palette='viridis', ax=ax2)
+ax2.set_title('Antimikrobiyal Direnç Geni Sayısı')
+ax2.tick_params(axis='x', rotation=45)
+
+plt.tight_layout()
+plt.savefig('karsilastirma.png', dpi=300, bbox_inches='tight')
+plt.show()</code></pre>
+
+							<h3>Circos Benzeri Genomik Görselleştirme</h3>
+							<pre><code>from pycirclize import Circos
+
+# Genomik özellikler için Circos grafiği
+circos = Circos.initialize_from_bed("genomik_ozellikler.bed")
+fig = circos.plotfig()
+fig.savefig("circos_grafik.png", dpi=300)</code></pre>
+
+							<hr class="major" />
+							<h2>Özelleştirilmiş Genomik Görselleştirme Araçları</h2>
+
+							<h3>Bandage — Assembly Graf Görselleştirme</h3>
+							<p>Genome assembly çıktısındaki contig bağlantı grafını (GFA formatı) görsel olarak inceler. Tekrarlayan bölgeleri ve bağlantısız contikleri tespit etmek için kullanılır.</p>
+
+							<h3>IGV (Integrative Genomics Viewer)</h3>
+							<p>BAM, VCF ve BED dosyalarını interaktif olarak görselleştirir. NGS okumalarının referans genoma hizalanmasını incelemek için idealdir.</p>
+							<ul>
+								<li>Ücretsiz masaüstü uygulaması (igv.org)</li>
+								<li>SNP ve indelleri görsel olarak doğrulamak için kullanılır</li>
+							</ul>
+
+							<h3>Artemis — Genomik Anotasyon Görüntüleyici</h3>
+							<p>GenBank ve GFF formatındaki anotasyonları interaktif olarak görüntüler ve düzenler.</p>
+
+							<hr class="major" />
+							<h2>FAIR Prensipleri</h2>
+							<p>FAIR prensipleri, bilimsel verilerin maksimum fayda sağlayacak şekilde yönetilmesi için uluslararası bir çerçeve sunar. 2016'da Wilkinson ve ark. tarafından yayımlanmıştır.</p>
+
+							<div class="table-wrapper">
+								<table>
+									<thead><tr><th>Prensip</th><th>Açıklama</th></tr></thead>
+									<tbody>
+										<tr><td><strong>F — Findable (Bulunabilir)</strong></td><td>Verilere kalıcı ve benzersiz tanımlayıcılar (DOI, accession number) atanmalıdır.</td></tr>
+										<tr><td><strong>A — Accessible (Erişilebilir)</strong></td><td>Veriler standart protokollerle (HTTP, FTP) erişilebilir olmalıdır.</td></tr>
+										<tr><td><strong>I — Interoperable (Birlikte Çalışabilir)</strong></td><td>Veriler standart formatlar ve kontrollü vokabüler kullanmalıdır.</td></tr>
+										<tr><td><strong>R — Reusable (Yeniden Kullanılabilir)</strong></td><td>Veriler açık lisansla yayımlanmalı, metodoloji açık kaynak olmalıdır.</td></tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h3>Veri Paylaşımı için Önerilen Platformlar</h3>
+							<ul>
+								<li><strong>NCBI SRA:</strong> Ham NGS verilerinin paylaşımı</li>
+								<li><strong>NCBI GenBank:</strong> Genom dizileri ve anotasyonların paylaşımı</li>
+								<li><strong>Zenodo:</strong> Genel araştırma verisi arşivleme (DOI atar)</li>
+								<li><strong>figshare:</strong> Figürler, tablolar ve veri setlerinin paylaşımı</li>
+								<li><strong>GitHub:</strong> Analiz kodları ve pipeline'ların paylaşımı</li>
+							</ul>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>Data visualization is the art of converting complex genomic data into visual forms that the human brain can understand. Good visualization makes thousands of rows of data comprehensible at a glance and is an effective communication tool for scientific findings.</p>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<hr class="major" />
+							<h2>Visualization with R — ggplot2</h2>
+							<p>ggplot2 is R's most powerful visualization package. Based on the "Grammar of Graphics" principle, it enables layer-by-layer chart construction.</p>
 
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menü</h2>
-								</header>
-								<ul>
-									<li><a href="../index.html">Anasayfa</a></li>										
-									<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-									<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-									<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-									<li><a href="python.html">R ve Python'a Giriş</a></li>
-									<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-									<li><a href="qc.html">Kalite Kontrol</a></li>
-									<li><a href="assembly.html">Assembly/Mapping </a></li>
-									<li><a href="annotation.html">Anotasyon </a></li>
-									<li><a href="visualization.html">Veri Görselleştirme</a></li>
-									<li><a href="about.html">Hakkında</a></li>
-									
-								</ul>
-							</nav>
+							<h3>Basic Usage</h3>
+							<pre><code>library(ggplot2)
 
+df <- data.frame(
+  organism = c("E. coli", "S. aureus", "K. pneumoniae", "P. aeruginosa"),
+  gc_ratio = c(50.8, 32.9, 57.2, 66.6),
+  genome_size_mb = c(5.1, 2.8, 5.5, 6.3)
+)
 
-							
+# Scatter plot
+ggplot(df, aes(x = gc_ratio, y = genome_size_mb, label = organism)) +
+  geom_point(size = 4, color = "steelblue") +
+  geom_text(vjust = -0.8, size = 3) +
+  labs(
+    title = "GC Content vs Genome Size",
+    x = "GC Content (%)",
+    y = "Genome Size (Mb)"
+  ) +
+  theme_minimal()</code></pre>
 
+							<h3>Heatmap</h3>
+							<pre><code>library(pheatmap)
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+set.seed(42)
+mat <- matrix(rnorm(100), nrow = 10,
+              dimnames = list(paste0("Gene", 1:10),
+                              paste0("Sample", 1:10)))
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+pheatmap(mat,
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         color = colorRampPalette(c("blue", "white", "red"))(50),
+         main = "Gene Expression Heatmap")</code></pre>
 
+							<h3>Phylogenetic Tree</h3>
+							<pre><code>library(ggtree)
+library(ape)
+
+tree <- read.tree("core.tree")
+
+ggtree(tree, branch.length = "branch.length") +
+  geom_tiplab(size = 3) +
+  theme_tree2() +
+  ggtitle("Core Genome Phylogenetic Tree")</code></pre>
+
+							<hr class="major" />
+							<h2>Visualization with Python</h2>
+
+							<h3>Matplotlib and Seaborn</h3>
+							<pre><code>import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+df = pd.DataFrame({
+    'organism': ['E. coli', 'S. aureus', 'K. pneumoniae'],
+    'gc_ratio': [50.8, 32.9, 57.2],
+    'resistance_genes': [5, 12, 8]
+})
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+ax1.bar(df['organism'], df['gc_ratio'], color='steelblue')
+ax1.set_title('GC Content')
+ax1.set_ylabel('GC (%)')
+ax1.tick_params(axis='x', rotation=45)
+
+sns.barplot(data=df, x='organism', y='resistance_genes',
+            palette='viridis', ax=ax2)
+ax2.set_title('Antimicrobial Resistance Gene Count')
+ax2.tick_params(axis='x', rotation=45)
+
+plt.tight_layout()
+plt.savefig('comparison.png', dpi=300, bbox_inches='tight')
+plt.show()</code></pre>
+
+							<hr class="major" />
+							<h2>Specialized Genomic Visualization Tools</h2>
+
+							<h3>Bandage — Assembly Graph Visualization</h3>
+							<p>Visually inspects the contig connection graph (GFA format) from genome assembly output. Used to identify repetitive regions and disconnected contigs.</p>
+
+							<h3>IGV (Integrative Genomics Viewer)</h3>
+							<p>Interactively visualizes BAM, VCF, and BED files. Ideal for examining the alignment of NGS reads to a reference genome.</p>
+							<ul>
+								<li>Free desktop application (igv.org)</li>
+								<li>Used to visually validate SNPs and indels</li>
+							</ul>
+
+							<h3>Artemis — Genomic Annotation Viewer</h3>
+							<p>Interactively views and edits annotations in GenBank and GFF formats.</p>
+
+							<hr class="major" />
+							<h2>FAIR Principles</h2>
+							<p>The FAIR principles provide an international framework for managing scientific data in a way that maximizes utility. Published in 2016 by Wilkinson et al.</p>
+
+							<div class="table-wrapper">
+								<table>
+									<thead><tr><th>Principle</th><th>Description</th></tr></thead>
+									<tbody>
+										<tr><td><strong>F — Findable</strong></td><td>Data must be assigned persistent, unique identifiers (DOI, accession number).</td></tr>
+										<tr><td><strong>A — Accessible</strong></td><td>Data should be accessible via standard protocols (HTTP, FTP).</td></tr>
+										<tr><td><strong>I — Interoperable</strong></td><td>Data should use standard formats and controlled vocabularies.</td></tr>
+										<tr><td><strong>R — Reusable</strong></td><td>Data should be published with an open license; methodology should be open-source.</td></tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h3>Recommended Platforms for Data Sharing</h3>
+							<ul>
+								<li><strong>NCBI SRA:</strong> Sharing raw NGS data</li>
+								<li><strong>NCBI GenBank:</strong> Sharing genome sequences and annotations</li>
+								<li><strong>Zenodo:</strong> General research data archiving (assigns DOI)</li>
+								<li><strong>figshare:</strong> Sharing figures, tables, and datasets</li>
+								<li><strong>GitHub:</strong> Sharing analysis code and pipelines</li>
+							</ul>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
