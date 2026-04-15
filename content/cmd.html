@@ -1,281 +1,398 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>Komut Satırına Giriş | Introduction to Command Line</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">Komut Satırına Giriş</span>
+								<span class="lang-en">Introduction to the Command Line</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p><strong>Kabuk (Shell)</strong>, bilgisayarınızı grafiksel bir arayüz (GUI) yerine yalnızca klavye ile kontrol etmenizi sağlayan bir komut satırı arabirimidir. İlk başta zor görünebilir; ancak kabuğa hakim olmanın biyoinformatik çalışmalar için birçok önemli nedeni vardır:</p>
+							<ul>
+								<li>Çoğu biyoinformatik programı yalnızca komut satırından çalıştırılabilir.</li>
+								<li>Kabuk, işinizi daha verimli ve tekrarlanabilir biçimde yapmanızı sağlar.</li>
+								<li>Bulut/HPC (Yüksek Performanslı Hesaplama) sunucularına yalnızca komut satırı üzerinden erişilir.</li>
+							</ul>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Komut Satırına Giriş</h1>
-									</header>
+							<hr class="major" />
+							<h2>Temel Komutlar</h2>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-<h2 id="komut-sat-r-na-giri-">Komut Satırına Giriş</h2>
-<h1 id="bash-scripting-ile-basit-otomasyon-ve-s-k-kullan-lan-komutlar">Bash Scripting ile Basit Otomasyon ve Sık Kullanılan Komutlar</h1>
-<h2 id="komut-sat-r-">Komut Satırı</h2>
-<p><strong>Kabuk</strong>, bilgisayarınızı bir grafik kullanıcı arabirimi (GUI) aracılığıyla kontrol etmek için farenizi ve klavyenizi kullanmak yerine bir klavye ile kontrol etmenizi sağlayan bir komut satırı arabirim programıdır. İlk başta garip ve zor görünebilir, ancak kabukta ustalaşmanın birçok nedeni vardır.</p>
-<ul>
-<li>Çoğu biyoinformatik programı yalnızca komut satırından çalıştırılabilir. Dolayısıyla, genomik veya transkriptomik çalışmak istiyorsanız kabuğa aşina olmanız gerekecektir.</li>
-<li><p>Kabuk, işinizi daha verimli ve daha hızlı yapmanız için size güç verir. Bu, tekrarlanabilir bir araştırma programı geliştirmeye yönelik ilk adımdır.</p>
-</li>
-<li><p>Bulut bilgisayarlarına yalnızca komut satırı arabirimleri üzerinden erişilebilir.</p>
-</li>
-</ul>
-<h2 id="man">man</h2>
-<p>Bu komut manual'in kısaltmasıdır. Bu komutu kullanarak herhangi bir program ya da komut ile ilgili yardım alabilirsiniz.</p>
-<pre><code class="lang-{.bash} hljs ">$ man whoami
-</code></pre>
-<h2 id="help">help</h2>
-<p>Help komutu kullanarak bir çok komut veya araç ile ilgili ayrıntılı bilgi alabilirsiniz. Kullanım örneği de aşağıdaki gibidir. </p>
-<pre><code class="lang-{.bash} hljs ">$ less --help
-</code></pre>
-<h2 id="ls">ls</h2>
-<p>komutu bulunduğunuz dizin içerisinde bulunan dosyları listelemeye yarar. Listelemek istediğiniz dosyada
-ekstra argümanlar kullanarak daha ayrıntılı bir listeleme yapabilirsiniz.</p>
-<pre><code class="lang-{.bash} hljs ">$ ls -l
-</code></pre>
-<h2 id="mkdir">mkdir</h2>
-<p>Bu komut size bulunduğunuz dizin içersinde klasör oluşturmaya yardımcı olan bir komuttur.
-Bu komutu kullanarak birden fazla klasörü aynı anda oluşturabilirsiniz.</p>
-<pre><code class="lang-{.bash} hljs ">$ mkdir klasör1 klasör2
-</code></pre>
-<h2 id="cd">cd</h2>
-<p>Bu komut "change directory" yani dizin değiştirmeye yarayan çok kullanılan komutlardan bir tanesidir. </p>
-<pre><code class="lang-{.bash} hljs ">$ cd klasör1
-</code></pre>
-<h2 id="pwd">pwd</h2>
-<p>Bu komut bulunduğunuz dizini ekrana yazdırmaya yarayan bir komuttur. </p>
-<pre><code class="lang-{.bash} hljs ">$ pwd
-</code></pre>
-<p>Çıktısı da şu şekilde olmaktadır. "home/user/Desktop/klasor1"</p>
-<h2 id="whoami">whoami</h2>
-<p>Bu komut ile o an işlem yaptığınız kullanıcının adını ekrana yazdırabilirsiniz.</p>
-<pre><code class="lang-{.bash} hljs ">$ whoami
-</code></pre>
-<h2 id="rm">rm</h2>
-<p>Bu komutu remove yani silme işlemi yapmaya yaramaktadır. Bu komut kullanılarak genellikle dosyalar silinebilmektedir.
-İsterseniz -r opsiyonunu kullanarak klasörleri de silebilirsiniz.</p>
-<pre><code class="lang-{.bash} hljs ">$ rm -r
-</code></pre>
-<h2 id="head">head</h2>
-<p>Bu komut herhangi bir dosya içerisinde bulunan bilgilerin en üst kısmında bulunan kısmını göremeyi sağlar.</p>
-<pre><code class="lang-{.bash} hljs ">$ head -<span class="hljs-number">5</span> dosyaadi.txt
-</code></pre>
-<ul>
-<li>Bu komut ile "dosyaadi.txt" dosyasının ilk 5 satırını önizleyebilirsiniz.</li>
-</ul>
-<h2 id="less">less</h2>
-<pre><code class="lang-{.bash} hljs ">$ less
-</code></pre>
-<h2 id="more">more</h2>
-<pre><code class="lang-{.bash} hljs ">$ less
-</code></pre>
-<h2 id="cat">cat</h2>
-<p>Bu komut ile herhangi bir dosya içerisinde bulunan tüm bilgiler kabuk ekranına yazdırılabilir.</p>
-<pre><code class="lang-{.bash} hljs ">$ cat
-</code></pre>
-<h2 id="touch">touch</h2>
-<p>Bu komutu kullanarak hızlı bir şekilde bir veya birden fazla dosya oluşturabilirsiniz.</p>
-<pre><code class="lang-{.bash} hljs ">$ touch
-</code></pre>
-<h2 id="cp">cp</h2>
-<p>Bu komutu kullanarak herhangi bir dosyayı kopyalayabilirsiniz. Bu kopyalama işlemi sonrası orjinal dosya silinmeyecektir.</p>
-<pre><code class="lang-{.bash} hljs ">$ cp dosya1.txt ../../hello_world
-</code></pre>
-<p>bu komut ile dosya1.txt dosyası iki üst klasörde bulunan "hello_world" klasörü içersine kopyalanır.</p>
-<h2 id="mv">mv</h2>
-<p>Bu komut ile iki işlem yapabilirsiniz. Bir tanesi adından da anlaşılacağı üzere move yani taşıma işlemi, diğeri de herhangi bir dosyanın adını değiştirmeye yaramaktadır. </p>
-<p>Taşıma için </p>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt ../../hello_world
-</code></pre>
-<p>İsim değiştirmek için</p>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<p>İki şekilde de kullanabilirsiniz.</p>
-<h2 id="chmod">chmod</h2>
-<h2 id="su">su</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="sudo">sudo</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="sudo-apt-update-sudo-apt-get-update">sudo apt update / sudo apt-get update</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="sudo-apt-upgrade-sudo-apt-get-upgrade">sudo apt upgrade / sudo apt-get upgrade</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="df">df</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="history">history</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="wget">wget</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="git">git</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="exit">exit</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="reboot">reboot</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="unzip">unzip</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="gunzip-gzip">gunzip / gzip</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="tar">tar</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="pd">pd</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="top-htop">top / htop</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h2 id="k-sayollar">Kısayollar</h2>
-<pre><code class="lang-{.bash} hljs ">$ mv dosya2.txt yeni_dosya.txt
-</code></pre>
-<h1 id="program-y-kleme">Program Yükleme</h1>
-<h2 id="programlar-nereden-bulabilirim-">Programları nereden bulabilirim?</h2>
-<h1 id="program-al-t-rma">Program Çalıştırma</h1>
-<h2 id="program-nas-l-al-t-r-l-r-">Program nasıl çalıştırılır?</h2>
-<h1 id="bash-scripts">Bash Scripts</h1>
-<p>echo'yu wc ile değiştirebilir ve çalıştırabilirsiniz.</p>
-<pre><code class="lang-{.bash} hljs "><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> *.fastq
-<span class="hljs-keyword">do</span>
-    wc <span class="hljs-variable">${file}</span>
-<span class="hljs-keyword">done</span>
-</code></pre>
-<pre><code class="lang-{.bash} hljs ">$ <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> *.zip
-&gt; <span class="hljs-keyword">do</span>
-&gt; unzip $filename
-&gt; done
-</code></pre>
-<h2 id="dosya-koleksiyonlar-yla-al-mak-artl-scriptler-conditionals-">Dosya koleksiyonlarıyla çalışmak; şartlı scriptler (conditionals)</h2>
-<pre><code class="lang-{.bash} hljs "><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> *
-<span class="hljs-keyword">do</span>
-   <span class="hljs-keyword">if</span> [ -f <span class="hljs-variable">$i</span> ]; <span class="hljs-keyword">then</span>
-      <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span> is a file
-   <span class="hljs-keyword">elif</span> [ -d <span class="hljs-variable">$i</span> ]; <span class="hljs-keyword">then</span>
-      <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span> is a directory
-   <span class="hljs-keyword">fi</span>
-   <span class="hljs-keyword">done</span>
-</code></pre>
-<h1 id="loops-d-ng-ler-">Loops (Döngüler)</h1>
-<p>Döngüler, komutları tekrar tekrar yürütmemize izin verdikleri için otomasyon yoluyla verimliliği gerçekten artırabilir. Joker karakterler ve sekme tamamlama gibi, döngüleri kullanmak da yazma miktarını (ve yazım hatalarını) azaltır.</p>
-<p>Bir sonraki bölümde, çok sayıda dosyaya bir şeyler yapan döngüler oluşturacağız.</p>
-<h2 id="bir-klas-r-i-erisinde-bulunan-t-m-dosyalar-n-ekrana-yazd-r-lmas-">bir klasör içerisinde bulunan tüm dosyaların ekrana yazdırılması.</h2>
-<pre><code class="lang-{.bash} hljs ">$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> sequence.*
-&gt; <span class="hljs-keyword">do</span>
-&gt;    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$i</span>
-&gt; <span class="hljs-keyword">done</span>
-</code></pre>
-<ul>
-<li>for kullanılarak herhangi bir döngüyü kendiniz de yaratabilirsiniz. Burada kullanılan <strong>i</strong> değişkeni standart olmamakla birlikte</li>
-<li>istediğiniz şekilde değiştirilebilmektedir.</li>
-</ul>
+							<h3>man — Yardım Kılavuzu</h3>
+							<p>Herhangi bir komut veya program hakkında ayrıntılı yardım almanızı sağlar.</p>
+							<pre><code>$ man ls</code></pre>
 
-									<hr class="major" />
+							<h3>ls — Dizin İçeriğini Listeleme</h3>
+							<p>Bulunduğunuz dizindeki dosya ve klasörleri listeler.</p>
+							<pre><code>$ ls          # Kısa liste
+$ ls -l       # Ayrıntılı liste (izinler, boyut, tarih)
+$ ls -lh      # Ayrıntılı liste, okunabilir boyutlarla
+$ ls -a       # Gizli dosyaları da göster</code></pre>
 
-								
-									
-								</section>
+							<h3>pwd — Bulunduğunuz Dizini Gösterme</h3>
+							<p>Mevcut çalışma dizininin tam yolunu ekrana yazdırır.</p>
+							<pre><code>$ pwd
+/home/kullanici/Desktop/proje</code></pre>
 
+							<h3>cd — Dizin Değiştirme</h3>
+							<p>Farklı bir dizine geçmek için kullanılır.</p>
+							<pre><code>$ cd klasor1          # klasor1'e gir
+$ cd ..               # Bir üst dizine çık
+$ cd ~                # Ana (home) dizine git
+$ cd /home/user/data  # Tam yol ile git</code></pre>
+
+							<h3>mkdir — Klasör Oluşturma</h3>
+							<pre><code>$ mkdir yeni_klasor
+$ mkdir -p proje/veri/ham   # İç içe klasör oluştur</code></pre>
+
+							<h3>touch — Dosya Oluşturma</h3>
+							<pre><code>$ touch dosya.txt
+$ touch seq1.fasta seq2.fasta</code></pre>
+
+							<h3>cp — Kopyalama</h3>
+							<pre><code>$ cp dosya.txt yedek.txt
+$ cp -r klasor/ yedek_klasor/   # Klasör kopyala</code></pre>
+
+							<h3>mv — Taşıma / Yeniden Adlandırma</h3>
+							<pre><code>$ mv dosya.txt yeni_isim.txt     # Yeniden adlandır
+$ mv dosya.txt ../diger_klasor/ # Taşı</code></pre>
+
+							<h3>rm — Silme</h3>
+							<pre><code>$ rm dosya.txt
+$ rm -r klasor/   # Klasör ve içeriğini sil (DİKKATLİ OLUN)</code></pre>
+
+							<h3>cat — Dosya İçeriğini Göster</h3>
+							<pre><code>$ cat sekans.fasta</code></pre>
+
+							<h3>head / tail — Dosyanın Başı/Sonu</h3>
+							<pre><code>$ head -10 reads.fastq   # İlk 10 satır
+$ tail -5 results.txt    # Son 5 satır</code></pre>
+
+							<h3>less — Sayfalı Görüntüleme</h3>
+							<pre><code>$ less buyuk_dosya.txt
+# Gezinti: ok tuşları, q ile çıkış</code></pre>
+
+							<h3>grep — Metin Arama</h3>
+							<pre><code>$ grep "ATCG" sekans.fasta
+$ grep -c ">" multi.fasta   # FASTA'daki dizi sayısını say</code></pre>
+
+							<h3>wc — Kelime/Satır Sayma</h3>
+							<pre><code>$ wc -l dosya.txt    # Satır sayısı
+$ wc -w dosya.txt    # Kelime sayısı</code></pre>
+
+							<h3>chmod — Dosya İzinlerini Değiştirme</h3>
+							<pre><code>$ chmod +x script.sh        # Çalıştırılabilir yap
+$ chmod 755 script.sh       # rwxr-xr-x izinleri</code></pre>
+
+							<h3>sudo — Yönetici Olarak Çalıştırma</h3>
+							<pre><code>$ sudo apt update           # Paket listesini güncelle
+$ sudo apt install fastqc   # Program yükle</code></pre>
+
+							<h3>df — Disk Kullanımı</h3>
+							<pre><code>$ df -h   # Disk kullanımını okunabilir biçimde göster</code></pre>
+
+							<h3>top / htop — Sistem Kaynakları</h3>
+							<pre><code>$ top     # Çalışan işlemleri göster
+$ htop    # Daha kullanışlı arayüz (kurulu ise)</code></pre>
+
+							<h3>history — Komut Geçmişi</h3>
+							<pre><code>$ history
+$ history | grep fastqc   # Geçmişte fastqc ile ilgili komutlar</code></pre>
+
+							<h3>wget / curl — İnternet'ten İndirme</h3>
+							<pre><code>$ wget https://example.com/dosya.tar.gz
+$ curl -O https://example.com/dosya.fasta</code></pre>
+
+							<h3>tar / gzip — Sıkıştırma ve Açma</h3>
+							<pre><code>$ tar -xzf arsiv.tar.gz       # .tar.gz aç
+$ tar -czf arsiv.tar.gz klasor/  # .tar.gz oluştur
+$ gunzip dosya.fastq.gz       # .gz aç
+$ gzip dosya.fastq            # .gz oluştur</code></pre>
+
+							<hr class="major" />
+							<h2>Bash Scriptleri</h2>
+							<p>Bash scriptleri, birden fazla komutu bir dosyada toplayarak otomatik olarak çalıştırmanızı sağlar. Biyoinformatik analizleri için tekrarlanabilir iş akışları oluşturmak açısından çok değerlidir.</p>
+
+							<h3>Basit Script Örneği</h3>
+							<pre><code>#!/bin/bash
+# Bu script FASTQ dosyalarını FastQC ile analiz eder
+for file in *.fastq
+do
+    echo "Analiz ediliyor: $file"
+    fastqc $file
+done
+echo "Tüm analizler tamamlandı."</code></pre>
+
+							<h3>Koşullu İfadeler (if/else)</h3>
+							<pre><code>for i in *
+do
+    if [ -f $i ]; then
+        echo "$i bir dosyadır"
+    elif [ -d $i ]; then
+        echo "$i bir klasördür"
+    fi
+done</code></pre>
+
+							<h3>Döngüler ile Toplu İşlem</h3>
+							<pre><code># Tüm .zip dosyalarını aç
+for filename in *.zip
+do
+    unzip $filename
+done
+
+# İki örnek grubunu karşılaştır
+for sample in sample1 sample2 sample3
+do
+    bwa mem ref.fasta ${sample}_R1.fastq ${sample}_R2.fastq > ${sample}.sam
+done</code></pre>
+
+							<hr class="major" />
+							<h2>Conda ile Program Yönetimi</h2>
+							<p>Biyoinformatik araçlarının çoğu Conda paket yöneticisi üzerinden kurulur.</p>
+							<pre><code># Conda ortamı oluştur
+conda create -n biyoinf python=3.9
+
+# Ortamı aktive et
+conda activate biyoinf
+
+# Program yükle
+conda install -c bioconda fastqc trimmomatic bwa samtools
+
+# Ortamı dışa aktar
+conda env export > ortam.yaml
+
+# Ortamı içe aktar
+conda env create -f ortam.yaml</code></pre>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>The <strong>shell</strong> is a command-line interface program that allows you to control your computer using only a keyboard, rather than through a graphical user interface (GUI). It may seem difficult at first; however, there are several important reasons for mastering the shell in bioinformatics:</p>
+							<ul>
+								<li>Most bioinformatics programs can only be run from the command line.</li>
+								<li>The shell enables you to do your work more efficiently and reproducibly.</li>
+								<li>Cloud/HPC (High-Performance Computing) servers are accessed only through the command line.</li>
+							</ul>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<hr class="major" />
+							<h2>Basic Commands</h2>
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menü</h2>
-									</header>
-									<ul>
-										<li><a href="../index.html">Anasayfa</a></li>										
-										<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-										<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-										<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-										<li><a href="python.html">R ve Python'a Giriş</a></li>
-										<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-										<li><a href="qc.html">Kalite Kontrol</a></li>
-										<li><a href="assembly.html">Assembly/Mapping </a></li>
-										<li><a href="annotation.html">Anotasyon </a></li>
-										<li><a href="visualization.html">Veri Görselleştirme, Analiz ve FAIR Prensipleri</a></li>
-										<li><a href="about.html">Hakkında</a></li>
-										
-									</ul>
-								</nav>
+							<h3>man — Manual Pages</h3>
+							<p>Provides detailed help about any command or program.</p>
+							<pre><code>$ man ls</code></pre>
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+							<h3>ls — List Directory Contents</h3>
+							<pre><code>$ ls          # Short list
+$ ls -l       # Detailed list (permissions, size, date)
+$ ls -lh      # Detailed list with human-readable sizes
+$ ls -a       # Show hidden files too</code></pre>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+							<h3>pwd — Print Working Directory</h3>
+							<pre><code>$ pwd
+/home/user/Desktop/project</code></pre>
 
+							<h3>cd — Change Directory</h3>
+							<pre><code>$ cd folder1          # Enter folder1
+$ cd ..               # Go up one directory
+$ cd ~                # Go to home directory
+$ cd /home/user/data  # Go to absolute path</code></pre>
+
+							<h3>mkdir — Make Directory</h3>
+							<pre><code>$ mkdir new_folder
+$ mkdir -p project/data/raw   # Create nested directories</code></pre>
+
+							<h3>touch — Create Empty File</h3>
+							<pre><code>$ touch file.txt
+$ touch seq1.fasta seq2.fasta</code></pre>
+
+							<h3>cp — Copy</h3>
+							<pre><code>$ cp file.txt backup.txt
+$ cp -r folder/ backup_folder/   # Copy directory</code></pre>
+
+							<h3>mv — Move / Rename</h3>
+							<pre><code>$ mv file.txt new_name.txt          # Rename
+$ mv file.txt ../other_folder/     # Move</code></pre>
+
+							<h3>rm — Remove</h3>
+							<pre><code>$ rm file.txt
+$ rm -r folder/   # Remove directory and contents (BE CAREFUL)</code></pre>
+
+							<h3>cat — Display File Contents</h3>
+							<pre><code>$ cat sequence.fasta</code></pre>
+
+							<h3>head / tail — First/Last Lines</h3>
+							<pre><code>$ head -10 reads.fastq   # First 10 lines
+$ tail -5 results.txt    # Last 5 lines</code></pre>
+
+							<h3>less — Paged Viewing</h3>
+							<pre><code>$ less large_file.txt
+# Navigate: arrow keys, q to quit</code></pre>
+
+							<h3>grep — Text Search</h3>
+							<pre><code>$ grep "ATCG" sequence.fasta
+$ grep -c ">" multi.fasta   # Count sequences in FASTA</code></pre>
+
+							<h3>wc — Word/Line Count</h3>
+							<pre><code>$ wc -l file.txt    # Line count
+$ wc -w file.txt    # Word count</code></pre>
+
+							<h3>chmod — Change File Permissions</h3>
+							<pre><code>$ chmod +x script.sh        # Make executable
+$ chmod 755 script.sh       # Set rwxr-xr-x permissions</code></pre>
+
+							<h3>sudo — Run as Administrator</h3>
+							<pre><code>$ sudo apt update           # Update package list
+$ sudo apt install fastqc   # Install program</code></pre>
+
+							<h3>df — Disk Usage</h3>
+							<pre><code>$ df -h   # Show disk usage in human-readable format</code></pre>
+
+							<h3>top / htop — System Resources</h3>
+							<pre><code>$ top     # Show running processes
+$ htop    # More user-friendly interface (if installed)</code></pre>
+
+							<h3>history — Command History</h3>
+							<pre><code>$ history
+$ history | grep fastqc   # Search history for fastqc commands</code></pre>
+
+							<h3>wget / curl — Download from Internet</h3>
+							<pre><code>$ wget https://example.com/file.tar.gz
+$ curl -O https://example.com/file.fasta</code></pre>
+
+							<h3>tar / gzip — Compression and Extraction</h3>
+							<pre><code>$ tar -xzf archive.tar.gz        # Extract .tar.gz
+$ tar -czf archive.tar.gz folder/  # Create .tar.gz
+$ gunzip file.fastq.gz           # Extract .gz
+$ gzip file.fastq                # Create .gz</code></pre>
+
+							<hr class="major" />
+							<h2>Bash Scripts</h2>
+							<p>Bash scripts allow you to combine multiple commands into a file and run them automatically. They are extremely valuable for creating reproducible workflows for bioinformatic analyses.</p>
+
+							<h3>Simple Script Example</h3>
+							<pre><code>#!/bin/bash
+# This script analyzes FASTQ files with FastQC
+for file in *.fastq
+do
+    echo "Analyzing: $file"
+    fastqc $file
+done
+echo "All analyses complete."</code></pre>
+
+							<h3>Conditional Statements (if/else)</h3>
+							<pre><code>for i in *
+do
+    if [ -f $i ]; then
+        echo "$i is a file"
+    elif [ -d $i ]; then
+        echo "$i is a directory"
+    fi
+done</code></pre>
+
+							<h3>Batch Processing with Loops</h3>
+							<pre><code># Extract all .zip files
+for filename in *.zip
+do
+    unzip $filename
+done
+
+# Process multiple samples
+for sample in sample1 sample2 sample3
+do
+    bwa mem ref.fasta ${sample}_R1.fastq ${sample}_R2.fastq > ${sample}.sam
+done</code></pre>
+
+							<hr class="major" />
+							<h2>Managing Software with Conda</h2>
+							<p>Most bioinformatics tools are installed via the Conda package manager.</p>
+							<pre><code># Create conda environment
+conda create -n bioinf python=3.9
+
+# Activate environment
+conda activate bioinf
+
+# Install tools
+conda install -c bioconda fastqc trimmomatic bwa samtools
+
+# Export environment
+conda env export > environment.yaml
+
+# Import environment
+conda env create -f environment.yaml</code></pre>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
