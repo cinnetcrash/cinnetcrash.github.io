@@ -1,117 +1,287 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>Kalite Kontrol | Quality Control</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">Kalite Kontrol</span>
+								<span class="lang-en">Quality Control</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p>NGS verilerini analiz etmeden önce ham okumaların kalitesini değerlendirmek ve düşük kaliteli bölgeleri temizlemek kritik öneme sahiptir. Bu adımı atlamak, downstream analizlerde (assembly, varyant tespiti, anotasyon) hatalı sonuçlara yol açar.</p>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Kalite Kontrol</h1>
-									</header>
+							<hr class="major" />
+							<h2>FastQC ile Kalite Değerlendirmesi</h2>
+							<p>FastQC, NGS verilerinin kalitesini görsel olarak değerlendiren en yaygın kullanılan araçtır. HTML formatında kapsamlı bir rapor üretir.</p>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+							<h3>Kurulum ve Çalıştırma</h3>
+							<pre><code># Conda ile kurulum
+conda install -c bioconda fastqc
 
-                                    <p> Anotasyon </p>
-									<hr class="major" />
+# Tek dosya analizi
+fastqc ornek_R1.fastq.gz
 
-									<h2>Komut Satırına Giriş</h2>
-									
-								</section>
+# Çoklu dosya analizi
+fastqc *.fastq.gz -o qc_sonuclari/ -t 8</code></pre>
 
+							<h3>FastQC Raporu — Temel Modüller</h3>
+							<ul>
+								<li><strong>Per base sequence quality:</strong> Her pozisyondaki Phred kalite skorlarının kutu grafikleri. Q30 çizgisinin altındaki pozisyonlar sorunlu kabul edilir.</li>
+								<li><strong>Per sequence quality scores:</strong> Tüm okumaların ortalama kalite dağılımı.</li>
+								<li><strong>Per base sequence content:</strong> Her pozisyonda A/T/G/C oranları. İlk 10-15 bazda dengesizlik normaldir (primer bölgesi).</li>
+								<li><strong>Per sequence GC content:</strong> Okumaların GC içeriği dağılımı. Çan eğrisinden sapma kontaminasyona işaret edebilir.</li>
+								<li><strong>Sequence length distribution:</strong> Okuma uzunluğu dağılımı.</li>
+								<li><strong>Sequence duplication levels:</strong> Tekrarlayan okuma oranları. Yüksek duplikasyon PCR artefaktını gösterebilir.</li>
+								<li><strong>Overrepresented sequences:</strong> Sık tekrarlayan diziler (adaptör kirlilik göstergesi olabilir).</li>
+								<li><strong>Adapter Content:</strong> Adaptör dizilerinin varlığı ve konumu.</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>MultiQC — Toplu Rapor</h2>
+							<p>Birden fazla örneğin FastQC raporlarını tek bir HTML dosyasında birleştirir. Büyük projelerde vazgeçilmezdir.</p>
+							<pre><code>conda install -c bioconda multiqc
+multiqc qc_sonuclari/</code></pre>
+
+							<hr class="major" />
+							<h2>Trimmomatic ile Adaptör Temizleme ve Kırpma</h2>
+							<p>Trimmomatic, Illumina verilerinde adaptör dizilerini ve düşük kaliteli bölgeleri kaldırmak için kullanılır.</p>
+
+							<h3>Temel Kullanım (Paired-End)</h3>
+							<pre><code>trimmomatic PE \
+    ornek_R1.fastq.gz ornek_R2.fastq.gz \
+    ornek_R1_temiz.fastq.gz ornek_R1_tek.fastq.gz \
+    ornek_R2_temiz.fastq.gz ornek_R2_tek.fastq.gz \
+    ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 \
+    LEADING:3 \
+    TRAILING:3 \
+    SLIDINGWINDOW:4:20 \
+    MINLEN:36</code></pre>
+
+							<h3>Parametreler</h3>
+							<ul>
+								<li><strong>ILLUMINACLIP:</strong> Adaptör dizisi dosyası ve eşleşme parametreleri</li>
+								<li><strong>LEADING:3</strong> — Baştan kalite &lt;3 olan bazları kes</li>
+								<li><strong>TRAILING:3</strong> — Sondan kalite &lt;3 olan bazları kes</li>
+								<li><strong>SLIDINGWINDOW:4:20</strong> — 4 bazlık pencerede ortalama kalite &lt;20 ise kes</li>
+								<li><strong>MINLEN:36</strong> — 36 bp'den kısa okumaları at</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>Fastp — Hızlı QC ve Temizleme</h2>
+							<p>Fastp, hem kalite değerlendirmesi hem de temizlemeyi tek adımda yapan modern ve hızlı bir araçtır.</p>
+							<pre><code>conda install -c bioconda fastp
+
+# Paired-end işleme
+fastp \
+    -i R1.fastq.gz -I R2.fastq.gz \
+    -o R1_temiz.fastq.gz -O R2_temiz.fastq.gz \
+    --html fastp_raporu.html \
+    --json fastp_raporu.json \
+    --thread 8 \
+    --qualified_quality_phred 20 \
+    --length_required 50</code></pre>
+
+							<hr class="major" />
+							<h2>Kalite Kontrol İş Akışı</h2>
+							<ol>
+								<li>Ham veriler üzerinde <strong>FastQC</strong> çalıştır → raporu incele</li>
+								<li>Sorun varsa <strong>Trimmomatic</strong> veya <strong>Fastp</strong> ile temizle</li>
+								<li>Temizlenmiş veriler üzerinde tekrar <strong>FastQC</strong> çalıştır</li>
+								<li><strong>MultiQC</strong> ile tüm örneklerin özetini çıkar</li>
+								<li>Geçen örnekleri downstream analizlere gönder</li>
+							</ol>
+
+							<hr class="major" />
+							<h2>Uzun Okumalar için QC (Nanopore/PacBio)</h2>
+							<p>Nanopore ve PacBio verileri için farklı araçlar kullanılır:</p>
+							<ul>
+								<li><strong>NanoPlot:</strong> Oxford Nanopore verilerinin kalite görselleştirmesi</li>
+								<li><strong>NanoFilt:</strong> Nanopore okumalarının filtrelenmesi ve kırpılması</li>
+								<li><strong>LongQC:</strong> Uzun okuma verileri için genel QC aracı</li>
+							</ul>
+							<pre><code># Nanopore QC
+conda install -c bioconda nanoplot nanofilt
+
+NanoPlot --fastq okumaları.fastq.gz --outdir nanoplot_sonuc/
+
+# Filtreleme: minimum Q8, minimum 1000 bp
+NanoFilt -q 8 -l 1000 okumaları.fastq.gz > temiz_okumaları.fastq</code></pre>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>Before analyzing NGS data, it is critically important to assess the quality of raw reads and clean up low-quality regions. Skipping this step leads to erroneous results in downstream analyses (assembly, variant detection, annotation).</p>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<hr class="major" />
+							<h2>Quality Assessment with FastQC</h2>
+							<p>FastQC is the most widely used tool for visually assessing the quality of NGS data. It produces a comprehensive report in HTML format.</p>
 
-							
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menü</h2>
-								</header>
-								<ul>
-									<li><a href="../index.html">Anasayfa</a></li>										
-									<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-									<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-									<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-									<li><a href="python.html">R ve Python'a Giriş</a></li>
-									<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-									<li><a href="qc.html">Kalite Kontrol</a></li>
-									<li><a href="assembly.html">Assembly/Mapping </a></li>
-									<li><a href="annotation.html">Anotasyon </a></li>
-									<li><a href="visualization.html">Veri Görselleştirme</a></li>
-									<li><a href="about.html">Hakkında</a></li>
-									
-								</ul>
-							</nav>
+							<h3>Installation and Usage</h3>
+							<pre><code># Install via Conda
+conda install -c bioconda fastqc
 
+# Single file analysis
+fastqc sample_R1.fastq.gz
 
-							
+# Multiple file analysis
+fastqc *.fastq.gz -o qc_results/ -t 8</code></pre>
 
+							<h3>FastQC Report — Key Modules</h3>
+							<ul>
+								<li><strong>Per base sequence quality:</strong> Box plots of Phred quality scores at each position. Positions below the Q30 line are considered problematic.</li>
+								<li><strong>Per sequence quality scores:</strong> Average quality distribution across all reads.</li>
+								<li><strong>Per base sequence content:</strong> A/T/G/C ratios at each position. Imbalance in the first 10–15 bases is normal (primer region).</li>
+								<li><strong>Per sequence GC content:</strong> GC content distribution of reads. Deviation from a bell curve may indicate contamination.</li>
+								<li><strong>Sequence length distribution:</strong> Read length distribution.</li>
+								<li><strong>Sequence duplication levels:</strong> Rate of duplicate reads. High duplication may indicate PCR artifacts.</li>
+								<li><strong>Overrepresented sequences:</strong> Frequently recurring sequences (may indicate adapter contamination).</li>
+								<li><strong>Adapter Content:</strong> Presence and position of adapter sequences.</li>
+							</ul>
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+							<hr class="major" />
+							<h2>MultiQC — Aggregate Report</h2>
+							<p>Combines FastQC reports from multiple samples into a single HTML file. Indispensable for large-scale projects.</p>
+							<pre><code>conda install -c bioconda multiqc
+multiqc qc_results/</code></pre>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+							<hr class="major" />
+							<h2>Adapter Trimming and Quality Clipping with Trimmomatic</h2>
+							<p>Trimmomatic is used to remove adapter sequences and low-quality regions from Illumina data.</p>
 
+							<h3>Basic Usage (Paired-End)</h3>
+							<pre><code>trimmomatic PE \
+    sample_R1.fastq.gz sample_R2.fastq.gz \
+    sample_R1_clean.fastq.gz sample_R1_unpaired.fastq.gz \
+    sample_R2_clean.fastq.gz sample_R2_unpaired.fastq.gz \
+    ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 \
+    LEADING:3 \
+    TRAILING:3 \
+    SLIDINGWINDOW:4:20 \
+    MINLEN:36</code></pre>
+
+							<h3>Parameters</h3>
+							<ul>
+								<li><strong>ILLUMINACLIP:</strong> Adapter sequence file and matching parameters</li>
+								<li><strong>LEADING:3</strong> — Cut bases from start with quality &lt;3</li>
+								<li><strong>TRAILING:3</strong> — Cut bases from end with quality &lt;3</li>
+								<li><strong>SLIDINGWINDOW:4:20</strong> — Cut if average quality in 4-base window drops below 20</li>
+								<li><strong>MINLEN:36</strong> — Drop reads shorter than 36 bp</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>Fastp — Fast QC and Trimming</h2>
+							<p>Fastp is a modern, fast tool that performs both quality assessment and trimming in a single step.</p>
+							<pre><code>conda install -c bioconda fastp
+
+# Paired-end processing
+fastp \
+    -i R1.fastq.gz -I R2.fastq.gz \
+    -o R1_clean.fastq.gz -O R2_clean.fastq.gz \
+    --html fastp_report.html \
+    --json fastp_report.json \
+    --thread 8 \
+    --qualified_quality_phred 20 \
+    --length_required 50</code></pre>
+
+							<hr class="major" />
+							<h2>Quality Control Workflow</h2>
+							<ol>
+								<li>Run <strong>FastQC</strong> on raw data → review the report</li>
+								<li>If issues found, clean with <strong>Trimmomatic</strong> or <strong>Fastp</strong></li>
+								<li>Run <strong>FastQC</strong> again on cleaned data</li>
+								<li>Summarize all samples with <strong>MultiQC</strong></li>
+								<li>Send passing samples to downstream analyses</li>
+							</ol>
+
+							<hr class="major" />
+							<h2>QC for Long Reads (Nanopore/PacBio)</h2>
+							<p>Different tools are used for Nanopore and PacBio data:</p>
+							<ul>
+								<li><strong>NanoPlot:</strong> Quality visualization for Oxford Nanopore data</li>
+								<li><strong>NanoFilt:</strong> Filtering and trimming of Nanopore reads</li>
+								<li><strong>LongQC:</strong> General QC tool for long-read data</li>
+							</ul>
+							<pre><code># Nanopore QC
+conda install -c bioconda nanoplot nanofilt
+
+NanoPlot --fastq reads.fastq.gz --outdir nanoplot_output/
+
+# Filter: minimum Q8, minimum 1000 bp
+NanoFilt -q 8 -l 1000 reads.fastq.gz > clean_reads.fastq</code></pre>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
