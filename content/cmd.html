@@ -10,7 +10,26 @@
 			.lang-btn:hover { background:rgba(255,255,255,0.15); }
 			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
 		</style>
-	</head>
+			<style id="module-styles">
+			.module-header{border-left:4px solid #c0392b;background:#fafafa;padding:1.2em 1.6em;margin-bottom:2em;border-radius:0 6px 6px 0}
+			.module-badge{display:inline-block;background:#c0392b;color:#fff;padding:.18em .7em;border-radius:3px;font-size:.8em;font-weight:700;letter-spacing:.06em;margin-right:.4em}
+			.level-badge{display:inline-block;padding:.18em .65em;border-radius:3px;font-size:.78em;font-weight:600}
+			.level-beginner{background:#e8f5e9;color:#2e7d32}
+			.level-intermediate{background:#fff3e0;color:#e65100}
+			.level-both{background:#e3f2fd;color:#1565c0}
+			.module-meta{font-size:.8em;color:#999;margin:.4em 0 .8em}
+			.obj-title{font-size:.82em;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:0 0 .4em}
+			.obj-list{margin:0;padding-left:1.4em}
+			.obj-list li{font-size:.88em;color:#444;margin-bottom:.25em;line-height:1.5}
+			.module-nav-bar{display:flex;justify-content:space-between;align-items:stretch;margin-top:3em;padding-top:1.5em;border-top:2px solid #f0f0f0;gap:.8em}
+			.module-nav-bar a{display:inline-flex;flex-direction:column;padding:.65em 1.1em;background:#f5f5f5;border-radius:5px;text-decoration:none;color:#333;min-width:130px;transition:background .2s}
+			.module-nav-bar a:hover{background:#c0392b;color:#fff}
+			.module-nav-bar .nav-next{text-align:right;margin-left:auto}
+			.nav-arrow{font-size:.72em;color:#aaa;letter-spacing:.04em;margin-bottom:.12em}
+			.nav-mod{font-size:.78em;font-weight:700}
+			.nav-title-text{font-size:.82em}
+		</style>
+		</head>
 	<body class="is-preload">
 		<div id="wrapper">
 			<div id="main">
@@ -364,18 +383,18 @@ conda env create -f environment.yaml</code></pre>
 					<nav id="menu">
 						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
 						<ul>
-							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
-							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
-							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
-							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
-							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
-							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
-							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
-							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
-							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
-							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
-						<li><a href="about.html"><span class="lang-tr">Hakkında</span><span class="lang-en">About</span></a></li>
-						</ul>
+								<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+								<li><a href="giris.html"><span class="lang-tr">M1 · Biyoinformatiğe Giriş</span><span class="lang-en">M1 · Intro to Bioinformatics</span></a></li>
+								<li><a href="cmd.html"><span class="lang-tr">M2 · Komut Satırı</span><span class="lang-en">M2 · Command Line</span></a></li>
+								<li><a href="python.html"><span class="lang-tr">M3 · Python ve R</span><span class="lang-en">M3 · Python and R</span></a></li>
+								<li><a href="veritab.html"><span class="lang-tr">M4 · Veritabanları</span><span class="lang-en">M4 · Databases</span></a></li>
+								<li><a href="sequence.html"><span class="lang-tr">M5 · Dizileme</span><span class="lang-en">M5 · Sequencing</span></a></li>
+								<li><a href="qc.html"><span class="lang-tr">M6 · Kalite Kontrol</span><span class="lang-en">M6 · Quality Control</span></a></li>
+								<li><a href="assembly.html"><span class="lang-tr">M7 · Assembly</span><span class="lang-en">M7 · Assembly</span></a></li>
+								<li><a href="annotation.html"><span class="lang-tr">M8 · Anotasyon</span><span class="lang-en">M8 · Annotation</span></a></li>
+								<li><a href="visualization.html"><span class="lang-tr">M9 · Görselleştirme</span><span class="lang-en">M9 · Visualization</span></a></li>
+								<li><a href="about.html"><span class="lang-tr">Hakkında</span><span class="lang-en">About</span></a></li>
+							</ul>
 					</nav>
 					<section>
 						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
