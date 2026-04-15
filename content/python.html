@@ -70,7 +70,7 @@ def gc_hesapla(dizi):
 dna = "ATGCGATCGATCG"
 print(f"GC oranı: {gc_hesapla(dna):.1f}%")</code></pre>
 
-							<h3>BioPython — Biyoinformatik Kütüphanesi</h3>
+							<h3><a href="https://biopython.org/" target="_blank" rel="noopener"><a href="https://biopython.org/" target="_blank" rel="noopener">BioPython</a></a> — Biyoinformatik Kütüphanesi</h3>
 							<p>BioPython, DNA/protein dizileri, FASTA dosyaları, veritabanı sorguları ve filogenetik analizler için kapsamlı araçlar sunar.</p>
 							<pre><code># BioPython kurulumu
 # conda install -c conda-forge biopython
@@ -95,7 +95,7 @@ handle = Entrez.efetch(db="nucleotide", id="MK033133", rettype="fasta")
 kayit = SeqIO.read(handle, "fasta")
 print(kayit.description)</code></pre>
 
-							<h3>Pandas — Veri Analizi</h3>
+							<h3><a href="https://pandas.pydata.org/" target="_blank" rel="noopener"><a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas</a></a> — Veri Analizi</h3>
 							<pre><code>import pandas as pd
 
 # CSV dosyası okuma
@@ -112,7 +112,7 @@ df.groupby("genus")["coverage"].mean()</code></pre>
 
 							<hr class="major" />
 							<h2>R ile Biyoinformatik</h2>
-							<p>R, istatistiksel hesaplamalar ve veri görselleştirme konusunda sektör standardı konumundadır. Bioconductor platformu, genomik analizler için binlerce özel paket barındırır.</p>
+							<p>R, istatistiksel hesaplamalar ve veri görselleştirme konusunda sektör standardı konumundadır. <a href="https://www.bioconductor.org/" target="_blank" rel="noopener">Bioconductor</a> platformu, genomik analizler için binlerce özel paket barındırır.</p>
 
 							<h3>Temel R Kavramları</h3>
 							<pre><code># Vektörler
@@ -138,7 +138,7 @@ gc_hesapla <- function(dizi) {
 
 gc_hesapla("ATGCGCTAGC")</code></pre>
 
-							<h3>ggplot2 — Görselleştirme</h3>
+							<h3><a href="https://ggplot2.tidyverse.org/" target="_blank" rel="noopener"><a href="https://ggplot2.tidyverse.org/" target="_blank" rel="noopener">ggplot2</a></a> — Görselleştirme</h3>
 							<pre><code>library(ggplot2)
 
 # Örnek veri
@@ -154,7 +154,7 @@ ggplot(df, aes(x = organizma, y = gc_orani, fill = organizma)) +
        x = "Organizma", y = "GC Oranı (%)") +
   theme_minimal()</code></pre>
 
-							<h3>Bioconductor — Genomik Analizler</h3>
+							<h3><a href="https://www.bioconductor.org/" target="_blank" rel="noopener"><a href="https://www.bioconductor.org/" target="_blank" rel="noopener">Bioconductor</a></a> — Genomik Analizler</h3>
 							<pre><code># Bioconductor kurulumu
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
@@ -168,7 +168,7 @@ width(diziler)          # Dizi uzunlukları
 letterFrequency(diziler, "GC")  # GC içeriği</code></pre>
 
 							<hr class="major" />
-							<h2>Jupyter Notebook</h2>
+							<h2><a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook</a></h2>
 							<p>Jupyter Notebook, Python ve R kodlarını, açıklamaları ve görselleştirmeleri tek bir belgede birleştirmenizi sağlayan etkileşimli bir platformdur. Biyoinformatik analizlerin tekrarlanabilir belgelenmesi için idealdir.</p>
 							<pre><code># Jupyter kurulumu
 conda install -c conda-forge jupyter
@@ -210,7 +210,7 @@ def calc_gc(sequence):
 dna = "ATGCGATCGATCG"
 print(f"GC content: {calc_gc(dna):.1f}%")</code></pre>
 
-							<h3>BioPython — Bioinformatics Library</h3>
+							<h3><a href="https://biopython.org/" target="_blank" rel="noopener"><a href="https://biopython.org/" target="_blank" rel="noopener">BioPython</a></a> — Bioinformatics Library</h3>
 							<p>BioPython provides comprehensive tools for DNA/protein sequences, FASTA files, database queries, and phylogenetic analyses.</p>
 							<pre><code># Install BioPython
 # conda install -c conda-forge biopython
@@ -235,7 +235,7 @@ handle = Entrez.efetch(db="nucleotide", id="MK033133", rettype="fasta")
 record = SeqIO.read(handle, "fasta")
 print(record.description)</code></pre>
 
-							<h3>Pandas — Data Analysis</h3>
+							<h3><a href="https://pandas.pydata.org/" target="_blank" rel="noopener"><a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas</a></a> — Data Analysis</h3>
 							<pre><code>import pandas as pd
 
 # Read CSV file
@@ -252,7 +252,7 @@ df.groupby("genus")["coverage"].mean()</code></pre>
 
 							<hr class="major" />
 							<h2>R for Bioinformatics</h2>
-							<p>R is the industry standard for statistical computing and data visualization. The Bioconductor platform hosts thousands of specialized packages for genomic analyses.</p>
+							<p>R is the industry standard for statistical computing and data visualization. The <a href="https://www.bioconductor.org/" target="_blank" rel="noopener">Bioconductor</a> platform hosts thousands of specialized packages for genomic analyses.</p>
 
 							<h3>Basic R Concepts</h3>
 							<pre><code># Vectors
@@ -278,7 +278,7 @@ calc_gc <- function(sequence) {
 
 calc_gc("ATGCGCTAGC")</code></pre>
 
-							<h3>ggplot2 — Visualization</h3>
+							<h3><a href="https://ggplot2.tidyverse.org/" target="_blank" rel="noopener"><a href="https://ggplot2.tidyverse.org/" target="_blank" rel="noopener">ggplot2</a></a> — Visualization</h3>
 							<pre><code>library(ggplot2)
 
 df <- data.frame(
@@ -292,7 +292,7 @@ ggplot(df, aes(x = organism, y = gc_ratio, fill = organism)) +
        x = "Organism", y = "GC Content (%)") +
   theme_minimal()</code></pre>
 
-							<h3>Bioconductor — Genomic Analyses</h3>
+							<h3><a href="https://www.bioconductor.org/" target="_blank" rel="noopener"><a href="https://www.bioconductor.org/" target="_blank" rel="noopener">Bioconductor</a></a> — Genomic Analyses</h3>
 							<pre><code># Install Bioconductor
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
@@ -306,7 +306,7 @@ width(sequences)                    # Sequence lengths
 letterFrequency(sequences, "GC")   # GC content</code></pre>
 
 							<hr class="major" />
-							<h2>Jupyter Notebook</h2>
+							<h2><a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook</a></h2>
 							<p>Jupyter Notebook is an interactive platform that allows you to combine Python and R code, explanations, and visualizations in a single document. It is ideal for reproducible documentation of bioinformatic analyses.</p>
 							<pre><code># Install Jupyter
 conda install -c conda-forge jupyter
