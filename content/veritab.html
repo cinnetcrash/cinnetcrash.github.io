@@ -1,140 +1,245 @@
 <!DOCTYPE HTML>
-<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+<html>
+	<head>
+		<title>Veritabanlarına Giriş | Introduction to Databases</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<style>
+			.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.4); color:rgba(255,255,255,0.75); padding:4px 10px; border-radius:4px; cursor:pointer; font-size:0.8em; font-weight:700; letter-spacing:0.1em; transition:all 0.2s ease; margin-left:4px; }
+			.lang-btn:hover { background:rgba(255,255,255,0.15); }
+			.lang-btn.active { background:rgba(255,255,255,0.25); color:#fff; border-color:rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+					<header id="header">
+						<a href="../index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+					<section>
+						<header class="main">
+							<h1>
+								<span class="lang-tr">Veritabanlarına Giriş</span>
+								<span class="lang-en">Introduction to Biological Databases</span>
+							</h1>
+						</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists </strong>by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+						<!-- TURKISH -->
+						<div class="lang-tr">
+							<p>Uygulamalı biyoinformatiğin temeli, dizileme sonucu elde edilen biyolojik verilerin saklanmasıdır. Uzun laboratuvar süreçleri sonucunda elde edilen büyük ölçekli dizileme verisinin uygun koşullarda saklanması ve herkesin ulaşabileceği, mümkünse web tabanlı veritabanlarında tutulması gerekmektedir.</p>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Veritabanlarına Giriş</h1>
-									</header>
+							<p>Veritabanları, veri niteliğine ve kullanım amaçlarına göre dört ana gruba ayrılmaktadır:</p>
+							<ul>
+								<li>Primer Veritabanları</li>
+								<li>Sekonder Veritabanları</li>
+								<li>Fenotip Veritabanları</li>
+								<li>Moleküler Yapı Veritabanları</li>
+							</ul>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-                                    <h2 id="002_veritabanlar-na-giri-">Veritabanlarına Giriş</h2>
-                                    <h2 id="biyolojik-veri-tabanlar-">Biyolojik Veri Tabanları</h2>
-                                    <p>Uygulamalı biyoinformatiğin temeli, dizileme sonucu elde edilen biyolojik verilerin saklanmasıdır. Uzun laboratuvar süreçleri sonucunda elde edilen büyük ölçekli dizileme verisinin uygun koşullarda saklanması ve herkesin ulaşabileceği mümkünse web tabanlı veritabanları olması gerekmektedir. Veritabanları, veri niteliğine ve kullanım amaçlarına göre 4’e ayrılmaktadır.</p>
-                                    <ul>
-                                    <li>Primer</li>
-                                    <li>Sekonder</li>
-                                    <li>Fenotip</li>
-                                    <li>Moleküler Yapı</li>
-                                    </ul>
-                                    <h3 id="1-primer-veritabanlar-">1- Primer Veritabanları</h3>
-                                    <p>Primer veritabanları, primer dizileme verilerini (nükleotid veya protein) anotasyon bilgilerini, bibliyografik verileri ve diğer referans veri tabanları ile bağlantıları içermektedir. Primer veritabanları nükleotid ve protein dizilerini içermek üzere ikiye ayrılmaktadır. </p>
-                                    <h3 id="2-sekonder-veritabanlar-">2- Sekonder Veritabanları</h3>
-                                    <p>Sekonder veritabanları, primer protein dizisi verilerinin analizi için kullanılmaktadır. Protein dizilerindeki korunmuş bölgelerin ve kısa protein dizilerinin proteinlerin fonkisyonları açısından önemli bir görevi bulunamktadır. Bu kapsamda motiflerin ve protein ailelerinin ve fonksiyonlarının belirlenmesi amacıyla sekonder veri tabanları kullanılabilmektedir. Bu veritabanları; Prosite (Hulo ve ark., 2006), PRINTS (Attwood ve ark., 1994), Pfam (El-Gebali ve ark., 2019), Interpro (Blum ve ark., 2020)’dur.</p>
-                                    <p>Links</p>
-                                    <h3 id="3-fenotip-ve-genotip-veritabanlar-">3- Fenotip ve Genotip Veritabanları</h3>
-                                    <p>Hedeflendirilmiş akılcı ilaç tasarımları için hastalıkları oluşturan genler ve bu genlerin hastalıkla ilişkilendirilmesi, bunun yanında genlerin üretiminden sorumlu olduğu proteinlerin de belirlenmesi gerekmektedir. Bu ilişkinin tanımlanması, organizmalar ile biyolojik özelliklerin kayıt altına alınması adına Fenotip ve Genotip veritabanları kullanılmaktadır. Bu amaçla kullanılan veritabanı PhenomicDB’dir.</p>
-                                    <p>Links</p>
-                                    <h3 id="4-molek-ler-yap-veritabanlar-">4- Moleküler Yapı Veritabanları</h3>
-                                    <p>Moleküler yapı veritabanları, makromoleküllerin, 3 boyutlu modellerinin, kristal yapılarının ve yoğunluklu olarak da proteinlerin saklandığı veritabanlarıdır. Proteinlerin biyolojik fonksiyonlarının belirli yapısal organizasyonlardan ileri gelmesi, bilinmeyen ve yeni oluşturulan/geliştirilen protein yapıları ile ilgili varsayımlarda bulunabilmeyi sağlamaktadır. Bu kapsamda en çok kullanılan veritabanları; Protein Data Bank, SCOP, CATH, PubChem’dir.</p>
-                                    <p>Links</p>
-                                    <h2 id="dizi-kar-la-t-rma-ve-dizi-arama-veritabanlar-">Dizi Karşılaştırma ve Dizi Arama Veritabanları</h2>
-                                    <p>Genomik, proteomik ve sekretoma kadar birden fazla veri tipinin birbirleriyle ilişkisinin incelenmesi tamamiyle omik bilimi olarak adlandırılmaktadır. Örneğin “transkriptom” terimi bir organizmada bulunan bütün RNA transkriptlerini ifade etmektedir. Son yıllarda bu verilerin içerisine epigenetik modifikasyon verisi de eklenmiş ve birçok farklı veri tipi oluşmuştur. Bu verilerin 0 ve 1’lerin olduğu bilgisayar ortamında ifade edilmesi için farklı dosya formatları ve isimleri kullanılmaktadır. Günümüzde en çok kullanılan veri formatı FASTA formatıdır. Her ne kadar farklı veritabanları kendi dosya formatlarını kullansalar da Bilgi Değişimi için Amerikan Standart Kodu (ASCII)’ye dayalı FASTA formatı geniş kullanım alanı bulmaktadır.</p>
-                                    <p>Dizi karşılaştırması yapabilmek için elimizde bulunan herhangi bir sekanslama verisinin FASTA (“fast all”) formatında olması gerekmektedir. FASTA formatı, “&gt;” işareti ile başlar ve sonrasında sekans verisine ait belirleyici bazı bilgileri içermektedir. FASTA formatına örnek Şekil 6’da verilmiştir. FASTA formatının kullanılmadığı durumlarda ya da formatlar arası değişim yapma gereği olduğunda “Readseq” çevrimiçi aracı kullanılabilmektedir. Readseq,  GenBank, EMBL, FASTA, CLUSTAL, PHYLIP (Filogenetik Çıkarım Paketi)’ın da dâhil olduğu 19 formatı desteklemektedir. </p>
-                                    <h3 id="pairwise-ikili-ve-multiple-dizi-kar-la-t-rma">Pairwise (ikili) ve Multiple Dizi Karşılaştırma</h3>
-                                    <p>Proteinlerin ve nükleotid dizilerinin karşılaştırılması biyoinformatikte en çok başvurulan yöntemlerden biridir. Nükleotid ve protein yapılarının analizi ve 3 boyutlu yapıların keşfedilmesi, bulunan genlerin ekspresyon analizlerinin yapılması için birbirlerine benzer olan dizilerin birbirleri ile karşılaştırılması gerekmektedir. Karşılaştırmadaki farkların analiz edilmesi bu profillerin sağlıklı bir şekilde modellenmesine olanak sağlamaktadır. Örneğin bir nükleotid ya da protein dizisindeki bir değişim farklı bir protein sentezine sebep olabilmektedir. Bu kapsamda da birden fazla genomun aynı anda karşılaştırılması ve aralarındaki farkların ortaya konması büyük önem arz etmektedir.</p>
-                                    <p>Nükleotid dizilerini birbiri ile karşılaştırmadan önce bazı terimlerin tanımlanması gerekmektedir. Bunlardan ilki “homolog”dir. Homoloji benzerlik ölçütünden ziyade tarihsel ve evrimsel süreçteki benzerliği ifade etmektedir. Bir proteinin farklı organizmalardaki karşılıkları “Ortholog”, aynı organizmadaki farklı görevler barındıran protein yapılarına da “paralog” adı verilmektedir. </p>
-                                    <p>Dizi hizalama algoritmaları basit anlamıyla satırlarda organizmaları, sütunlarda karakter benzerliklerini temel almaktadır. Karşılığı bulunmayan nükleotidleri ve aminoasitleri temsil etmek için “-“ işareti kullanılmaktadır. Basit ya da birden fazla olabilen hizalama algoritmaları bir skorlama sistemi geliştirilmiştir. Bu skorlama sistemlerinden en çok kullanılanlardan bir tanesi PAM (Nokta Mutasyonu Hedefli) diğeri de BLOSUM (Blok Değişim Matrisi)’dur. Skorlama sistemlerindeki puanın yüksek olması en olası hizalamayı temsil etmektedir. Hizalamanın “Local” olması küçük bölgelerde bulunan benzerliklere odaklı Needleman-Wunsch algoritmasını, “Global” olması da tüm genom ya da protein dizileri dikkate alınarak yapılan Smith-Waterman hizalama algoritmasını tanımlama amacıyla kullanılır. </p>
-									<hr class="major" />
+							<hr class="major" />
+							<h2>1. Primer Veritabanları</h2>
+							<p>Primer veritabanları, dizileme çalışmalarından doğrudan elde edilen ham nükleotid veya protein dizisi verilerini, anotasyon bilgilerini, bibliyografik verileri ve diğer referans veritabanları ile bağlantıları içermektedir.</p>
 
-									
-								</section>
+							<h3>Nükleotid Veritabanları</h3>
+							<ul>
+								<li><strong>NCBI GenBank:</strong> Dünya genelindeki tüm nükleotid dizi verilerini barındıran kapsamlı veritabanı. <em>ncbi.nlm.nih.gov/genbank</em></li>
+								<li><strong>EMBL-EBI ENA (European Nucleotide Archive):</strong> Avrupa merkezli nükleotid arşivi. <em>ebi.ac.uk/ena</em></li>
+								<li><strong>DDBJ (DNA Data Bank of Japan):</strong> Japonya merkezli nükleotid veritabanı. <em>ddbj.nig.ac.jp</em></li>
+							</ul>
+							<p>Bu üç veritabanı, INSDC (International Nucleotide Sequence Database Collaboration) çatısı altında verilerini karşılıklı olarak senkronize eder; bir veritabanına yüklenen veri otomatik olarak diğerlerine de aktarılır.</p>
 
+							<h3>Protein Veritabanları</h3>
+							<ul>
+								<li><strong>UniProt/Swiss-Prot:</strong> Manuel kürasyon yapılmış, yüksek kaliteli protein dizisi veritabanı.</li>
+								<li><strong>UniProt/TrEMBL:</strong> Otomatik olarak anotasyonu yapılmış protein dizileri.</li>
+								<li><strong>NCBI RefSeq:</strong> Referans dizileri içeren, kürasyon yapılmış protein veritabanı.</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>2. Sekonder Veritabanları</h2>
+							<p>Sekonder veritabanları, primer protein dizisi verilerinin analizi sonucunda elde edilen türetilmiş bilgileri içerir. Protein dizilerindeki korunmuş bölgeler, motifler ve protein aileleri bu veritabanlarında sınıflandırılır.</p>
+							<ul>
+								<li><strong>Pfam:</strong> Protein ailelerini ve etki alanlarını içeren veritabanı (El-Gebali ve ark., 2019). <em>pfam.xfam.org</em></li>
+								<li><strong>InterPro:</strong> Birden fazla sekonder veritabanını entegre eden meta-veritabanı (Blum ve ark., 2020). <em>ebi.ac.uk/interpro</em></li>
+								<li><strong>PROSITE:</strong> Protein motiflerini ve desenleri içeren veritabanı (Hulo ve ark., 2006).</li>
+								<li><strong>PRINTS:</strong> Protein parmak izi veritabanı (Attwood ve ark., 1994).</li>
+								<li><strong>TIGRFAM:</strong> Protein aileleri için HMM profilleri içeren veritabanı.</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>3. Fenotip Veritabanları</h2>
+							<p>Fenotip veritabanları, organizmaların gözlemlenebilir özelliklerini (fenotip) genetik verileriyle ilişkilendiren kaynaklardır.</p>
+							<ul>
+								<li><strong>OMIM (Online Mendelian Inheritance in Man):</strong> İnsan genetik hastalıkları ve fenotiplerini içerir.</li>
+								<li><strong>MeSH (Medical Subject Headings):</strong> Medikal terminoloji ve fenotip sınıflandırması.</li>
+								<li><strong>PATRIC:</strong> Bakteriyel fenotip ve genomik verileri bir araya getiren platform.</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>4. Moleküler Yapı Veritabanları</h2>
+							<p>Proteinlerin, nükleik asitlerin ve diğer biyomoleküllerin üç boyutlu yapılarını içeren veritabanlarıdır.</p>
+							<ul>
+								<li><strong>PDB (Protein Data Bank):</strong> Dünya genelinde X-ray kristallografi, NMR ve cryo-EM ile belirlenen 3D protein yapılarını barındıran temel veritabanı. <em>rcsb.org</em></li>
+								<li><strong>AlphaFold Protein Structure Database:</strong> DeepMind tarafından geliştirilen yapay zeka tabanlı protein yapısı tahmin veritabanı. <em>alphafold.ebi.ac.uk</em></li>
+							</ul>
+
+							<hr class="major" />
+							<h2>NCBI Araçları</h2>
+							<p>NCBI (National Center for Biotechnology Information), biyoinformatik araştırmacıların en sık kullandığı merkezi platform olup birden fazla araç ve veritabanı barındırmaktadır:</p>
+							<ul>
+								<li><strong>BLAST (Basic Local Alignment Search Tool):</strong> Dizi benzerliği aramak için kullanılan temel araç.</li>
+								<li><strong>Entrez:</strong> NCBI veritabanlarını birbirine bağlayan arama motoru.</li>
+								<li><strong>SRA (Sequence Read Archive):</strong> Ham NGS okumaları arşivi.</li>
+								<li><strong>RefSeq:</strong> Referans dizi veritabanı.</li>
+								<li><strong>Taxonomy:</strong> Organizmaların taksonomik sınıflandırma veritabanı.</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>Özel Mikrobiyoloji Veritabanları</h2>
+							<ul>
+								<li><strong>CARD (Comprehensive Antibiotic Resistance Database):</strong> Antimikrobiyal direnç genlerini içerir. <em>card.mcmaster.ca</em></li>
+								<li><strong>VFDB (Virulence Factor Database):</strong> Bakteri virülans faktörlerini içerir.</li>
+								<li><strong>PHASTER:</strong> Faj dizisi ve anotasyon veritabanı.</li>
+								<li><strong>ICTV (International Committee on Taxonomy of Viruses):</strong> Resmi virüs taksonomi veritabanı.</li>
+								<li><strong>IMG/M:</strong> JGI metagenomik veri platformu.</li>
+							</ul>
 						</div>
-					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+						<!-- ENGLISH -->
+						<div class="lang-en">
+							<p>The foundation of applied bioinformatics is the storage of biological data obtained from sequencing. Large-scale sequencing data obtained from lengthy laboratory processes must be stored under appropriate conditions and kept in databases — preferably web-based — that are accessible to everyone.</p>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+							<p>Databases are divided into four main groups according to data type and intended use:</p>
+							<ul>
+								<li>Primary Databases</li>
+								<li>Secondary Databases</li>
+								<li>Phenotype Databases</li>
+								<li>Molecular Structure Databases</li>
+							</ul>
 
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menü</h2>
-								</header>
-								<ul>
-									<li><a href="../index.html">Anasayfa</a></li>										
-									<li><a href="giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-									<li><a href="veritab.html">Veritabanlarına Giriş</a></li>
-									<li><a href="cmd.html">Komut Satırına Giriş</a></li>
-									<li><a href="python.html">R ve Python'a Giriş</a></li>
-									<li><a href="sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-									<li><a href="qc.html">Kalite Kontrol</a></li>
-									<li><a href="assembly.html">Assembly/Mapping </a></li>
-									<li><a href="annotation.html">Anotasyon </a></li>
-									<li><a href="visualization.html">Veri Görselleştirme</a></li>
-									<li><a href="about.html">Hakkında</a></li>
-									
-								</ul>
-							</nav>
+							<hr class="major" />
+							<h2>1. Primary Databases</h2>
+							<p>Primary databases contain raw nucleotide or protein sequence data obtained directly from sequencing studies, along with annotation information, bibliographic data, and links to other reference databases.</p>
 
+							<h3>Nucleotide Databases</h3>
+							<ul>
+								<li><strong>NCBI GenBank:</strong> A comprehensive database housing all nucleotide sequence data worldwide. <em>ncbi.nlm.nih.gov/genbank</em></li>
+								<li><strong>EMBL-EBI ENA (European Nucleotide Archive):</strong> Europe-based nucleotide archive. <em>ebi.ac.uk/ena</em></li>
+								<li><strong>DDBJ (DNA Data Bank of Japan):</strong> Japan-based nucleotide database. <em>ddbj.nig.ac.jp</em></li>
+							</ul>
+							<p>These three databases synchronize their data under the INSDC (International Nucleotide Sequence Database Collaboration); data uploaded to one database is automatically transferred to the others.</p>
 
-							
+							<h3>Protein Databases</h3>
+							<ul>
+								<li><strong>UniProt/Swiss-Prot:</strong> Manually curated, high-quality protein sequence database.</li>
+								<li><strong>UniProt/TrEMBL:</strong> Automatically annotated protein sequences.</li>
+								<li><strong>NCBI RefSeq:</strong> Curated protein database containing reference sequences.</li>
+							</ul>
 
-							
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat Bilgileri</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">No Phone Number</li>
-										<li class="icon solid fa-home">Yenimahalle<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
+							<hr class="major" />
+							<h2>2. Secondary Databases</h2>
+							<p>Secondary databases contain derived information obtained from analysis of primary protein sequence data. Conserved regions, motifs, and protein families in protein sequences are classified in these databases.</p>
+							<ul>
+								<li><strong>Pfam:</strong> Database of protein families and domains (El-Gebali et al., 2019). <em>pfam.xfam.org</em></li>
+								<li><strong>InterPro:</strong> A meta-database integrating multiple secondary databases (Blum et al., 2020). <em>ebi.ac.uk/interpro</em></li>
+								<li><strong>PROSITE:</strong> Database of protein motifs and patterns (Hulo et al., 2006).</li>
+								<li><strong>PRINTS:</strong> Protein fingerprint database (Attwood et al., 1994).</li>
+								<li><strong>TIGRFAM:</strong> Database containing HMM profiles for protein families.</li>
+							</ul>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Unsplash</a>. Design: HTML5 </a>.</p>
-								</footer>
+							<hr class="major" />
+							<h2>3. Phenotype Databases</h2>
+							<p>Phenotype databases associate the observable characteristics (phenotype) of organisms with their genetic data.</p>
+							<ul>
+								<li><strong>OMIM (Online Mendelian Inheritance in Man):</strong> Contains human genetic diseases and phenotypes.</li>
+								<li><strong>MeSH (Medical Subject Headings):</strong> Medical terminology and phenotype classification.</li>
+								<li><strong>PATRIC:</strong> Platform combining bacterial phenotype and genomic data.</li>
+							</ul>
 
+							<hr class="major" />
+							<h2>4. Molecular Structure Databases</h2>
+							<p>These databases contain three-dimensional structures of proteins, nucleic acids, and other biomolecules.</p>
+							<ul>
+								<li><strong>PDB (Protein Data Bank):</strong> The primary database housing 3D protein structures determined worldwide by X-ray crystallography, NMR, and cryo-EM. <em>rcsb.org</em></li>
+								<li><strong>AlphaFold Protein Structure Database:</strong> AI-based protein structure prediction database developed by DeepMind. <em>alphafold.ebi.ac.uk</em></li>
+							</ul>
+
+							<hr class="major" />
+							<h2>NCBI Tools</h2>
+							<p>NCBI (National Center for Biotechnology Information) is the central platform most frequently used by bioinformatics researchers, hosting multiple tools and databases:</p>
+							<ul>
+								<li><strong>BLAST (Basic Local Alignment Search Tool):</strong> The primary tool for searching sequence similarity.</li>
+								<li><strong>Entrez:</strong> The search engine connecting NCBI databases to each other.</li>
+								<li><strong>SRA (Sequence Read Archive):</strong> Archive for raw NGS reads.</li>
+								<li><strong>RefSeq:</strong> Reference sequence database.</li>
+								<li><strong>Taxonomy:</strong> Taxonomic classification database for organisms.</li>
+							</ul>
+
+							<hr class="major" />
+							<h2>Specialized Microbiology Databases</h2>
+							<ul>
+								<li><strong>CARD (Comprehensive Antibiotic Resistance Database):</strong> Contains antimicrobial resistance genes. <em>card.mcmaster.ca</em></li>
+								<li><strong>VFDB (Virulence Factor Database):</strong> Contains bacterial virulence factors.</li>
+								<li><strong>PHASTER:</strong> Phage sequence and annotation database.</li>
+								<li><strong>ICTV (International Committee on Taxonomy of Viruses):</strong> Official virus taxonomy database.</li>
+								<li><strong>IMG/M:</strong> JGI metagenomic data platform.</li>
+							</ul>
 						</div>
-					</div>
 
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2></header>
+						<ul>
+							<li><a href="../index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Gültekin Ünal. All rights reserved.</p></footer>
+				</div>
+			</div>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/lang.js"></script>
 	</body>
 </html>
-
-
-
