@@ -115,10 +115,10 @@ fastp \
 							<hr class="major" />
 							<h2>Kalite Kontrol İş Akışı</h2>
 							<ol>
-								<li>Ham veriler üzerinde <strong>FastQC</strong> çalıştır → raporu incele</li>
-								<li>Sorun varsa <strong>Trimmomatic</strong> veya <strong>Fastp</strong> ile temizle</li>
+								<li>Ham veriler üzerinde <strong><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank" rel="noopener">FastQC</a></strong> çalıştır → raporu incele</li>
+								<li>Sorun varsa <strong><a href="http://www.usadellab.org/cms/?page=trimmomatic" target="_blank" rel="noopener">Trimmomatic</a></strong> veya <strong><a href="https://github.com/OpenGene/fastp" target="_blank" rel="noopener">Fastp</a></strong> ile temizle</li>
 								<li>Temizlenmiş veriler üzerinde tekrar <strong>FastQC</strong> çalıştır</li>
-								<li><strong>MultiQC</strong> ile tüm örneklerin özetini çıkar</li>
+								<li><strong><a href="https://multiqc.info/" target="_blank" rel="noopener">MultiQC</a></strong> ile tüm örneklerin özetini çıkar</li>
 								<li>Geçen örnekleri downstream analizlere gönder</li>
 							</ol>
 
@@ -126,9 +126,9 @@ fastp \
 							<h2>Uzun Okumalar için QC (Nanopore/PacBio)</h2>
 							<p>Nanopore ve PacBio verileri için farklı araçlar kullanılır:</p>
 							<ul>
-								<li><strong>NanoPlot:</strong> Oxford Nanopore verilerinin kalite görselleştirmesi</li>
-								<li><strong>NanoFilt:</strong> Nanopore okumalarının filtrelenmesi ve kırpılması</li>
-								<li><strong>LongQC:</strong> Uzun okuma verileri için genel QC aracı</li>
+								<li><strong><a href="https://github.com/wdecoster/NanoPlot" target="_blank" rel="noopener">NanoPlot</a>:</strong> Oxford Nanopore verilerinin kalite görselleştirmesi</li>
+								<li><strong><a href="https://github.com/wdecoster/nanofilt" target="_blank" rel="noopener">NanoFilt</a>:</strong> Nanopore okumalarının filtrelenmesi ve kırpılması</li>
+								<li><strong><a href="https://github.com/yfukasawa/LongQC" target="_blank" rel="noopener">LongQC</a>:</strong> Uzun okuma verileri için genel QC aracı</li>
 							</ul>
 							<pre><code># Nanopore QC
 conda install -c bioconda nanoplot nanofilt
@@ -217,10 +217,10 @@ fastp \
 							<hr class="major" />
 							<h2>Quality Control Workflow</h2>
 							<ol>
-								<li>Run <strong>FastQC</strong> on raw data → review the report</li>
-								<li>If issues found, clean with <strong>Trimmomatic</strong> or <strong>Fastp</strong></li>
+								<li>Run <strong><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank" rel="noopener">FastQC</a></strong> on raw data → review the report</li>
+								<li>If issues found, clean with <strong><a href="http://www.usadellab.org/cms/?page=trimmomatic" target="_blank" rel="noopener">Trimmomatic</a></strong> or <strong><a href="https://github.com/OpenGene/fastp" target="_blank" rel="noopener">Fastp</a></strong></li>
 								<li>Run <strong>FastQC</strong> again on cleaned data</li>
-								<li>Summarize all samples with <strong>MultiQC</strong></li>
+								<li>Summarize all samples with <strong><a href="https://multiqc.info/" target="_blank" rel="noopener">MultiQC</a></strong></li>
 								<li>Send passing samples to downstream analyses</li>
 							</ol>
 
@@ -228,9 +228,9 @@ fastp \
 							<h2>QC for Long Reads (Nanopore/PacBio)</h2>
 							<p>Different tools are used for Nanopore and PacBio data:</p>
 							<ul>
-								<li><strong>NanoPlot:</strong> Quality visualization for Oxford Nanopore data</li>
-								<li><strong>NanoFilt:</strong> Filtering and trimming of Nanopore reads</li>
-								<li><strong>LongQC:</strong> General QC tool for long-read data</li>
+								<li><strong><a href="https://github.com/wdecoster/NanoPlot" target="_blank" rel="noopener">NanoPlot</a>:</strong> Quality visualization for Oxford Nanopore data</li>
+								<li><strong><a href="https://github.com/wdecoster/nanofilt" target="_blank" rel="noopener">NanoFilt</a>:</strong> Filtering and trimming of Nanopore reads</li>
+								<li><strong><a href="https://github.com/yfukasawa/LongQC" target="_blank" rel="noopener">LongQC</a>:</strong> General QC tool for long-read data</li>
 							</ul>
 							<pre><code># Nanopore QC
 conda install -c bioconda nanoplot nanofilt
