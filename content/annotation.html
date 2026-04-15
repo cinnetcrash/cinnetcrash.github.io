@@ -49,7 +49,7 @@
 							</ul>
 
 							<hr class="major" />
-							<h2>Prokka — Prokaryotik Anotasyon</h2>
+							<h2><a href="https://github.com/tseemann/prokka" target="_blank" rel="noopener">Prokka</a> — Prokaryotik Anotasyon</h2>
 							<p>Prokka, bakteriyel ve arkeyal genomları hızla anotasyon yapabilen açık kaynaklı bir araçtır. Yapısal ve fonksiyonel anotasyonu otomatik olarak gerçekleştirir ve GenBank/EMBL yükleme formatlarını üretir.</p>
 
 							<pre><code>conda install -c bioconda prokka
@@ -65,7 +65,7 @@ prokka \
     --rfam \
     --kingdom Bacteria</code></pre>
 
-							<h3>Prokka Çıktıları</h3>
+							<h3><a href="https://github.com/tseemann/prokka" target="_blank" rel="noopener"><a href="https://github.com/tseemann/prokka" target="_blank" rel="noopener">Prokka</a></a> Çıktıları</h3>
 							<ul>
 								<li><strong>.gff</strong> — Gene Feature Format (anotasyon koordinatları)</li>
 								<li><strong>.gbk</strong> — GenBank formatı (NCBI yükleme için)</li>
@@ -76,7 +76,7 @@ prokka \
 							</ul>
 
 							<hr class="major" />
-							<h2>RAST — Sunucu Tabanlı Anotasyon</h2>
+							<h2><a href="https://rast.nmpdr.org/" target="_blank" rel="noopener">RAST</a> — Sunucu Tabanlı Anotasyon</h2>
 							<p>RAST (Rapid Annotation using Subsystem Technology), SEED veritabanını kullanan çevrimiçi bir prokaryotik anotasyon sunucusudur. Özellikle metabolik yol anotasyonları için güçlüdür.</p>
 							<ul>
 								<li>Web arayüzü: rast.nmpdr.org</li>
@@ -85,7 +85,7 @@ prokka \
 							</ul>
 
 							<hr class="major" />
-							<h2>NCBI PGAP — Resmi Anotasyon Boru Hattı</h2>
+							<h2><a href="https://github.com/ncbi/pgap" target="_blank" rel="noopener">NCBI PGAP</a> — Resmi Anotasyon Boru Hattı</h2>
 							<p>NCBI Prokaryotic Genome Annotation Pipeline (PGAP), NCBI GenBank'a gönderilecek genomlar için resmi anotasyon aracıdır. Protein kodlayan genlerin, rRNA'ların, tRNA'ların ve CRISPR dizilerinin anotasyonunu yapar.</p>
 							<pre><code># PGAP kurulumu (Docker gerektirir)
 conda install -c bioconda pgap-input-validation
@@ -96,7 +96,7 @@ pgap.py --genome assembly.fasta --taxon 562</code></pre>
 							<hr class="major" />
 							<h2>Fonksiyonel Anotasyon Araçları</h2>
 
-							<h3>eggNOG-mapper — Ortolog Eşleştirme</h3>
+							<h3><a href="https://github.com/eggnogdb/eggnog-mapper" target="_blank" rel="noopener"><a href="https://github.com/eggnogdb/eggnog-mapper" target="_blank" rel="noopener">eggNOG-mapper</a></a> — Ortolog Eşleştirme</h3>
 							<p>Protein dizilerini eggNOG veritabanıyla eşleştirerek COG, KEGG, GO ve diğer fonksiyonel kategorileri atar.</p>
 							<pre><code>conda install -c bioconda eggnog-mapper
 
@@ -106,7 +106,7 @@ emapper.py \
     --cpu 8 \
     --database bacteria</code></pre>
 
-							<h3>InterProScan — Protein Domain Anotasyonu</h3>
+							<h3><a href="https://www.ebi.ac.uk/interpro/search/sequence/" target="_blank" rel="noopener"><a href="https://www.ebi.ac.uk/interpro/search/sequence/" target="_blank" rel="noopener">InterProScan</a></a> — Protein Domain Anotasyonu</h3>
 							<p>Protein dizilerini Pfam, TIGRFAM, SUPERFAMILY ve diğer veritabanlarına karşı tarar.</p>
 							<pre><code>interproscan.sh \
     -i proteomlar.faa \
@@ -114,7 +114,7 @@ emapper.py \
     -o interpro_sonuc \
     --cpu 8</code></pre>
 
-							<h3>AMRFinder — Antimikrobiyal Direnç Genleri</h3>
+							<h3><a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/" target="_blank" rel="noopener"><a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/" target="_blank" rel="noopener">AMRFinder</a></a> — Antimikrobiyal Direnç Genleri</h3>
 							<pre><code>conda install -c bioconda ncbi-amrfinderplus
 
 amrfinder \
@@ -122,7 +122,7 @@ amrfinder \
     --organism Escherichia \
     -o amr_sonuclar.tsv</code></pre>
 
-							<h3>PHASTER — Faj Anotasyonu</h3>
+							<h3><a href="https://phaster.ca/" target="_blank" rel="noopener"><a href="https://phaster.ca/" target="_blank" rel="noopener">PHASTER</a></a> — Faj Anotasyonu</h3>
 							<p>PHASTER (PHAge Search Tool Enhanced Release), bakteriyel genomlardaki profaj ve faj dizilerini tanımlamak için kullanılan web tabanlı bir araçtır. Faj genomistleri için vazgeçilmezdir.</p>
 							<ul>
 								<li>Web arayüzü: phaster.ca</li>
@@ -133,7 +133,7 @@ amrfinder \
 							<hr class="major" />
 							<h2>Karşılaştırmalı Genomik</h2>
 
-							<h3>Roary — Pan-Genom Analizi</h3>
+							<h3><a href="https://github.com/sanger-pathogens/Roary" target="_blank" rel="noopener"><a href="https://github.com/sanger-pathogens/Roary" target="_blank" rel="noopener">Roary</a></a> — Pan-Genom Analizi</h3>
 							<p>Roary, birden fazla prokaryotik genomunun pan-genomunu (core + accessory genler) hızla hesaplar.</p>
 							<pre><code>conda install -c bioconda roary
 
@@ -143,7 +143,7 @@ roary -p 8 -f roary_sonuc/ -e -n *.gff
 # Core genome filogenetik ağacı
 FastTree -gtr -nt roary_sonuc/core_gene_alignment.aln > core.tree</code></pre>
 
-							<h3>OrthoFinder — Ortolog Gruplama</h3>
+							<h3><a href="https://github.com/davidemms/OrthoFinder" target="_blank" rel="noopener"><a href="https://github.com/davidemms/OrthoFinder" target="_blank" rel="noopener">OrthoFinder</a></a> — Ortolog Gruplama</h3>
 							<pre><code>conda install -c bioconda orthofinder
 
 orthofinder -f proteomlar_klasoru/ -t 8</code></pre>
@@ -161,7 +161,7 @@ orthofinder -f proteomlar_klasoru/ -t 8</code></pre>
 							</ul>
 
 							<hr class="major" />
-							<h2>Prokka — Prokaryotic Annotation</h2>
+							<h2><a href="https://github.com/tseemann/prokka" target="_blank" rel="noopener">Prokka</a> — Prokaryotic Annotation</h2>
 							<p>Prokka is an open-source tool that can rapidly annotate bacterial and archaeal genomes. It automatically performs structural and functional annotation and produces GenBank/EMBL upload formats.</p>
 
 							<pre><code>conda install -c bioconda prokka
@@ -177,7 +177,7 @@ prokka \
     --rfam \
     --kingdom Bacteria</code></pre>
 
-							<h3>Prokka Outputs</h3>
+							<h3><a href="https://github.com/tseemann/prokka" target="_blank" rel="noopener"><a href="https://github.com/tseemann/prokka" target="_blank" rel="noopener">Prokka</a></a> Outputs</h3>
 							<ul>
 								<li><strong>.gff</strong> — Gene Feature Format (annotation coordinates)</li>
 								<li><strong>.gbk</strong> — GenBank format (for NCBI submission)</li>
@@ -188,7 +188,7 @@ prokka \
 							</ul>
 
 							<hr class="major" />
-							<h2>RAST — Server-Based Annotation</h2>
+							<h2><a href="https://rast.nmpdr.org/" target="_blank" rel="noopener">RAST</a> — Server-Based Annotation</h2>
 							<p>RAST (Rapid Annotation using Subsystem Technology) is an online prokaryotic annotation server that uses the SEED database. It is particularly powerful for metabolic pathway annotations.</p>
 							<ul>
 								<li>Web interface: rast.nmpdr.org</li>
@@ -197,7 +197,7 @@ prokka \
 							</ul>
 
 							<hr class="major" />
-							<h2>NCBI PGAP — Official Annotation Pipeline</h2>
+							<h2><a href="https://github.com/ncbi/pgap" target="_blank" rel="noopener">NCBI PGAP</a> — Official Annotation Pipeline</h2>
 							<p>The NCBI Prokaryotic Genome Annotation Pipeline (PGAP) is the official annotation tool for genomes to be submitted to NCBI GenBank. It annotates protein-coding genes, rRNAs, tRNAs, and CRISPR sequences.</p>
 							<pre><code># PGAP installation (requires Docker)
 conda install -c bioconda pgap-input-validation
@@ -208,7 +208,7 @@ pgap.py --genome assembly.fasta --taxon 562</code></pre>
 							<hr class="major" />
 							<h2>Functional Annotation Tools</h2>
 
-							<h3>eggNOG-mapper — Ortholog Mapping</h3>
+							<h3><a href="https://github.com/eggnogdb/eggnog-mapper" target="_blank" rel="noopener"><a href="https://github.com/eggnogdb/eggnog-mapper" target="_blank" rel="noopener">eggNOG-mapper</a></a> — Ortholog Mapping</h3>
 							<p>Maps protein sequences against the eggNOG database to assign COG, KEGG, GO, and other functional categories.</p>
 							<pre><code>conda install -c bioconda eggnog-mapper
 
@@ -218,7 +218,7 @@ emapper.py \
     --cpu 8 \
     --database bacteria</code></pre>
 
-							<h3>InterProScan — Protein Domain Annotation</h3>
+							<h3><a href="https://www.ebi.ac.uk/interpro/search/sequence/" target="_blank" rel="noopener"><a href="https://www.ebi.ac.uk/interpro/search/sequence/" target="_blank" rel="noopener">InterProScan</a></a> — Protein Domain Annotation</h3>
 							<p>Scans protein sequences against Pfam, TIGRFAM, SUPERFAMILY, and other databases.</p>
 							<pre><code>interproscan.sh \
     -i proteome.faa \
@@ -226,7 +226,7 @@ emapper.py \
     -o interpro_output \
     --cpu 8</code></pre>
 
-							<h3>AMRFinder — Antimicrobial Resistance Genes</h3>
+							<h3><a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/" target="_blank" rel="noopener"><a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/" target="_blank" rel="noopener">AMRFinder</a></a> — Antimicrobial Resistance Genes</h3>
 							<pre><code>conda install -c bioconda ncbi-amrfinderplus
 
 amrfinder \
@@ -234,7 +234,7 @@ amrfinder \
     --organism Escherichia \
     -o amr_results.tsv</code></pre>
 
-							<h3>PHASTER — Phage Annotation</h3>
+							<h3><a href="https://phaster.ca/" target="_blank" rel="noopener"><a href="https://phaster.ca/" target="_blank" rel="noopener">PHASTER</a></a> — Phage Annotation</h3>
 							<p>PHASTER (PHAge Search Tool Enhanced Release) is a web-based tool for identifying prophage and phage sequences in bacterial genomes. It is indispensable for phage genomicists.</p>
 							<ul>
 								<li>Web interface: phaster.ca</li>
@@ -245,7 +245,7 @@ amrfinder \
 							<hr class="major" />
 							<h2>Comparative Genomics</h2>
 
-							<h3>Roary — Pan-Genome Analysis</h3>
+							<h3><a href="https://github.com/sanger-pathogens/Roary" target="_blank" rel="noopener"><a href="https://github.com/sanger-pathogens/Roary" target="_blank" rel="noopener">Roary</a></a> — Pan-Genome Analysis</h3>
 							<p>Roary rapidly calculates the pan-genome (core + accessory genes) of multiple prokaryotic genomes.</p>
 							<pre><code>conda install -c bioconda roary
 
@@ -255,7 +255,7 @@ roary -p 8 -f roary_output/ -e -n *.gff
 # Core genome phylogenetic tree
 FastTree -gtr -nt roary_output/core_gene_alignment.aln > core.tree</code></pre>
 
-							<h3>OrthoFinder — Ortholog Grouping</h3>
+							<h3><a href="https://github.com/davidemms/OrthoFinder" target="_blank" rel="noopener"><a href="https://github.com/davidemms/OrthoFinder" target="_blank" rel="noopener">OrthoFinder</a></a> — Ortholog Grouping</h3>
 							<pre><code>conda install -c bioconda orthofinder
 
 orthofinder -f proteomes_folder/ -t 8</code></pre>
