@@ -53,8 +53,8 @@
 								<li><strong>Kapsama (Coverage/Depth):</strong> Genomun her pozisyonunu ortalama kaç okumanın kapladığı. Bakteriler için 30-100× önerilir.</li>
 							</ul>
 
-							<h3>SPAdes — Prokaryotik Assembly</h3>
-							<p>SPAdes, bakteriyel ve viral genomlar için en çok kullanılan de novo assembly aracıdır. Hem Illumina (kısa okuma) hem de hibrit assembly (kısa + uzun okuma) destekler.</p>
+							<h3><a href="https://github.com/ablab/spades" target="_blank" rel="noopener"><a href="https://github.com/ablab/spades" target="_blank" rel="noopener">SPAdes</a></a> — Prokaryotik Assembly</h3>
+							<p>SPAdes, bakteriyel ve viral genomlar için en çok kullanılan de novo assembly aracıdır. Hem <a href="https://www.illumina.com/" target="_blank" rel="noopener">Illumina</a> (kısa okuma) hem de hibrit assembly (kısa + uzun okuma) destekler.</p>
 							<pre><code>conda install -c bioconda spades
 
 # Temel kullanım (Illumina paired-end)
@@ -71,8 +71,8 @@ spades.py \
     --nanopore nanopore_okumaları.fastq \
     -o hibrit_assembly/</code></pre>
 
-							<h3>Flye — Uzun Okuma Assembly</h3>
-							<p>Flye, Nanopore ve PacBio uzun okumalarından yüksek kaliteli assembly üretmek için tasarlanmıştır.</p>
+							<h3><a href="https://github.com/fenderglass/Flye" target="_blank" rel="noopener"><a href="https://github.com/fenderglass/Flye" target="_blank" rel="noopener">Flye</a></a> — Uzun Okuma Assembly</h3>
+							<p>Flye, Nanopore ve <a href="https://www.pacb.com/" target="_blank" rel="noopener">PacBio</a> uzun okumalarından yüksek kaliteli assembly üretmek için tasarlanmıştır.</p>
 							<pre><code>conda install -c bioconda flye
 
 # Nanopore okumaları ile assembly
@@ -88,7 +88,7 @@ flye \
     --out-dir flye_cikti/ \
     --genome-size 5m</code></pre>
 
-							<h3>Assembly Kalite Değerlendirmesi — QUAST</h3>
+							<h3>Assembly Kalite Değerlendirmesi — <a href="https://github.com/ablab/quast" target="_blank" rel="noopener">QUAST</a></h3>
 							<pre><code>conda install -c bioconda quast
 
 quast.py \
@@ -98,7 +98,7 @@ quast.py \
     --threads 4</code></pre>
 							<p>QUAST'ın temel çıktıları: N50, L50, toplam assembly uzunluğu, contig sayısı, GC içeriği, genomun kapsama oranı.</p>
 
-							<h3>Genome Completeness — CheckM</h3>
+							<h3>Genome Completeness — <a href="https://github.com/Ecogenomics/CheckM" target="_blank" rel="noopener">CheckM</a></h3>
 							<p>CheckM, bakteriyel ve arkeyal genome assembly'lerinin tamamlanmışlığını ve kontaminasyon oranını değerlendirir.</p>
 							<pre><code>conda install -c bioconda checkm-genome
 
@@ -113,7 +113,7 @@ checkm lineage_wf \
 							<h2>Referans Tabanlı Mapping (Read Mapping)</h2>
 							<p>Okumaları bilinen bir referans genoma hizalamak; varyant tespiti, RNA-seq analizi ve metagenomik çalışmalarda kullanılır.</p>
 
-							<h3>BWA-MEM — Kısa Okuma Hizalama</h3>
+							<h3><a href="https://github.com/lh3/bwa" target="_blank" rel="noopener"><a href="https://github.com/lh3/bwa" target="_blank" rel="noopener">BWA-MEM</a></a> — Kısa Okuma Hizalama</h3>
 							<pre><code>conda install -c bioconda bwa samtools
 
 # Referans genomu indeksleme
@@ -136,7 +136,7 @@ samtools index hizalama_sorted.bam
 # Kapsama istatistikleri
 samtools coverage hizalama_sorted.bam</code></pre>
 
-							<h3>Minimap2 — Uzun Okuma Hizalama</h3>
+							<h3><a href="https://github.com/lh3/minimap2" target="_blank" rel="noopener"><a href="https://github.com/lh3/minimap2" target="_blank" rel="noopener">Minimap2</a></a> — Uzun Okuma Hizalama</h3>
 							<pre><code>conda install -c bioconda minimap2
 
 # Nanopore okumalarını hizalama
@@ -144,7 +144,7 @@ minimap2 -ax map-ont referans.fasta nanopore_okumaları.fastq | \
 samtools sort -o nano_hizalama.bam
 samtools index nano_hizalama.bam</code></pre>
 
-							<h3>SAMtools ile BAM İşleme</h3>
+							<h3><a href="https://www.htslib.org/" target="_blank" rel="noopener"><a href="https://www.htslib.org/" target="_blank" rel="noopener">SAMtools</a></a> ile BAM İşleme</h3>
 							<pre><code># Hizalama istatistikleri
 samtools flagstat hizalama.bam
 
@@ -182,8 +182,8 @@ bcftools filter -i 'QUAL>20 &amp;&amp; DP>10' varyantlar.vcf > filtrelenmis.vcf<
 								<li><strong>Coverage/Depth:</strong> The average number of reads covering each position of the genome. 30–100× is recommended for bacteria.</li>
 							</ul>
 
-							<h3>SPAdes — Prokaryotic Assembly</h3>
-							<p>SPAdes is the most widely used de novo assembly tool for bacterial and viral genomes. It supports both Illumina (short reads) and hybrid assembly (short + long reads).</p>
+							<h3><a href="https://github.com/ablab/spades" target="_blank" rel="noopener"><a href="https://github.com/ablab/spades" target="_blank" rel="noopener">SPAdes</a></a> — Prokaryotic Assembly</h3>
+							<p>SPAdes is the most widely used de novo assembly tool for bacterial and viral genomes. It supports both <a href="https://www.illumina.com/" target="_blank" rel="noopener">Illumina</a> (short reads) and hybrid assembly (short + long reads).</p>
 							<pre><code>conda install -c bioconda spades
 
 # Basic usage (Illumina paired-end)
@@ -200,7 +200,7 @@ spades.py \
     --nanopore nanopore_reads.fastq \
     -o hybrid_assembly/</code></pre>
 
-							<h3>Flye — Long Read Assembly</h3>
+							<h3><a href="https://github.com/fenderglass/Flye" target="_blank" rel="noopener"><a href="https://github.com/fenderglass/Flye" target="_blank" rel="noopener">Flye</a></a> — Long Read Assembly</h3>
 							<pre><code>conda install -c bioconda flye
 
 # Assembly with Nanopore reads
@@ -216,7 +216,7 @@ flye \
     --out-dir flye_output/ \
     --genome-size 5m</code></pre>
 
-							<h3>Assembly Quality Assessment — QUAST</h3>
+							<h3>Assembly Quality Assessment — <a href="https://github.com/ablab/quast" target="_blank" rel="noopener">QUAST</a></h3>
 							<pre><code>conda install -c bioconda quast
 
 quast.py \
@@ -224,9 +224,9 @@ quast.py \
     -r reference.fasta \
     -o quast_results/ \
     --threads 4</code></pre>
-							<p>Key QUAST outputs: N50, L50, total assembly length, contig count, GC content, genome coverage fraction.</p>
+							<p>Key <a href="https://github.com/ablab/quast" target="_blank" rel="noopener">QUAST</a> outputs: N50, L50, total assembly length, contig count, GC content, genome coverage fraction.</p>
 
-							<h3>Genome Completeness — CheckM</h3>
+							<h3>Genome Completeness — <a href="https://github.com/Ecogenomics/CheckM" target="_blank" rel="noopener">CheckM</a></h3>
 							<p>CheckM evaluates the completeness and contamination rate of bacterial and archaeal genome assemblies.</p>
 							<pre><code>conda install -c bioconda checkm-genome
 
@@ -241,7 +241,7 @@ checkm lineage_wf \
 							<h2>Reference-Based Mapping (Read Mapping)</h2>
 							<p>Aligning reads to a known reference genome is used in variant detection, RNA-seq analysis, and metagenomic studies.</p>
 
-							<h3>BWA-MEM — Short Read Alignment</h3>
+							<h3><a href="https://github.com/lh3/bwa" target="_blank" rel="noopener"><a href="https://github.com/lh3/bwa" target="_blank" rel="noopener">BWA-MEM</a></a> — Short Read Alignment</h3>
 							<pre><code>conda install -c bioconda bwa samtools
 
 # Index the reference genome
@@ -264,7 +264,7 @@ samtools index alignment_sorted.bam
 # Coverage statistics
 samtools coverage alignment_sorted.bam</code></pre>
 
-							<h3>Minimap2 — Long Read Alignment</h3>
+							<h3><a href="https://github.com/lh3/minimap2" target="_blank" rel="noopener"><a href="https://github.com/lh3/minimap2" target="_blank" rel="noopener">Minimap2</a></a> — Long Read Alignment</h3>
 							<pre><code>conda install -c bioconda minimap2
 
 # Align Nanopore reads
@@ -272,7 +272,7 @@ minimap2 -ax map-ont reference.fasta nanopore_reads.fastq | \
 samtools sort -o nano_alignment.bam
 samtools index nano_alignment.bam</code></pre>
 
-							<h3>BAM Processing with SAMtools</h3>
+							<h3>BAM Processing with <a href="https://www.htslib.org/" target="_blank" rel="noopener">SAMtools</a></h3>
 							<pre><code># Alignment statistics
 samtools flagstat alignment.bam
 
