@@ -1,154 +1,190 @@
 <!DOCTYPE HTML>
-
-</head>
 <html>
 	<head>
-		<title>Mikrobiyal Biyoinformatik</title>
+		<title>Mikrobiyal Biyoinformatik | Microbial Bioinformatics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<meta name="keywords" content="Biyoinformatik, Mikrobiyal Biyoinformatik, Metagenomik, sanger, sekans, dizileme, biyoinformatik eğitimi, biyoinformatik nedir?, biyoinformatik dersleri, biyoinformatik">
-		<meta name="description" content="Biyoinformatik, Mikrobiyal Biyoinformatik, Metagenomik, sanger, sekans, dizileme, biyoinformatik eğitimi">
+		<meta name="keywords" content="Biyoinformatik, Mikrobiyal Biyoinformatik, Metagenomik, sanger, sekans, dizileme, biyoinformatik eğitimi, microbial bioinformatics, bioinformatics course">
+		<meta name="description" content="Biyoinformatik, Mikrobiyal Biyoinformatik, Metagenomik, microbial bioinformatics education">
+		<style>
+			.lang-btn {
+				background: transparent;
+				border: 1px solid rgba(255,255,255,0.4);
+				color: rgba(255,255,255,0.75);
+				padding: 4px 10px;
+				border-radius: 4px;
+				cursor: pointer;
+				font-size: 0.8em;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				transition: all 0.2s ease;
+				margin-left: 4px;
+			}
+			.lang-btn:hover { background: rgba(255,255,255,0.15); }
+			.lang-btn.active { background: rgba(255,255,255,0.25); color: #fff; border-color: rgba(255,255,255,0.7); }
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
-									<ul class="icons">
-										<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
-									</ul>
-								</header>
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Bioinformatics for Microbiologists</strong> by Gültekin Ünal</a>
+						<ul class="icons">
+							<li><a href="https://twitter.com/cinnetcrash1" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/gultekinunal/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCnMPNX9yEo8sljyGO_1TCnQ" class="icon brands fa-youtube-m"><span class="label">Youtube</span></a></li>
+							<li>
+								<button onclick="setLang('tr')" id="btn-tr" class="lang-btn">TR</button>
+								<button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+							</li>
+						</ul>
+					</header>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Hoş Geldiniz...<br />
-											</h1>
-											<p>Bu site ücretsiz bir şekilde sizin mikrobiyal biyoinformatik derslerine erişebilmeniz için tasarlanmıştır.</p>
-										</header>
-										<p>Bu sitede yararlanılan tüm kaynaklar bilimsel olarak kanıtlanmış kaynaklardır. Referanslar kısmında yararlanılan makalelerin bir listesini bulabilirsiniz..</p>
-										
-									</div>
-									<span class="image object">
-										<img src="images/homepage1.png" alt="720px" />
-									</span>
-								</section>
-
-							<!-- Section -->
-								<section>
-								<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Biyoinformatiğin Önemi</h3>
-												<p>Mikrobiyoloji, uzun yıllardır biyoinformatikten yaygın olarak faydalanmakta ve biyoinformatik analizleri de dahil olmak üzere mikrobiyolojik çalışmaların temelini oluşturmaya başlamıştır. Özellikle bakteri/viral/mantar genomik çalışmalarında yüksek verimli veriler üreten dizileme sistemlerinin kullanılması, elde edilen verilerin mikrobiyologlar tarafından biyoinformatik olarak değerlendirilmesine olanak tanır, ancak bu analitik süreçleri yürütmek için özel beceriler gereklidir.
-.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Bu Çalışmanın Amacı</h3>
-												<p>Bu çalışmada, mikrobiyolojik genomik verileri analiz etmeyi planlayan mikrobiyologlar için günlük kullanım için bir giriş eğitim paketi geliştirdik. Eğitim içeriğinin biyoinformatik alanında bir ekosistem kurulmasını hızlandıracağı ve gelecekte yapılabilecek kapsamlı projeler yardımıyla yapılacak proje ve çalışmalara hız kazandıracağı düşünülmektedir.Bilgisayar bilimi altyapısına sahip olmayan bu araştırmacıların ihtiyaçları doğrultusunda hazırlanan bu eğitim paketi, bu alanda çalışmak isteyenlerin her an kolayca takip edip erişebilecekleri bir platform olan GitHub'da da yayınlanacaktır</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Dizileme Platformları</h3>
-												<p>DNA dizilemesi, bir DNA molekülündeki nükleotit bazlarının (adenin, guanin, sitozin ve timin) sırasının belirlenmesidir. DNA dizilerinin bilinmesi temel biyoloji, biyoteknoloji, adli bilim, tıbbi tanı koyma gibi pek çok sahada vazgeçilmez hâle gelmiştir. DNA dizilemesi biyolojik araştırma ve keşifleri çok hızlandırmıştır. Modern DNA dizileme teknolojilerin mümkün kıldığı hızlı DNA dizileme sayesinde İnsan Genom Projesi'nde insan genomunun dizilenebilmiştir. Benzer projelerle pek çok hayvan, bitki ve mikrop genomunun tam dizisi üretilebilmiştir.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Veri Görselleştirme</h3>
-												<p>Veri görselleştirme; verileri insan beyninin anlaması ve içgörü alması için, daha kolay hale getirmek üzere grafik gibi görsel bir bağlama çevirme uygulamasıdır. Grafiklerde bulunan verileri, görsel nesneler (noktalar, çizgiler veya çubuklar) olarak kodlayarak anlaşılır kılmak için kullanılan teknikleri ifade eder. Veri görselleştirme, bilgi ve verilerin grafiksel temsilidir. Grafikler ve haritalar gibi görsel ögeleri kullanan veri görselleştirme araçları; verilerdeki eğilimleri, aykırı değerleri görmeyi sağlar. Bu şekilde genomik verilerden anlamlı sonuçlar çıkarılabilmektedir.</p>
-											</div>
-										</article>
-									</div>
-								</section>
-															
+					<!-- Banner -->
+					<section id="banner">
+						<div class="content">
+							<header>
+								<h1>
+									<span class="lang-tr">Hoş Geldiniz...</span>
+									<span class="lang-en">Welcome...</span>
+								</h1>
+								<p>
+									<span class="lang-tr">Bu site ücretsiz bir şekilde sizin mikrobiyal biyoinformatik derslerine erişebilmeniz için tasarlanmıştır.</span>
+									<span class="lang-en">This site is designed to provide free access to microbial bioinformatics training materials.</span>
+								</p>
+							</header>
+							<p>
+								<span class="lang-tr">Bu sitede yararlanılan tüm kaynaklar bilimsel olarak kanıtlanmış kaynaklardır. Referanslar kısmında yararlanılan makalelerin bir listesini bulabilirsiniz.</span>
+								<span class="lang-en">All resources used on this site are scientifically validated. You can find a list of referenced articles in the references section.</span>
+							</p>
 						</div>
-					</div>
+						<span class="image object">
+							<img src="images/homepage1.png" alt="Microbial Bioinformatics" />
+						</span>
+					</section>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-
-							
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Menü</h2>
-								</header>
-								<ul>
-									<li><a href="index.html">Anasayfa</a></li>										
-									<li><a href="content/giris.html">Mikrobiyal Biyoinformatiğe Giriş</a></li>
-									<li><a href="content/veritab.html">Veritabanlarına Giriş</a></li>
-									<li><a href="content/cmd.html">Komut Satırına Giriş</a></li>
-									<li><a href="content/python.html">R ve Python'a Giriş</a></li>
-									<li><a href="content/sequence.html">Dizileme Teknolojileri ve Çıktıları </a></li>
-									<li><a href="content/qc.html">Kalite Kontrol</a></li>
-									<li><a href="content/assembly.html">Assembly/Mapping </a></li>
-									<li><a href="content/annotation.html">Anotasyon </a></li>
-									<li><a href="content/visualization.html">Veri Görselleştirme</a></li>
-									
-								</ul>
-							</nav>
-
-
-							
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>İrtibat İçin</h2>
-									</header>
-									<p>İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz github üzerinden pull request oluşturarak siz de eğitime katkıda bulunabilirsiniz.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">gultekinnunal@gmail.com</a></li>
-										<li class="icon solid fa-phone">Telefon Numarası Bulunmamaktadır.</li>
-										<li class="icon solid fa-home">Çankaya<br />
-										Ankara, Türkiye</li>
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Images: <a href="https://www.canva.com">Redesign by me </a>. Design: HTML5 </a>.</p>
-								</footer>
-
+					<!-- Section -->
+					<section>
+						<header class="major">
+							<h2><span class="lang-tr">Konu Başlıkları</span><span class="lang-en">Topics</span></h2>
+						</header>
+						<div class="features">
+							<article>
+								<span class="icon fa-gem"></span>
+								<div class="content">
+									<h3><span class="lang-tr">Biyoinformatiğin Önemi</span><span class="lang-en">Importance of Bioinformatics</span></h3>
+									<p>
+										<span class="lang-tr">Mikrobiyoloji, uzun yıllardır biyoinformatikten yaygın olarak faydalanmaktadır. Özellikle bakteri/viral/mantar genomik çalışmalarında yüksek verimli dizileme sistemlerinin kullanılması, elde edilen verilerin biyoinformatik olarak değerlendirilmesini zorunlu kılmaktadır.</span>
+										<span class="lang-en">Microbiology has long benefited extensively from bioinformatics. Particularly in bacterial/viral/fungal genomic studies, the use of high-throughput sequencing systems makes bioinformatic analysis of the resulting data essential.</span>
+									</p>
+								</div>
+							</article>
+							<article>
+								<span class="icon solid fa-paper-plane"></span>
+								<div class="content">
+									<h3><span class="lang-tr">Bu Çalışmanın Amacı</span><span class="lang-en">Aim of This Work</span></h3>
+									<p>
+										<span class="lang-tr">Bu çalışmada, mikrobiyolojik genomik verileri analiz etmeyi planlayan mikrobiyologlar için bir giriş eğitim paketi geliştirdik. Bilgisayar bilimi altyapısına sahip olmayan araştırmacıların ihtiyaçları doğrultusunda hazırlandı.</span>
+										<span class="lang-en">In this work, we developed an introductory training package for microbiologists planning to analyze microbiological genomic data. It was prepared for researchers who do not have a computer science background.</span>
+									</p>
+								</div>
+							</article>
+							<article>
+								<span class="icon solid fa-rocket"></span>
+								<div class="content">
+									<h3><span class="lang-tr">Dizileme Platformları</span><span class="lang-en">Sequencing Platforms</span></h3>
+									<p>
+										<span class="lang-tr">DNA dizilemesi, bir DNA molekülündeki nükleotit bazlarının sırasının belirlenmesidir. Modern NGS teknolojileri sayesinde tüm mikrobiyal genomlar kısa sürede ve düşük maliyetle dizlenebilmektedir.</span>
+										<span class="lang-en">DNA sequencing is the determination of the order of nucleotide bases in a DNA molecule. Thanks to modern NGS technologies, entire microbial genomes can be sequenced quickly and at low cost.</span>
+									</p>
+								</div>
+							</article>
+							<article>
+								<span class="icon solid fa-signal"></span>
+								<div class="content">
+									<h3><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></h3>
+									<p>
+										<span class="lang-tr">Veri görselleştirme; verileri insan beyninin anlaması için grafik gibi görsel bir bağlama çevirme uygulamasıdır. Genomik verilerden anlamlı sonuçlar çıkarmak için vazgeçilmez bir araçtır.</span>
+										<span class="lang-en">Data visualization is the practice of translating data into a visual context, such as a graph, to make it easier for the human brain to understand. It is an indispensable tool for extracting meaningful insights from genomic data.</span>
+									</p>
+								</div>
+							</article>
 						</div>
-					</div>
+					</section>
 
+				</div>
 			</div>
-			
+
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<div class="inner">
+
+					<!-- Search -->
+					<section id="search" class="alt">
+						<form method="post" action="#">
+							<input type="text" name="query" id="query" placeholder="Search" />
+						</form>
+					</section>
+
+					<!-- Menu -->
+					<nav id="menu">
+						<header class="major">
+							<h2><span class="lang-tr">Menü</span><span class="lang-en">Menu</span></h2>
+						</header>
+						<ul>
+							<li><a href="index.html"><span class="lang-tr">Anasayfa</span><span class="lang-en">Home</span></a></li>
+							<li><a href="content/giris.html"><span class="lang-tr">Mikrobiyal Biyoinformatiğe Giriş</span><span class="lang-en">Intro to Microbial Bioinformatics</span></a></li>
+							<li><a href="content/veritab.html"><span class="lang-tr">Veritabanlarına Giriş</span><span class="lang-en">Introduction to Databases</span></a></li>
+							<li><a href="content/cmd.html"><span class="lang-tr">Komut Satırına Giriş</span><span class="lang-en">Introduction to Command Line</span></a></li>
+							<li><a href="content/python.html"><span class="lang-tr">R ve Python'a Giriş</span><span class="lang-en">Introduction to R and Python</span></a></li>
+							<li><a href="content/sequence.html"><span class="lang-tr">Dizileme Teknolojileri ve Çıktıları</span><span class="lang-en">Sequencing Technologies and Outputs</span></a></li>
+							<li><a href="content/qc.html"><span class="lang-tr">Kalite Kontrol</span><span class="lang-en">Quality Control</span></a></li>
+							<li><a href="content/assembly.html"><span class="lang-tr">Assembly/Mapping</span><span class="lang-en">Assembly/Mapping</span></a></li>
+							<li><a href="content/annotation.html"><span class="lang-tr">Anotasyon</span><span class="lang-en">Annotation</span></a></li>
+							<li><a href="content/visualization.html"><span class="lang-tr">Veri Görselleştirme</span><span class="lang-en">Data Visualization</span></a></li>
+						</ul>
+					</nav>
+
+					<!-- Section -->
+					<section>
+						<header class="major">
+							<h2><span class="lang-tr">İrtibat İçin</span><span class="lang-en">Contact</span></h2>
+						</header>
+						<p>
+							<span class="lang-tr">İrtibat için mail adresini kullanabilirsiniz. Eğitimle ilgili katkı yapmak isterseniz GitHub üzerinden pull request oluşturabilirsiniz.</span>
+							<span class="lang-en">You can use the email address for contact. If you would like to contribute to the training, you can create a pull request on GitHub.</span>
+						</p>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:gultekinnunal@gmail.com">gultekinnunal@gmail.com</a></li>
+							<li class="icon solid fa-home">Çankaya<br />Ankara, Türkiye</li>
+						</ul>
+					</section>
+
+					<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Gültekin Ünal. All rights reserved. Design: HTML5</p>
+					</footer>
+
+				</div>
+			</div>
+
+		</div>
+
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/lang.js"></script>
 
 	</body>
 </html>
-
